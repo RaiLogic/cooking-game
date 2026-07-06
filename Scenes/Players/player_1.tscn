@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cj0il6qr8osmx"]
+
+[ext_resource type="Texture2D" uid="uid://7ak0e3ul7qn" path="res://Assets/Players/player.svg" id="1_4udgk"]
+[ext_resource type="Script" uid="uid://d1pakh3w6l4cq" path="res://Scripts/player.gd" id="1_pf5ft"]
+[ext_resource type="PackedScene" uid="uid://cuxvt1yqntnim" path="res://Scenes/Components/input_component.tscn" id="3_cxbc0"]
+[ext_resource type="PackedScene" uid="uid://bjsimyj475d2e" path="res://Scenes/Components/movement_component.tscn" id="4_a1ydv"]
+[ext_resource type="PackedScene" uid="uid://bjgeqfybmrhca" path="res://Scenes/Components/dash_component.tscn" id="5_a2yw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
+size = Vector2(64, 64)
+
+[node name="Player1" type="CharacterBody2D" unique_id=1165400651 node_paths=PackedStringArray("input", "movement", "dash")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_pf5ft")
+input = NodePath("Compositions/InputComponent")
+movement = NodePath("Compositions/MovementComponent")
+dash = NodePath("Compositions/DashComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=593543889]
+texture = ExtResource("1_4udgk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=723360634]
+shape = SubResource("RectangleShape2D_g13ic")
+
+[node name="Compositions" type="Node" parent="." unique_id=1746606194]
+
+[node name="InputComponent" parent="Compositions" unique_id=1876501245 instance=ExtResource("3_cxbc0")]
+
+[node name="MovementComponent" parent="Compositions" unique_id=1842474206 node_paths=PackedStringArray("body") instance=ExtResource("4_a1ydv")]
+body = NodePath("../..")
+
+[node name="DashComponent" parent="Compositions" unique_id=1532128133 instance=ExtResource("5_a2yw6")]
