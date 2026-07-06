@@ -1,26 +1,63 @@
 [gd_scene format=3 uid="uid://cj0il6qr8osmx"]
 
-[ext_resource type="Texture2D" uid="uid://7ak0e3ul7qn" path="res://Assets/Players/player.svg" id="1_4udgk"]
 [ext_resource type="Script" uid="uid://d1pakh3w6l4cq" path="res://Scripts/player.gd" id="1_pf5ft"]
+[ext_resource type="Texture2D" uid="uid://3ruj6xjp2ts0" path="res://Assets/Players/Sprite-0005.png" id="2_ym6ut"]
 [ext_resource type="PackedScene" uid="uid://cuxvt1yqntnim" path="res://Scenes/Components/input_component.tscn" id="3_cxbc0"]
 [ext_resource type="PackedScene" uid="uid://bjsimyj475d2e" path="res://Scenes/Components/movement_component.tscn" id="4_a1ydv"]
 [ext_resource type="PackedScene" uid="uid://bjgeqfybmrhca" path="res://Scenes/Components/dash_component.tscn" id="5_a2yw6"]
+[ext_resource type="PackedScene" uid="uid://dmwssfgb5vk8n" path="res://Scenes/Components/animation_component.tscn" id="6_8rdhk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
-size = Vector2(64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2sqb"]
+atlas = ExtResource("2_ym6ut")
+region = Rect2(0, 0, 32, 32)
 
-[node name="Player1" type="CharacterBody2D" unique_id=1165400651 node_paths=PackedStringArray("input", "movement", "dash")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0uig"]
+atlas = ExtResource("2_ym6ut")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pe6r"]
+atlas = ExtResource("2_ym6ut")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g13ic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2sqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0uig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pe6r")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_el2r4"]
+radius = 12.0
+height = 52.0
+
+[node name="Player1" type="CharacterBody2D" unique_id=1165400651 node_paths=PackedStringArray("input", "movement", "dash", "animate")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_pf5ft")
 input = NodePath("Compositions/InputComponent")
 movement = NodePath("Compositions/MovementComponent")
 dash = NodePath("Compositions/DashComponent")
+animate = NodePath("Compositions/AnimationComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=593543889]
-texture = ExtResource("1_4udgk")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1031632667]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g13ic")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.92191446
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=723360634]
-shape = SubResource("RectangleShape2D_g13ic")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_el2r4")
 
 [node name="Compositions" type="Node" parent="." unique_id=1746606194]
 
@@ -30,3 +67,6 @@ shape = SubResource("RectangleShape2D_g13ic")
 body = NodePath("../..")
 
 [node name="DashComponent" parent="Compositions" unique_id=1532128133 instance=ExtResource("5_a2yw6")]
+
+[node name="AnimationComponent" parent="Compositions" unique_id=1026436826 node_paths=PackedStringArray("sprite") instance=ExtResource("6_8rdhk")]
+sprite = NodePath("../../AnimatedSprite2D")

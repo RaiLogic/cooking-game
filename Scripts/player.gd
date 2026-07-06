@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 @export var input: InputComponent
 @export var movement: MovementComponent
 @export var dash: DashComponent
+@export var animate: AnimationComponent
 
 func _ready() -> void:
 	pass
@@ -17,11 +18,15 @@ func _physics_process(delta: float) -> void:
 	movement.do(delta)
 	movement.speed = movement.base_speed
 	
-	#DASH
+	# DASH
 	if input.dashed and movement.direction != Vector2(0,0):
 		dash.dash_action()
 		
 	if dash.dash_moving:
 		movement.speed *= dash.speed_multiplier
 		print(movement.speed)
-		
+	
+	# ANIMATION
+	animate.rotate_sprite()
+	print(animate.direction)
+	animate.direction = movement.direction
