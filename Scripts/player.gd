@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	movement.speed = movement.base_speed
 	
 	#DASH
-	if input.dashed:
+	if input.dashed and movement.direction != Vector2(0,0):
 		dash.dash_action()
 		
 	if dash.dash_moving:
