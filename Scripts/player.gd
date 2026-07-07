@@ -4,12 +4,12 @@ class_name Player extends CharacterBody2D
 @export var movement: MovementComponent
 @export var dash: DashComponent
 @export var animate: AnimationComponent
+@export var interact: InteractorComponent
 
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	
 	# INPUTS
 	input.get_input()
 	
@@ -24,9 +24,11 @@ func _physics_process(delta: float) -> void:
 		
 	if dash.dash_moving:
 		movement.speed *= dash.speed_multiplier
-		print(movement.speed)
 	
 	# ANIMATION
-	animate.rotate_sprite()
-	print(animate.direction)
+	animate.action()
 	animate.direction = movement.direction
+	
+	# INTERACTION
+	interact.key_pressed = input.interact
+	interact.action()

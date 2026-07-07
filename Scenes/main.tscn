@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ctv4u71krr366"]
 
 [ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://nyqun6pefchh" path="res://Scenes/Map/Interactables/refrigerator.tscn" id="2_bo1nx"]
 
 [node name="MainMenu" type="Node2D" unique_id=1025049654]
 
@@ -9,4 +10,7 @@ position = Vector2(657, 356)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=158619744]
 position = Vector2(653, 354)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3.5, 3.5)
+
+[node name="Refrigerator" parent="." unique_id=468929042 instance=ExtResource("2_bo1nx")]
+position = Vector2(532, 315)

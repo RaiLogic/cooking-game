@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://nyqun6pefchh"]
+
+[ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_4o8gv"]
+[ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_pgw4b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
+size = Vector2(20, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
+size = Vector2(16, 10)
+
+[node name="Refrigerator" type="StaticBody2D" unique_id=468929042]
+
+[node name="InteractedComponent" parent="." unique_id=876625429 instance=ExtResource("3_pgw4b")]
+type = "refrigerator"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=1700328830]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_pbjh4")
+debug_color = Color(1, 0, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1746509642]
+texture = ExtResource("1_4o8gv")
+region_enabled = true
+region_rect = Rect2(16, 174, 16, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=829743205]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_g13ic")
+
+[connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]

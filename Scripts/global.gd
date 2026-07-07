@@ -1,3 +1,5 @@
 extends Node
 
-var resolution
+
+func _ready() -> void:
+	print()

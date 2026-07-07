@@ -4,3 +4,4 @@
 
 [node name="MovementComponent" type="Node" unique_id=1842474206]
 script = ExtResource("1_2tsb6")
+base_speed = 150.0

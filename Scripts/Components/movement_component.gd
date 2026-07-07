@@ -1,7 +1,7 @@
 class_name MovementComponent extends Node
  
 @export var body : CharacterBody2D
-@export var base_speed : float = 200.0
+@export var base_speed : float
 
 var speed : float = base_speed
 var direction: Vector2 = Vector2.ZERO

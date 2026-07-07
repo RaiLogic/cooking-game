@@ -4,6 +4,7 @@
 
 [node name="DashComponent" type="Node" unique_id=1532128133]
 script = ExtResource("1_b382s")
+speed_multiplier = 2.0
 
 [node name="Dashing" type="Timer" parent="." unique_id=435077142]
 wait_time = 0.2
