@@ -8,4 +8,4 @@ extends Node
 var location = 1
 
 func _ready() -> void:
-	print()
+	pass

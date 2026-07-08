@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dg8mn84mjqrqi"]
+
+[ext_resource type="Script" uid="uid://hfc7gqeriapl" path="res://Scripts/UI/progress.gd" id="1_pny3u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fbea"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu1k5"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50t1a"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Progress" type="Panel" unique_id=157919419]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -510.0
+offset_bottom = -310.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.10819293, 0.10819293)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fbea")
+script = ExtResource("1_pny3u")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1939962653]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_fu1k5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_50t1a")
+show_percentage = false
+
+[node name="invisible" type="Timer" parent="." unique_id=1962317484]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="invisible" to="." method="_on_invisible_timeout"]
