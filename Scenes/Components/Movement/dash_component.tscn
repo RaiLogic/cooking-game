@@ -11,7 +11,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="DashCooldown" type="Timer" parent="." unique_id=263217387]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]

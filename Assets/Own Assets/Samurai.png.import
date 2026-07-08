@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dids2pue7lu1n"
-path="res://.godot/imported/Rightside.png-8095a8fe3085e43b632033755671ed7b.ctex"
+uid="uid://cip1rv8lju888"
+path="res://.godot/imported/Samurai.png-3d6a58c401e01b711adddfbddac65c53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Players/Rightside.png"
-dest_files=["res://.godot/imported/Rightside.png-8095a8fe3085e43b632033755671ed7b.ctex"]
+source_file="res://Assets/Own Assets/Samurai.png"
+dest_files=["res://.godot/imported/Samurai.png-3d6a58c401e01b711adddfbddac65c53.ctex"]
 
 [params]
 

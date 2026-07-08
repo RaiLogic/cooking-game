@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cj0il6qr8osmx"]
 
 [ext_resource type="Script" uid="uid://d1pakh3w6l4cq" path="res://Scripts/player.gd" id="1_pf5ft"]
-[ext_resource type="Texture2D" uid="uid://cqok8v4hfjxx4" path="res://Assets/Players/DownSide.png" id="2_o0uig"]
-[ext_resource type="Texture2D" uid="uid://biwq460gbimn1" path="res://Assets/Players/Leftside.png" id="3_8pe6r"]
+[ext_resource type="Texture2D" uid="uid://cqok8v4hfjxx4" path="res://Assets/Own Assets/Player 1/DownSide.png" id="2_o0uig"]
+[ext_resource type="Texture2D" uid="uid://biwq460gbimn1" path="res://Assets/Own Assets/Player 1/Leftside.png" id="3_8pe6r"]
 [ext_resource type="PackedScene" uid="uid://cuxvt1yqntnim" path="res://Scenes/Components/input_component.tscn" id="3_cxbc0"]
 [ext_resource type="PackedScene" uid="uid://bjsimyj475d2e" path="res://Scenes/Components/Movement/movement_component.tscn" id="4_a1ydv"]
-[ext_resource type="Texture2D" uid="uid://dids2pue7lu1n" path="res://Assets/Players/Rightside.png" id="4_u28ef"]
+[ext_resource type="Texture2D" uid="uid://dids2pue7lu1n" path="res://Assets/Own Assets/Player 1/Rightside.png" id="4_u28ef"]
 [ext_resource type="PackedScene" uid="uid://bjgeqfybmrhca" path="res://Scenes/Components/Movement/dash_component.tscn" id="5_a2yw6"]
-[ext_resource type="Texture2D" uid="uid://ebv8dpsql55s" path="res://Assets/Players/UpSide.png" id="5_eow30"]
+[ext_resource type="Texture2D" uid="uid://ebv8dpsql55s" path="res://Assets/Own Assets/Player 1/UpSide.png" id="5_eow30"]
 [ext_resource type="PackedScene" uid="uid://dmwssfgb5vk8n" path="res://Scenes/Components/Movement/animation_component.tscn" id="6_8rdhk"]
 [ext_resource type="PackedScene" uid="uid://cjw83ib6mhghx" path="res://Scenes/Components/interactor_component.tscn" id="10_8pe6r"]
 
@@ -211,8 +211,9 @@ interact = NodePath("Compositions/InteractorComponent")
 position = Vector2(2, -2)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_g13ic")
-animation = &"idle:Right"
+animation = &"down"
 autoplay = "idle:Up"
+frame_progress = 0.7131545
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=723360634]
 position = Vector2(1.5, -1.5)
@@ -221,10 +222,16 @@ shape = SubResource("RectangleShape2D_pbjh4")
 [node name="Compositions" type="Node" parent="." unique_id=1746606194]
 
 [node name="InputComponent" parent="Compositions" unique_id=1876501245 instance=ExtResource("3_cxbc0")]
+move_up = "up"
+move_down = "down"
+move_left = "left"
+move_right = "right"
+dash = "dash"
+action = "interact"
 
 [node name="MovementComponent" parent="Compositions" unique_id=1842474206 node_paths=PackedStringArray("body") instance=ExtResource("4_a1ydv")]
 body = NodePath("../..")
-base_speed = 120.0
+base_speed = 100.0
 
 [node name="DashComponent" parent="Compositions" unique_id=1532128133 instance=ExtResource("5_a2yw6")]
 

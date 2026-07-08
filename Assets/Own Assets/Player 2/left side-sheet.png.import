@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biwq460gbimn1"
-path="res://.godot/imported/Leftside.png-d411246a41562c3b4845dbfef34c12b1.ctex"
+uid="uid://bjidy0y25d0i5"
+path="res://.godot/imported/left side-sheet.png-d1b34b531d3a028839ac2947cd38a025.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Players/Leftside.png"
-dest_files=["res://.godot/imported/Leftside.png-d411246a41562c3b4845dbfef34c12b1.ctex"]
+source_file="res://Assets/Own Assets/Player 2/left side-sheet.png"
+dest_files=["res://.godot/imported/left side-sheet.png-d1b34b531d3a028839ac2947cd38a025.ctex"]
 
 [params]
 

@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://gdywnuw04lq3"]
 
+[ext_resource type="Script" uid="uid://c8st64hfpqcji" path="res://Scripts/Appliances/stove.gd" id="1_5qe8y"]
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="1_6v6j1"]
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="2_5qe8y"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
-size = Vector2(16, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
 size = Vector2(18, 27)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
+size = Vector2(16, 14)
+
 [node name="Stove" type="StaticBody2D" unique_id=2026918485]
+script = ExtResource("1_5qe8y")
+
+[node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("1_6v6j1")]
+z_index = 1
+interactable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=1247512095]
+position = Vector2(0, 26.5)
+shape = SubResource("RectangleShape2D_pbjh4")
+debug_color = Color(1, 0, 1, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=665599645]
 texture = ExtResource("2_5qe8y")
@@ -20,9 +31,5 @@ region_rect = Rect2(32, 160, 16, 46)
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_g13ic")
 
-[node name="InteractedComponent" parent="." unique_id=876625429 instance=ExtResource("1_6v6j1")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=1247512095]
-position = Vector2(0, 26.5)
-shape = SubResource("RectangleShape2D_pbjh4")
-debug_color = Color(1, 0, 1, 0.41960785)
+[connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]

@@ -1,14 +1,19 @@
 class_name InteractedComponent extends Area2D
 
-@export var type : String
+@export var interactable : Node2D
 
 var interacted : bool
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.interact.set_interacted(self)
-
+		print(body)
+		pass
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
 		body.interact.clear_interacted(self)
+		pass
+	
+func interact(interactor: Player) -> void:
+	interactable.interact()
