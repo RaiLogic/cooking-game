@@ -30,5 +30,5 @@ func _physics_process(delta: float) -> void:
 	animate.direction = movement.direction
 	
 	# INTERACTION
-	interact.key_pressed = input.interact
-	interact.action()
+	if input.interact:
+		interact.action(self)
