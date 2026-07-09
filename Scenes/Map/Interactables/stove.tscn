@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="1_6v6j1"]
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="2_5qe8y"]
 [ext_resource type="PackedScene" uid="uid://dg8mn84mjqrqi" path="res://Scenes/UI/progress.tscn" id="4_dlo6m"]
+[ext_resource type="PackedScene" uid="uid://b0e6cjaagek0s" path="res://Scenes/UI/tool_inventory_ui.tscn" id="5_theux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
 size = Vector2(16, 27)
@@ -38,9 +39,16 @@ shape = SubResource("RectangleShape2D_g13ic")
 visible = false
 z_index = 1
 offset_left = -7.0
-offset_top = -11.999999
+offset_top = 7.000001
 offset_right = 123.0
-offset_bottom = 38.0
+offset_bottom = 57.0
+
+[node name="ToolInventoryUI" parent="." unique_id=1468582869 instance=ExtResource("5_theux")]
+visible = false
+offset_left = -10.0
+offset_top = -28.0
+offset_right = 10.0
+offset_bottom = -8.0
 
 [connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]

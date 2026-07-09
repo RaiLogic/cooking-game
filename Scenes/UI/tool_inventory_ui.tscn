@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b0e6cjaagek0s"]
+
+[ext_resource type="Script" uid="uid://c6ghi18o481we" path="res://Scripts/UI/tool_inventory_ui.gd" id="1_na8f2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50t1a"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu1k5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="ToolInventoryUI" type="Panel" unique_id=1468582869]
+z_index = 2
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_50t1a")
+script = ExtResource("1_na8f2")
+
+[node name="Panel" type="Panel" parent="." unique_id=1871378576]
+z_index = -1
+layout_mode = 0
+offset_left = 1.5685625
+offset_top = 14.999864
+offset_right = 13.289229
+offset_bottom = 26.720531
+rotation = -0.78508186
+theme_override_styles/panel = SubResource("StyleBoxFlat_fu1k5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1870582819]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2

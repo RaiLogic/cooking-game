@@ -21,4 +21,3 @@ func interact(interactor: Player) -> void:
 	get_stored_item()
 	
 	interactor.inventory.set_item(food)
-	print(food)

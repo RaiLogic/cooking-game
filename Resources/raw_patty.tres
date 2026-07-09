@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Food" format=3 uid="uid://dbu4rwp4ymfhd"]
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://gu285el5pfna"]
 
+[ext_resource type="Resource" uid="uid://byeopxfjc8f7g" path="res://Resources/burnt_patty.tres" id="1_8xxku"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Scripts/Food/food.gd" id="1_ivmu4"]
 [ext_resource type="Texture2D" uid="uid://1pflif407gpa" path="res://Assets/Own Assets/Foods&Recipe/patty.png" id="1_l01vl"]
 
@@ -7,4 +8,7 @@
 script = ExtResource("1_ivmu4")
 food_name = "raw_patty"
 icon = ExtResource("1_l01vl")
+can_cook = true
+cook_time = 33.3
+cooked_version = ExtResource("1_8xxku")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"
