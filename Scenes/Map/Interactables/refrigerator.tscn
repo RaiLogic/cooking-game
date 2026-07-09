@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_pgw4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
-size = Vector2(20, 26)
+size = Vector2(16, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
 size = Vector2(16, 10)

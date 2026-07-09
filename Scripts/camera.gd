@@ -15,10 +15,9 @@ var smoothness : float = position_smoothing_speed
 
 func _process(delta: float) -> void:
 	
-	fix_horizontal_follow()
-	
 	follow_zoom(delta)
 	
+	fix_horizontal_follow()
 	
 func fix_horizontal_follow() -> void:
 	global_position.x = fixed
