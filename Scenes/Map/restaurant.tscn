@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="4_ly26i"]
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_ynmxk"]
 [ext_resource type="PackedScene" uid="uid://gdywnuw04lq3" path="res://Scenes/Map/Interactables/stove.tscn" id="5_aqpy7"]
+[ext_resource type="PackedScene" uid="uid://ch4xkxxn57idu" path="res://Scenes/Map/Interactables/cutting_board.tscn" id="5_e8yyl"]
+[ext_resource type="PackedScene" uid="uid://cnbth563wwffr" path="res://Scenes/Map/Interactables/plate.tscn" id="6_dmty3"]
 [ext_resource type="PackedScene" uid="uid://cx138kpn0wn5w" path="res://Scenes/UI/inventory_ui.tscn" id="9_e8yyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dgtp"]
@@ -112,9 +114,9 @@ texture = ExtResource("1_2othk")
 7:16/0 = 0
 3:13/0 = 0
 7:11/0 = 0
-7:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -4, -4, -4, -4, 8, -6, 8)
+7:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -6, -8, -6, 8, -8, 8)
 7:12/0 = 0
-7:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, -4, -8, -4, 8, -6, 8)
+7:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -6, -8, -6, 8, -8, 8)
 3:17/0 = 0
 4:17/0 = 0
 3:18/0 = 0
@@ -154,6 +156,8 @@ texture = ExtResource("1_2othk")
 6:5/0 = 0
 6:7/0 = 0
 7:7/0 = 0
+6:12/0 = 0
+6:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_el2r4"]
 physics_layer_0/collision_layer = 1
@@ -182,7 +186,7 @@ tile_set = SubResource("TileSet_el2r4")
 
 [node name="TopCounter" type="TileMapLayer" parent="Tilemaps" unique_id=1732384644]
 z_index = 1
-tile_map_data = PackedByteArray("AAAIAAsAAAAAABIAAAAJAAsAAAABABIAAAAKAAsAAAABABIAAAALAAsAAAABABIAAAAMAAsAAAACABIAAAAIAAwAAAAAABMAAAAJAAwAAAABABMAAAAKAAwAAAABABMAAAALAAwAAAABABMAAAAMAAwAAAACABMAAAAJAAoAAAABAB8AAAAKAAoAAAABAB8AAAALAAoAAAABAB8AAAACAAgAAAAAABIAAAADAAgAAAABABIAAAAEAAgAAAACABIAAAAFAAgAAAADAB8AAAACAAkAAAAAABMAAAAEAAkAAAACABMAAAADAAkAAAABABMAAAADAAcAAAABAB8AAAABAAwAAAAAABIAAAACAAwAAAABABIAAAADAAwAAAACABIAAAACAAsAAAAAAB8AAAABAA0AAAAAABMAAAACAA0AAAABABMAAAADAA0AAAACABMAAAAEAAwAAAADAB8AAAAAAPz/AAAFAA0AAAADAPz/AAAFAA0AAAAFAPz/AAAIAA0AAAAKAPz/AAAIAA0AAAAIAPz/AAAFAA0AAAAJAPz/AAAHAA0AAAAEAPz/AAAHAA0AAAAKAP7/AAAHAAsAAAAKAP//AAAHAAwAAAAKAAAAAAAHAAwAAAAKAAEAAAAHAAwAAAAKAAIAAAAHAAwAAAAEAAAAAAAFAA0AAAAFAAAAAAAHAA0AAAAGAAAAAAAHAA0AAAAHAAAAAAAIAA0AAAA=")
+tile_map_data = PackedByteArray("AAAIAAsAAAAAABIAAAAJAAsAAAABABIAAAAKAAsAAAABABIAAAALAAsAAAABABIAAAAMAAsAAAACABIAAAAIAAwAAAAAABMAAAAJAAwAAAABABMAAAAKAAwAAAABABMAAAALAAwAAAABABMAAAAMAAwAAAACABMAAAAJAAoAAAABAB8AAAAKAAoAAAABAB8AAAALAAoAAAABAB8AAAACAAgAAAAAABIAAAADAAgAAAABABIAAAAEAAgAAAACABIAAAAFAAgAAAADAB8AAAACAAkAAAAAABMAAAAEAAkAAAACABMAAAADAAkAAAABABMAAAADAAcAAAABAB8AAAABAAwAAAAAABIAAAACAAwAAAABABIAAAADAAwAAAACABIAAAACAAsAAAAAAB8AAAABAA0AAAAAABMAAAACAA0AAAABABMAAAADAA0AAAACABMAAAAEAAwAAAADAB8AAAAAAPz/AAAFAA0AAAADAPz/AAAFAA0AAAAFAPz/AAAIAA0AAAAKAPz/AAAIAA0AAAAIAPz/AAAFAA0AAAAJAPz/AAAHAA0AAAAEAPz/AAAHAA0AAAAKAAAAAAAHAAwAAAAKAAEAAAAHAAwAAAAKAAIAAAAHAAwAAAAEAAAAAAAFAA0AAAAFAAAAAAAHAA0AAAAGAAAAAAAHAA0AAAAHAAAAAAAIAA0AAAAKAP7/AAAGAAwAAAAKAP//AAAGAAwAAAA=")
 tile_set = SubResource("TileSet_el2r4")
 
 [node name="BottomCounters" type="TileMapLayer" parent="Tilemaps" unique_id=1331222706]
@@ -191,10 +195,12 @@ tile_map_data = PackedByteArray("AAAIAAsAAAAAABIAAAAJAAsAAAABABIAAAAKAAsAAAABABI
 tile_set = SubResource("TileSet_el2r4")
 
 [node name="Interactable" type="TileMapLayer" parent="Tilemaps" unique_id=1246636453]
-tile_map_data = PackedByteArray("AAAIAAsAAAAAABIAAAAJAAsAAAABABIAAAAKAAsAAAABABIAAAALAAsAAAABABIAAAAMAAsAAAACABIAAAAIAAwAAAAAABMAAAAJAAwAAAABABMAAAAKAAwAAAABABMAAAALAAwAAAABABMAAAAMAAwAAAACABMAAAAJAAoAAAABAB8AAAAKAAoAAAABAB8AAAALAAoAAAABAB8AAAACAAgAAAAAABIAAAADAAgAAAABABIAAAAEAAgAAAACABIAAAAFAAgAAAADAB8AAAACAAkAAAAAABMAAAAEAAkAAAACABMAAAADAAkAAAABABMAAAADAAcAAAABAB8AAAABAAwAAAAAABIAAAACAAwAAAABABIAAAADAAwAAAACABIAAAACAAsAAAAAAB8AAAABAA0AAAAAABMAAAACAA0AAAABABMAAAADAA0AAAACABMAAAAEAAwAAAADAB8AAAAGAPv/AAACAAoAAAAGAPz/AAACAAsAAAAGAP3/AAACAAwAAAAHAPv/AAACAAoAAAAHAPz/AAACAAsAAAAHAP3/AAACAAwAAAABAP3/AAABAAwAAAACAP3/AAABAAwAAAABAPz/AAABAAsAAAACAPz/AAABAAsAAAA=")
+z_index = 1
+tile_map_data = PackedByteArray("AAAIAAsAAAAAABIAAAAJAAsAAAABABIAAAAKAAsAAAABABIAAAALAAsAAAABABIAAAAMAAsAAAACABIAAAAIAAwAAAAAABMAAAAJAAwAAAABABMAAAAKAAwAAAABABMAAAALAAwAAAABABMAAAAMAAwAAAACABMAAAAJAAoAAAABAB8AAAAKAAoAAAABAB8AAAALAAoAAAABAB8AAAACAAgAAAAAABIAAAADAAgAAAABABIAAAAEAAgAAAACABIAAAAFAAgAAAADAB8AAAACAAkAAAAAABMAAAAEAAkAAAACABMAAAADAAkAAAABABMAAAADAAcAAAABAB8AAAABAAwAAAAAABIAAAACAAwAAAABABIAAAADAAwAAAACABIAAAACAAsAAAAAAB8AAAABAA0AAAAAABMAAAACAA0AAAABABMAAAADAA0AAAACABMAAAAEAAwAAAADAB8AAAA=")
 tile_set = SubResource("TileSet_el2r4")
 
 [node name="Decoration" type="TileMapLayer" parent="Tilemaps" unique_id=528141989]
+z_index = 1
 tile_map_data = PackedByteArray("AAAKAAgAAAAGABMAAAALAAgAAAAGABMAAAAJAAgAAAAGABMAAAAIAAgAAAAFABMAAAAMAAgAAAAHABMAAAABAAQAAAAHABAAAAAEAAQAAAAGABAAAAAQAAQAAAAFABAAAAAKAPz/AAAAABAAAAAKAPv/AAAAAA8AAAAJAPz/AAACABAAAAAMAAQAAAAGAAcAAAANAAQAAAAHAAcAAAA=")
 tile_set = SubResource("TileSet_el2r4")
 
@@ -204,13 +210,29 @@ position = Vector2(0, 95)
 [node name="Refrigerator" parent="Interactables" unique_id=468929042 instance=ExtResource("4_5bm1g")]
 position = Vector2(32, -50)
 
-[node name="Stove" parent="Interactables" unique_id=2026918485 instance=ExtResource("5_aqpy7")]
-z_index = 1
-position = Vector2(104, -57)
+[node name="Stoves" type="Node" parent="Interactables" unique_id=2081995545]
 
-[node name="Stove2" parent="Interactables" unique_id=230197460 instance=ExtResource("5_aqpy7")]
-z_index = 1
-position = Vector2(120, -57)
+[node name="Stove" parent="Interactables/Stoves" unique_id=2026918485 instance=ExtResource("5_aqpy7")]
+position = Vector2(104, 38)
+
+[node name="Stove2" parent="Interactables/Stoves" unique_id=230197460 instance=ExtResource("5_aqpy7")]
+position = Vector2(120, 38)
+
+[node name="Plates" type="Node" parent="Interactables" unique_id=611119743]
+
+[node name="Plate" parent="Interactables/Plates" unique_id=1513510497 instance=ExtResource("6_dmty3")]
+position = Vector2(61, 39)
+
+[node name="Plate2" parent="Interactables/Plates" unique_id=1498656646 instance=ExtResource("6_dmty3")]
+position = Vector2(84, 39)
+
+[node name="CutBoards" type="Node" parent="Interactables" unique_id=1284873951]
+
+[node name="CuttingBoard" parent="Interactables/CutBoards" unique_id=423598001 instance=ExtResource("5_e8yyl")]
+position = Vector2(169, 74)
+
+[node name="CuttingBoard2" parent="Interactables/CutBoards" unique_id=1496190672 instance=ExtResource("5_e8yyl")]
+position = Vector2(169, 91)
 
 [node name="Camera2D" parent="." unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_ynmxk")]
 position = Vector2(138.765, 182)
@@ -232,3 +254,5 @@ position = Vector2(139, 87)
 [node name="UI" type="CanvasLayer" parent="." unique_id=1848131525]
 
 [node name="InventoryUI" parent="UI" unique_id=1742745813 instance=ExtResource("9_e8yyl")]
+offset_top = -1.0
+offset_bottom = -1.0

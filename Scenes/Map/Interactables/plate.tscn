@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cnbth563wwffr"]
+
+[ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="1_kqewk"]
+[ext_resource type="Script" uid="uid://bhc6d5h2vhlpf" path="res://Scripts/Appliances/plate.gd" id="1_r667y"]
+[ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="2_r667y"]
+[ext_resource type="PackedScene" uid="uid://dg8mn84mjqrqi" path="res://Scenes/UI/progress.tscn" id="4_rte7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm4j3"]
+size = Vector2(19, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkiog"]
+size = Vector2(12, 8)
+
+[node name="Plate" type="StaticBody2D" unique_id=1513510497]
+z_index = 2
+script = ExtResource("1_r667y")
+plate_time = 65.0
+
+[node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("1_kqewk")]
+interactable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=1712547072]
+position = Vector2(-0.5, 16.5)
+shape = SubResource("RectangleShape2D_sm4j3")
+debug_color = Color(1, 0, 0.69803923, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=106957082]
+texture = ExtResource("2_r667y")
+region_enabled = true
+region_rect = Rect2(48, 288, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=759544768]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_nkiog")
+
+[node name="Progress" parent="." unique_id=157919419 instance=ExtResource("4_rte7f")]
+visible = false
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 123.0
+offset_bottom = 43.0
+
+[connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]

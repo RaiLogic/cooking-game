@@ -368,6 +368,7 @@ size = Vector2(25, 33)
 [node name="Player1" type="CharacterBody2D" unique_id=1165400651 node_paths=PackedStringArray("input", "movement", "dash", "animate", "interact", "inventory")]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
+collision_layer = 2
 script = ExtResource("1_pf5ft")
 input = NodePath("Compositions/InputComponent")
 movement = NodePath("Compositions/MovementComponent")

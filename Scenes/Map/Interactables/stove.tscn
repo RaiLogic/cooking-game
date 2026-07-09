@@ -12,8 +12,9 @@ size = Vector2(16, 27)
 size = Vector2(16, 14)
 
 [node name="Stove" type="StaticBody2D" unique_id=2026918485]
+z_index = 1
 script = ExtResource("1_5qe8y")
-cooking_time = 5.0
+cooking_time = 15.0
 
 [node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("1_6v6j1")]
 z_index = 1
