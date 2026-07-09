@@ -1,6 +1,6 @@
 class_name InventoryComponent extends Node
 
-var item_held : Food = null
+var item_held : Food
 
 signal item_changed(item)
 

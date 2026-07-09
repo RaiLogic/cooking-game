@@ -202,10 +202,7 @@ tile_set = SubResource("TileSet_el2r4")
 position = Vector2(0, 95)
 
 [node name="Refrigerator" parent="Interactables" unique_id=468929042 instance=ExtResource("4_5bm1g")]
-position = Vector2(24, -50)
-
-[node name="Refrigerator2" parent="Interactables" unique_id=1270564501 instance=ExtResource("4_5bm1g")]
-position = Vector2(40, -50)
+position = Vector2(32, -50)
 
 [node name="Stove" parent="Interactables" unique_id=2026918485 instance=ExtResource("5_aqpy7")]
 z_index = 1

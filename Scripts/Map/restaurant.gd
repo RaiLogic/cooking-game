@@ -6,3 +6,4 @@ extends Node
 
 func _ready() -> void:
 	player_1.inventory.item_changed.connect(inventory_ui.set_inventory_1)
+	player_2.inventory.item_changed.connect(inventory_ui.set_inventory_2)
