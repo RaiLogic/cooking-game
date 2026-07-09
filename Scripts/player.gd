@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 @export var dash: DashComponent
 @export var animate: AnimationComponent
 @export var interact: InteractorComponent
+@export var inventory: InventoryComponent
 
 func _ready() -> void:
 	pass

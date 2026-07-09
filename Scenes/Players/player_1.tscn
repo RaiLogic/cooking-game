@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ebv8dpsql55s" path="res://Assets/Own Assets/Player 1/UpSide.png" id="5_eow30"]
 [ext_resource type="PackedScene" uid="uid://dmwssfgb5vk8n" path="res://Scenes/Components/Movement/animation_component.tscn" id="6_8rdhk"]
 [ext_resource type="PackedScene" uid="uid://cjw83ib6mhghx" path="res://Scenes/Components/interactor_component.tscn" id="10_8pe6r"]
+[ext_resource type="PackedScene" uid="uid://b4sotn0vgi2a3" path="res://Scenes/Components/inventory_component.tscn" id="12_eow30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eow30"]
 atlas = ExtResource("2_u28ef")
@@ -364,7 +365,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
 size = Vector2(25, 33)
 
-[node name="Player1" type="CharacterBody2D" unique_id=1165400651 node_paths=PackedStringArray("input", "movement", "dash", "animate", "interact")]
+[node name="Player1" type="CharacterBody2D" unique_id=1165400651 node_paths=PackedStringArray("input", "movement", "dash", "animate", "interact", "inventory")]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_pf5ft")
@@ -373,6 +374,7 @@ movement = NodePath("Compositions/MovementComponent")
 dash = NodePath("Compositions/DashComponent")
 animate = NodePath("Compositions/AnimationComponent")
 interact = NodePath("Compositions/InteractorComponent")
+inventory = NodePath("Compositions/InventoryComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1031632667]
 position = Vector2(2, -2)
@@ -408,3 +410,5 @@ base_speed = 100.0
 sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="InteractorComponent" parent="Compositions" unique_id=1079506543 instance=ExtResource("10_8pe6r")]
+
+[node name="InventoryComponent" parent="Compositions" unique_id=1897001154 instance=ExtResource("12_eow30")]

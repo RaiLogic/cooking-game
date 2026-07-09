@@ -5,6 +5,6 @@ class_name Stove extends StaticBody2D
 
 @export var cooking_time : float
 
-func interact() -> void:
+func interact(interactor: Player) -> void:
 	progress_bar.start(cooking_time)
 	

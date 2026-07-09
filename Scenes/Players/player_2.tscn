@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjgeqfybmrhca" path="res://Scenes/Components/Movement/dash_component.tscn" id="8_juaci"]
 [ext_resource type="PackedScene" uid="uid://dmwssfgb5vk8n" path="res://Scenes/Components/Movement/animation_component.tscn" id="9_hd50a"]
 [ext_resource type="PackedScene" uid="uid://cjw83ib6mhghx" path="res://Scenes/Components/interactor_component.tscn" id="10_ubhhw"]
+[ext_resource type="PackedScene" uid="uid://b4sotn0vgi2a3" path="res://Scenes/Components/inventory_component.tscn" id="12_pipfx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6c5vi"]
 atlas = ExtResource("2_pipfx")
@@ -405,3 +406,5 @@ base_speed = 100.0
 sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="InteractorComponent" parent="Compositions" unique_id=1079506543 instance=ExtResource("10_ubhhw")]
+
+[node name="InventoryComponent" parent="Compositions" unique_id=1897001154 instance=ExtResource("12_pipfx")]

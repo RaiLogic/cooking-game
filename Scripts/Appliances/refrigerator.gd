@@ -1,6 +1,7 @@
 class_name Refrigerator extends StaticBody2D
 
-var stored_item : String = "Lettuce"
+@export var food : Food
 
 func interact(interactor: Player) -> void:
-	print(interactor)
+	interactor.inventory.set_item(food)
+	print(food)

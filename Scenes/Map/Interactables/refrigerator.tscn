@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_4o8gv"]
 [ext_resource type="Script" uid="uid://drxj2ia43tvvq" path="res://Scripts/Appliances/refrigerator.gd" id="1_pgw4b"]
+[ext_resource type="Resource" uid="uid://dbu4rwp4ymfhd" path="res://Scripts/Food/raw_patty.tres" id="3_k4iqk"]
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_pgw4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
@@ -13,6 +14,7 @@ size = Vector2(16, 10)
 [node name="Refrigerator" type="StaticBody2D" unique_id=468929042]
 z_index = 1
 script = ExtResource("1_pgw4b")
+food = ExtResource("3_k4iqk")
 
 [node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("3_pgw4b")]
 interactable = NodePath("..")

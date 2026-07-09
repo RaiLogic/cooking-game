@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cx138kpn0wn5w"]
 
+[ext_resource type="Script" uid="uid://blbdfyk4ydh2j" path="res://Scripts/UI/inventory_ui.gd" id="1_q4ye0"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_188on"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 5
@@ -25,13 +27,14 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="InGame UI" type="Control" unique_id=1742745813]
+[node name="InventoryUI" type="Control" unique_id=1742745813]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q4ye0")
 
 [node name="P1" type="Control" parent="." unique_id=1268555976]
 layout_mode = 1
