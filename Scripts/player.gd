@@ -15,8 +15,9 @@ func _physics_process(delta: float) -> void:
 	
 	# MOVEMENT
 	movement.direction = input.move_action
-	movement.do(delta)
+	movement.move()
 	movement.speed = movement.base_speed
+	movement.can_move = input.controls
 	
 	# DASH
 	if input.dashed and movement.direction != Vector2(0,0):
@@ -26,11 +27,15 @@ func _physics_process(delta: float) -> void:
 		movement.speed *= dash.speed_multiplier
 	
 	# ANIMATION
-	animate.action()
-	animate.direction = movement.direction
+	animate.update_anim(velocity)
+	
+	if input.dance_move:
+		animate.dance()
+	
 	
 	# INTERACTION
 	if input.interact:
 		interact.action(self)
 		
 	# INVENTORY
+	

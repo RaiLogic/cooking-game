@@ -15,4 +15,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func interact(interactor: Player) -> void:
-	interactable.interact()
+	interactable.interact(interactor)

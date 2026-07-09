@@ -2,15 +2,20 @@ class_name AnimationComponent extends Node
 
 @export var sprite: AnimatedSprite2D
 
-var direction : Vector2
 var position : String = "up"
+var movement: Vector2
 
-func action() -> void:
-	position_update()
+var dancing : bool
+
+func update_anim(velocity: Vector2) -> void:
+	movement = velocity
 	
-	if direction != Vector2(0,0):
+	position_update()
+		
+	if velocity != Vector2(0,0):
+		dancing = false
 		run()
-	elif direction == Vector2(0,0):
+	elif velocity == Vector2(0,0) and !dancing:
 		idle()
 
 func run() -> void:
@@ -34,12 +39,25 @@ func idle() -> void:
 		sprite.play("idle:Down")
 	
 func position_update() -> void:
-	if direction.y == 0:
-		if direction.x >= 1: position = "right"
-		if direction.x <= -1: position = "left"
+	if movement.y == 0:
+		if movement.x >= 1: position = "right"
+		if movement.x <= -1: position = "left"
 	
-	elif direction.x == 0:
-		if direction.y <= -1: position = "up"
-		if direction.y >= 1: position = "down"
+	elif movement.x == 0:
+		if movement.y <= -1: position = "up"
+		if movement.y >= 1: position = "down"
+		
+func dance() -> void:
+	if movement == Vector2.ZERO:
+		position = "down"
+		dancing = true
+		sprite.play("dance")
+		
+		await sprite.animation_finished
+		dancing = false
+		
+		
+		
+		
 	
 	

@@ -1,4 +1,6 @@
 class_name Refrigerator extends StaticBody2D
 
-func interact() -> void:
-	print("I'm a ref!")
+var stored_item : String = "Lettuce"
+
+func interact(interactor: Player) -> void:
+	print(interactor)
