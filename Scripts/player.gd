@@ -39,4 +39,3 @@ func _physics_process(delta: float) -> void:
 		interact.action(self)
 		
 	# INVENTORY
-	

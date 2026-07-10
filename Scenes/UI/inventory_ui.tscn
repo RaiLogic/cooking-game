@@ -2,160 +2,23 @@
 
 [ext_resource type="Script" uid="uid://blbdfyk4ydh2j" path="res://Scripts/UI/inventory_ui.gd" id="1_q4ye0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_188on"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p83af"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8kpy"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mroek"]
-bg_color = Color(0, 0.6, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rcjs"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
-[node name="InventoryUI" type="Control" unique_id=1742745813]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+[node name="InventoryUI" type="Panel" unique_id=1416435068]
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 10.0
+offset_top = -129.0
+offset_right = 129.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p83af")
 script = ExtResource("1_q4ye0")
 
-[node name="P1" type="Control" parent="." unique_id=1268555976]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -297.0
-offset_right = 229.0
-offset_bottom = -23.0
-grow_vertical = 0
-
-[node name="Border" type="Panel" parent="P1" unique_id=772995267]
-visible = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -265.0
-offset_right = 73.0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_188on")
-
-[node name="ProgressBar" type="ProgressBar" parent="P1/Border" unique_id=1551200509]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -258.0
-offset_right = 66.0
-offset_bottom = -10.0
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_v8kpy")
-theme_override_styles/fill = SubResource("StyleBoxFlat_mroek")
-value = 40.0
-fill_mode = 3
-show_percentage = false
-
-[node name="ItemBorder" type="Panel" parent="P1" unique_id=410583768]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -119.0
-offset_right = 119.0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4rcjs")
-
-[node name="ItemHeld1" type="TextureRect" parent="P1/ItemBorder" unique_id=277765401]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.873875
-offset_top = -41.5
-offset_right = 41.873875
-offset_bottom = 41.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="P2" type="Control" parent="." unique_id=802427948]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -229.0
-offset_top = -297.0
-offset_right = -11.0
-offset_bottom = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Border" type="Panel" parent="P2" unique_id=215279069]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -73.0
-offset_top = -265.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_188on")
-
-[node name="ProgressBar" type="ProgressBar" parent="P2/Border" unique_id=1958598261]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -258.0
-offset_right = 66.0
-offset_bottom = -10.0
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_v8kpy")
-theme_override_styles/fill = SubResource("StyleBoxFlat_mroek")
-value = 40.0
-fill_mode = 3
-show_percentage = false
-
-[node name="ItemBorder" type="Panel" parent="P2" unique_id=142559013]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -119.0
-offset_top = -119.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4rcjs")
-
-[node name="ItemHeld2" type="TextureRect" parent="P2/ItemBorder" unique_id=495045040]
+[node name="ItemHeld" type="TextureRect" parent="." unique_id=1049134281]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

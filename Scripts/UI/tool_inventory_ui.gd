@@ -1,4 +1,4 @@
-extends Panel
+class_name ToolInventoryUI extends Panel
 
 @onready var item_ui: TextureRect = $TextureRect
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -15,5 +15,5 @@ func clear_ui() -> void:
 	visible = false
 	item_ui.texture = null
 	
-func alert() -> void:
+func play_alert() -> void:
 	animation.play("alert")

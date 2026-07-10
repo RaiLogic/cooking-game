@@ -163,6 +163,104 @@ texture = ExtResource("1_2othk")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_2dgtp")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fbea"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Animation" id="Animation_dmty3"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y4tkd"]
+resource_name = "alert"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5a0w"]
+_data = {
+&"RESET": SubResource("Animation_dmty3"),
+&"alert": SubResource("Animation_y4tkd")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emkxa"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Animation" id="Animation_m5a0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_emkxa"]
+resource_name = "alert"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_538iu"]
+_data = {
+&"RESET": SubResource("Animation_m5a0w"),
+&"alert": SubResource("Animation_emkxa")
+}
+
 [node name="Restaurant" type="Node" unique_id=1635685056]
 script = ExtResource("1_e0itq")
 
@@ -221,10 +319,10 @@ position = Vector2(120, 38)
 [node name="Plates" type="Node" parent="Interactables" unique_id=611119743]
 
 [node name="Plate" parent="Interactables/Plates" unique_id=1513510497 instance=ExtResource("6_dmty3")]
-position = Vector2(61, 39)
+position = Vector2(49, 39)
 
 [node name="Plate2" parent="Interactables/Plates" unique_id=1498656646 instance=ExtResource("6_dmty3")]
-position = Vector2(84, 39)
+position = Vector2(81, 39)
 
 [node name="CutBoards" type="Node" parent="Interactables" unique_id=1284873951]
 
@@ -253,6 +351,16 @@ position = Vector2(139, 87)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1848131525]
 
-[node name="InventoryUI" parent="UI" unique_id=1742745813 instance=ExtResource("9_e8yyl")]
-offset_top = -1.0
-offset_bottom = -1.0
+[node name="P1InventoryUI" parent="UI" unique_id=1416435068 instance=ExtResource("9_e8yyl")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fbea")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/P1InventoryUI" unique_id=564793756]
+libraries/ = SubResource("AnimationLibrary_m5a0w")
+
+[node name="P2InventoryUI" parent="UI" unique_id=715476994 instance=ExtResource("9_e8yyl")]
+offset_left = 1148.0
+offset_right = 1267.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_emkxa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/P2InventoryUI" unique_id=1622089071]
+libraries/ = SubResource("AnimationLibrary_538iu")

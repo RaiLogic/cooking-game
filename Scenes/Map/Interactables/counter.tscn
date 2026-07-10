@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c0n75gnraxkrp"]
+
+[ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_bfi8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu1k5"]
+size = Vector2(16, 5)
+
+[node name="Counter" type="StaticBody2D" unique_id=2057786546]
+
+[node name="TopSprite" type="Node2D" parent="." unique_id=1814615260]
+z_index = 1
+
+[node name="Left" type="Sprite2D" parent="TopSprite" unique_id=1528813024]
+visible = false
+position = Vector2(0, -16)
+texture = ExtResource("1_bfi8m")
+region_enabled = true
+region_rect = Rect2(80, 208, 16, 16)
+
+[node name="Middle" type="Sprite2D" parent="TopSprite" unique_id=36364985]
+visible = false
+position = Vector2(0, -16)
+texture = ExtResource("1_bfi8m")
+region_enabled = true
+region_rect = Rect2(112, 208, 16, 16)
+
+[node name="Right" type="Sprite2D" parent="TopSprite" unique_id=611013611]
+position = Vector2(0, -16)
+texture = ExtResource("1_bfi8m")
+region_enabled = true
+region_rect = Rect2(128, 208, 16, 16)
+
+[node name="BottomSprite" type="Node2D" parent="." unique_id=87648541]
+
+[node name="Left" type="Sprite2D" parent="BottomSprite" unique_id=1827804839]
+visible = false
+texture = ExtResource("1_bfi8m")
+region_enabled = true
+region_rect = Rect2(80, 224, 16, 16)
+
+[node name="Middle" type="Sprite2D" parent="BottomSprite" unique_id=350491077]
+visible = false
+texture = ExtResource("1_bfi8m")
+region_enabled = true
+region_rect = Rect2(112, 224, 16, 16)
+
+[node name="Right" type="Sprite2D" parent="BottomSprite" unique_id=1744360716]
+texture = ExtResource("1_bfi8m")
+region_enabled = true
+region_rect = Rect2(128, 224, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1534639649]
+z_index = 1
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_fu1k5")

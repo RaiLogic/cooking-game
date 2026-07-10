@@ -11,7 +11,7 @@ func add_item(item: Food) -> bool:
 		item_changed.emit(item)
 		return true
 	else:
-		block()
+		full_inventory.emit()
 		return false
 
 func replace_item(item: Food) -> void:
@@ -21,6 +21,3 @@ func replace_item(item: Food) -> void:
 func clear_item() -> void:
 	item_held = null
 	item_changed.emit(null)
-	
-func block() -> void:
-	pass

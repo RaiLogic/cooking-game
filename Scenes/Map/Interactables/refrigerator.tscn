@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_4o8gv"]
 [ext_resource type="Script" uid="uid://drxj2ia43tvvq" path="res://Scripts/Appliances/refrigerator.gd" id="1_pgw4b"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Scripts/Food/food.gd" id="2_k4iqk"]
-[ext_resource type="Resource" uid="uid://dbu4rwp4ymfhd" path="res://Resources/raw_patty.tres" id="3_k4iqk"]
+[ext_resource type="Resource" uid="uid://gu285el5pfna" path="res://Resources/raw_patty.tres" id="3_k4iqk"]
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_pgw4b"]
 [ext_resource type="Resource" uid="uid://cwti6q3t234i6" path="res://Resources/buns.tres" id="4_psxe0"]
-[ext_resource type="Resource" uid="uid://cdfhuj2rnjba2" path="res://Resources/lettuce.tres" id="5_yiliw"]
+[ext_resource type="Resource" uid="uid://dh1f63u0ydo" path="res://Resources/whole_lettuce.tres" id="5_psxe0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
 size = Vector2(32, 26)
@@ -24,7 +24,7 @@ corner_radius_bottom_left = 5
 [node name="Refrigerator" type="StaticBody2D" unique_id=468929042]
 z_index = 1
 script = ExtResource("1_pgw4b")
-food_group = Array[ExtResource("2_k4iqk")]([ExtResource("3_k4iqk"), ExtResource("4_psxe0"), ExtResource("5_yiliw")])
+food_group = Array[ExtResource("2_k4iqk")]([ExtResource("3_k4iqk"), ExtResource("4_psxe0"), ExtResource("5_psxe0")])
 
 [node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("3_pgw4b")]
 interactable = NodePath("..")

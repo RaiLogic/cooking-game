@@ -27,17 +27,18 @@ func interact(interactor: Player) -> void:
 				interactor.inventory.clear_item()
 				cook()
 		STATES.COOKING:
-			tool_inventory.alert()
+			tool_inventory.play_alert()
 		STATES.FULL:
-			item = item.cooked_version
-			if interactor.inventory.add_item(item):
+			if interactor.inventory.add_item(item.cooked_version):
 				restart()
 	
 
 func check_item(interactor: Player) -> bool:
 	if interactor.inventory.item_held == null: 
+		interactor.inventory.full_inventory.emit()
 		return false
 	if interactor.inventory.item_held.can_cook == false: 
+		interactor.inventory.full_inventory.emit()
 		return false
 	# checks if the player is holding the item
 	# checks if the player's item can be cooked
