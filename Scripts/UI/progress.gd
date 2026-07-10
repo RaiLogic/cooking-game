@@ -5,7 +5,7 @@ extends Panel
 var running : bool
 var time : float
 
-signal done
+signal finish
 
 func _ready() -> void:
 	visible = false
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	
 	if bar.value >= 100:
 		running = false
-		done.emit()
+		finish.emit()
 
 		
 func start(value: float) -> void:

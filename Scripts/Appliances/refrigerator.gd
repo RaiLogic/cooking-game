@@ -20,4 +20,4 @@ func avoid_last_obtained() -> void:
 func interact(interactor: Player) -> void:
 	get_stored_item()
 	
-	interactor.inventory.set_item(food)
+	interactor.inventory.replace_item(food)

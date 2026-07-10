@@ -7,41 +7,55 @@ class_name Stove extends StaticBody2D
 @export var cooking_time : float
 
 var item : Food
-var running : bool
-var occupied : bool
 
+enum STATES {
+	EMPTY,
+	COOKING,
+	FULL
+}
+
+var current_state : int = STATES.EMPTY
 
 func _ready() -> void:
-	progress_bar.done.connect(update_item)
+	progress_bar.finish.connect(finished)
 
 func interact(interactor: Player) -> void:
-	if occupied and !running:
-		done()
-		interactor.inventory.set_item(item.cooked_version)
+	match current_state:
+		STATES.EMPTY:
+			if check_item(interactor):
+				current_state = STATES.COOKING
+				interactor.inventory.clear_item()
+				cook()
+		STATES.COOKING:
+			tool_inventory.alert()
+		STATES.FULL:
+			item = item.cooked_version
+			if interactor.inventory.add_item(item):
+				restart()
 	
-	elif !running and !occupied:
-		running = true
-		
-		if interactor.inventory.item_held == null:
-			return
-		
-		item = interactor.inventory.item_held
-		
-		if item.can_cook:
-			interactor.inventory.clear_item()
-			cook()
-			
+
+func check_item(interactor: Player) -> bool:
+	if interactor.inventory.item_held == null: 
+		return false
+	if interactor.inventory.item_held.can_cook == false: 
+		return false
+	# checks if the player is holding the item
+	# checks if the player's item can be cooked
+	
+	item = interactor.inventory.item_held
+	return true
 		
 func cook() -> void:
-	occupied = true
 	tool_inventory.visible = true
 	tool_inventory.set_ui(item)
 	progress_bar.start(item.cook_time)
 	
-func update_item() -> void:
+func finished() -> void:
 	tool_inventory.set_ui(item.cooked_version)
-	running = false
+	current_state = STATES.FULL
 	
-func done() -> void:
+	
+func restart() -> void:
 	tool_inventory.clear_ui()
 	progress_bar.restart()
+	
