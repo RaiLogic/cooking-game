@@ -2,17 +2,29 @@
 
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_4o8gv"]
 [ext_resource type="Script" uid="uid://drxj2ia43tvvq" path="res://Scripts/Appliances/refrigerator.gd" id="1_pgw4b"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Scripts/Food/food.gd" id="2_k4iqk"]
+[ext_resource type="Resource" uid="uid://gu285el5pfna" path="res://Resources/raw_patty.tres" id="3_k4iqk"]
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_pgw4b"]
+[ext_resource type="Resource" uid="uid://cwti6q3t234i6" path="res://Resources/buns.tres" id="4_psxe0"]
+[ext_resource type="Resource" uid="uid://dh1f63u0ydo" path="res://Resources/whole_lettuce.tres" id="5_psxe0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
-size = Vector2(16, 26)
+size = Vector2(32, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
-size = Vector2(16, 10)
+size = Vector2(32, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3owqy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Refrigerator" type="StaticBody2D" unique_id=468929042]
 z_index = 1
 script = ExtResource("1_pgw4b")
+food_group = Array[ExtResource("2_k4iqk")]([ExtResource("3_k4iqk"), ExtResource("4_psxe0"), ExtResource("5_psxe0")])
 
 [node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("3_pgw4b")]
 interactable = NodePath("..")
@@ -23,6 +35,13 @@ shape = SubResource("RectangleShape2D_pbjh4")
 debug_color = Color(1, 0, 1, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1746509642]
+position = Vector2(-8, 0)
+texture = ExtResource("1_4o8gv")
+region_enabled = true
+region_rect = Rect2(16, 174, 16, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1560427965]
+position = Vector2(8, 0)
 texture = ExtResource("1_4o8gv")
 region_enabled = true
 region_rect = Rect2(16, 174, 16, 32)
@@ -30,6 +49,14 @@ region_rect = Rect2(16, 174, 16, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=829743205]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_g13ic")
+
+[node name="Panel" type="Panel" parent="." unique_id=948315781]
+visible = false
+offset_left = -16.0
+offset_top = -46.0
+offset_right = 7.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3owqy")
 
 [connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]

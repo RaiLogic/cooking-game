@@ -54,9 +54,3 @@ size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_fu1k5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_50t1a")
 show_percentage = false
-
-[node name="invisible" type="Timer" parent="." unique_id=1962317484]
-wait_time = 3.0
-one_shot = true
-
-[connection signal="timeout" from="invisible" to="." method="_on_invisible_timeout"]

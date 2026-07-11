@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1pflif407gpa"
-path="res://.godot/imported/patty.png-0af83991377a6a716d4624cd665f3751.ctex"
+uid="uid://cp6vai7q2gg4j"
+path="res://.godot/imported/cooked_patty.png-7d29a553c71cde2bdeb29522da6a3a2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Own Assets/Foods&Recipe/patty.png"
-dest_files=["res://.godot/imported/patty.png-0af83991377a6a716d4624cd665f3751.ctex"]
+source_file="res://Assets/Own Assets/Foods&Recipe/cooked_patty.png"
+dest_files=["res://.godot/imported/cooked_patty.png-7d29a553c71cde2bdeb29522da6a3a2f.ctex"]
 
 [params]
 

@@ -5,14 +5,16 @@ class_name MovementComponent extends Node
 
 var speed : float = base_speed
 var direction: Vector2 = Vector2.ZERO
+var can_move : bool
 
-func do(delta: float) -> void:
+func move() -> void:
 	if body == null:
 		return
 	
-	body.velocity.x = direction.x * speed 
-	body.velocity.y = direction.y * speed
-	
-	body.move_and_slide()
+	if can_move:
+		body.velocity.x = direction.x * speed 
+		body.velocity.y = direction.y * speed
+		
+		body.move_and_slide()
 	 
 	
