@@ -337,6 +337,10 @@ position = Vector2(169, 106)
 
 [node name="Counter" parent="Interactables/Counter" unique_id=2057786546 instance=ExtResource("7_y4tkd")]
 position = Vector2(103, 119)
+part = "Middle"
+
+[node name="Counter6" parent="Interactables/Counter" unique_id=926528297 instance=ExtResource("7_y4tkd")]
+position = Vector2(119, 119)
 part = "Right"
 
 [node name="Counter2" parent="Interactables/Counter" unique_id=163641315 instance=ExtResource("7_y4tkd")]
@@ -349,6 +353,10 @@ part = "Middle"
 
 [node name="Counter4" parent="Interactables/Counter" unique_id=1863609536 instance=ExtResource("7_y4tkd")]
 position = Vector2(55, 119)
+part = "Middle"
+
+[node name="Counter5" parent="Interactables/Counter" unique_id=1957513409 instance=ExtResource("7_y4tkd")]
+position = Vector2(39, 119)
 part = "Left"
 
 [node name="Camera2D" parent="." unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_ynmxk")]
@@ -361,7 +369,7 @@ p1 = NodePath("../Player1")
 [node name="Player2" parent="." unique_id=1739635833 instance=ExtResource("4_ly26i")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(25, 124)
+position = Vector2(42, 90)
 
 [node name="Player1" parent="." unique_id=1165400651 instance=ExtResource("2_2dgtp")]
 unique_name_in_owner = true

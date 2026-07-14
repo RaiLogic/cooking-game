@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://rwb5gdemgow2" path="res://Assets/Own Assets/Foods&Recipe/plate.png" id="4_p1gwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
-size = Vector2(26, 29)
+size = Vector2(16, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu1k5"]
 size = Vector2(16, 5)
@@ -20,7 +20,7 @@ z_index = 1
 interactable = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=591447547]
-position = Vector2(0, -3.5)
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_g13ic")
 debug_color = Color(1, 0, 1, 0.41960785)
 
@@ -35,6 +35,7 @@ region_enabled = true
 region_rect = Rect2(80, 208, 16, 16)
 
 [node name="Middle" type="Sprite2D" parent="TopSprite" unique_id=36364985]
+visible = false
 position = Vector2(0, -16)
 texture = ExtResource("1_bfi8m")
 region_enabled = true
@@ -56,6 +57,7 @@ region_enabled = true
 region_rect = Rect2(80, 224, 16, 16)
 
 [node name="Middle" type="Sprite2D" parent="BottomSprite" unique_id=350491077]
+visible = false
 texture = ExtResource("1_bfi8m")
 region_enabled = true
 region_rect = Rect2(112, 224, 16, 16)
@@ -71,14 +73,6 @@ z_index = 1
 position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_fu1k5")
 
-[node name="Food" type="TextureRect" parent="." unique_id=1501169449]
-z_index = 1
-offset_left = -4.0
-offset_top = -15.0
-offset_right = 4.0
-offset_bottom = -7.0
-expand_mode = 1
-
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=597728525]
 z_index = 1
 offset_left = -6.0
@@ -86,4 +80,12 @@ offset_top = -17.0
 offset_right = 6.0
 offset_bottom = -5.0
 texture = ExtResource("4_p1gwf")
+expand_mode = 1
+
+[node name="Food" type="TextureRect" parent="." unique_id=1501169449]
+z_index = 1
+offset_left = -4.0
+offset_top = -15.0
+offset_right = 4.0
+offset_bottom = -7.0
 expand_mode = 1

@@ -3,7 +3,16 @@ class_name InventoryComponent extends Node
 var item_held : Food
 
 signal item_changed(item)
-signal full_inventory
+signal action_failed
+
+func request_alert() -> void:
+	action_failed.emit()
+
+func has_item() -> bool:
+	if item_held != null:
+		return true
+	else:
+		return false
 
 func add_item(item: Food) -> bool:
 	if item_held == null:
@@ -11,7 +20,6 @@ func add_item(item: Food) -> bool:
 		item_changed.emit(item)
 		return true
 	else:
-		full_inventory.emit()
 		return false
 
 func replace_item(item: Food) -> void:

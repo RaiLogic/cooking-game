@@ -3,7 +3,7 @@ class_name CuttingBoard extends StaticBody2D
 @onready var progress_bar: Panel = $Progress
 @onready var tool_inventory: Panel = $ToolInventoryUI
 
-@export var slice_time : float
+@export var cook_time : float
 
 var item : Food
 var player : Player
@@ -31,29 +31,31 @@ func interact(interactor: Player) -> void:
 		STATES.SLICING:
 			tool_inventory.play_alert()
 		STATES.FULL:
-			if player.inventory.add_item(item.sliced_version):
+			if player.inventory.has_item():
+				player.inventory.request_alert()
+			else:
+				player.inventory.add_item(item.sliced_version)
 				restart()
-	
 
-func check_item() -> bool:
-	if player.inventory.item_held == null: 
-		player.inventory.full_inventory.emit()
-		return false
-	if player.inventory.item_held.can_slice == false: 
-		player.inventory.full_inventory.emit()
-		return false
-	# checks if the player is holding the item
-	# checks if the player's item can be cooked
-	
-	item = player.inventory.item_held
-	return true
-	
-func set_move(toggle: bool) -> void:
-	if toggle:
+func set_move(move: bool) -> void:
+	if move:
 		player.input.controls = true
 	else:
 		player.input.controls = false
-		
+
+func check_item() -> bool:
+	if player.inventory.has_item():
+		if player.inventory.item_held.can_slice:
+			item = player.inventory.item_held
+			return true
+		else:
+			player.inventory.request_alert()
+			return false
+	else:
+		player.inventory.request_alert()
+		return false
+	
+
 func slice() -> void:
 	tool_inventory.visible = true
 	tool_inventory.set_ui(item)
@@ -64,8 +66,8 @@ func finished() -> void:
 	tool_inventory.set_ui(item.sliced_version)
 	current_state = STATES.FULL
 	
-	
 func restart() -> void:
+	current_state = STATES.EMPTY
 	tool_inventory.clear_ui()
 	progress_bar.restart()
 	

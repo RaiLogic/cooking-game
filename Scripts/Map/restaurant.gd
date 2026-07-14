@@ -13,5 +13,5 @@ func _ready() -> void:
 	player_2.inventory.item_changed.connect(p2_ui.set_inventory)
 	
 	# show alert when inventory is full
-	player_1.inventory.full_inventory.connect(p1_ui.play_alert)
-	player_2.inventory.full_inventory.connect(p2_ui.play_alert)
+	player_1.inventory.action_failed.connect(p1_ui.play_alert)
+	player_2.inventory.action_failed.connect(p2_ui.play_alert)

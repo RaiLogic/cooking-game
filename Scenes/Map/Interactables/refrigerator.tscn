@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_4o8gv"]
 [ext_resource type="Script" uid="uid://drxj2ia43tvvq" path="res://Scripts/Appliances/refrigerator.gd" id="1_pgw4b"]
-[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Scripts/Food/food.gd" id="2_k4iqk"]
-[ext_resource type="Resource" uid="uid://gu285el5pfna" path="res://Resources/raw_patty.tres" id="3_k4iqk"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="2_k4iqk"]
+[ext_resource type="Resource" uid="uid://gu285el5pfna" path="res://Resources/Food/raw_patty.tres" id="3_k4iqk"]
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_pgw4b"]
-[ext_resource type="Resource" uid="uid://cwti6q3t234i6" path="res://Resources/buns.tres" id="4_psxe0"]
-[ext_resource type="Resource" uid="uid://dh1f63u0ydo" path="res://Resources/whole_lettuce.tres" id="5_psxe0"]
+[ext_resource type="Resource" uid="uid://cwti6q3t234i6" path="res://Resources/Food/buns.tres" id="4_psxe0"]
+[ext_resource type="Resource" uid="uid://dh1f63u0ydo" path="res://Resources/Food/whole_lettuce.tres" id="5_psxe0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
 size = Vector2(32, 26)
@@ -57,6 +57,3 @@ offset_top = -46.0
 offset_right = 7.0
 offset_bottom = -26.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3owqy")
-
-[connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
-[connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]
