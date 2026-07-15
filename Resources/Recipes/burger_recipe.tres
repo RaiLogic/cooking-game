@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://cp6aqetbcx2oh"]
+
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_m1fy4"]
+[ext_resource type="Resource" uid="uid://bxgab8qic385t" path="res://Resources/Food/cooked_patty.tres" id="2_2b5vq"]
+[ext_resource type="Script" uid="uid://tby4gqes5ncu" path="res://Resources/Script/recipe.gd" id="2_pvmc0"]
+[ext_resource type="Resource" uid="uid://cwti6q3t234i6" path="res://Resources/Food/buns.tres" id="3_0i462"]
+[ext_resource type="Resource" uid="uid://cdfhuj2rnjba2" path="res://Resources/Food/sliced_lettuce.tres" id="4_eyjyc"]
+[ext_resource type="Resource" uid="uid://c4ica734bft48" path="res://Resources/Food/burger.tres" id="5_iw5wh"]
+
+[resource]
+script = ExtResource("2_pvmc0")
+ingredients = Array[ExtResource("1_m1fy4")]([ExtResource("2_2b5vq"), ExtResource("3_0i462"), ExtResource("4_eyjyc")])
+result = ExtResource("5_iw5wh")
+plating_time = 33.3
+metadata/_custom_type_script = "uid://tby4gqes5ncu"

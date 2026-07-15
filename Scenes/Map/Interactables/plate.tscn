@@ -2,8 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="1_kqewk"]
 [ext_resource type="Script" uid="uid://bhc6d5h2vhlpf" path="res://Scripts/Appliances/plate.gd" id="1_r667y"]
+[ext_resource type="Script" uid="uid://tby4gqes5ncu" path="res://Resources/Script/recipe.gd" id="2_apt1v"]
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="2_r667y"]
+[ext_resource type="Resource" uid="uid://cp6aqetbcx2oh" path="res://Resources/Recipes/burger_recipe.tres" id="3_ly6id"]
 [ext_resource type="PackedScene" uid="uid://dg8mn84mjqrqi" path="res://Scenes/UI/progress.tscn" id="4_rte7f"]
+[ext_resource type="PackedScene" uid="uid://d36ge3d83yvbr" path="res://Scenes/UI/plating_ui.tscn" id="5_dyp2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm4j3"]
 size = Vector2(19, 33)
@@ -14,7 +17,7 @@ size = Vector2(12, 8)
 [node name="Plate" type="StaticBody2D" unique_id=1513510497]
 z_index = 2
 script = ExtResource("1_r667y")
-plate_time = 65.0
+recipes = Array[ExtResource("2_apt1v")]([ExtResource("3_ly6id")])
 
 [node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("1_kqewk")]
 interactable = NodePath("..")
@@ -34,11 +37,15 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_nkiog")
 
 [node name="Progress" parent="." unique_id=157919419 instance=ExtResource("4_rte7f")]
-visible = false
-offset_left = -7.0
-offset_top = -7.0
-offset_right = 123.0
-offset_bottom = 43.0
+offset_left = 3.0
+offset_top = -13.999999
+offset_right = 133.0
+offset_bottom = 36.0
+rotation = -1.5707964
 
-[connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
-[connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]
+[node name="PlatingUI" parent="." unique_id=866290728 instance=ExtResource("5_dyp2j")]
+visible = false
+offset_left = -10.0
+offset_top = -34.0
+offset_right = -10.0
+offset_bottom = -34.0

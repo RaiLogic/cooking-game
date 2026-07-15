@@ -14,13 +14,10 @@ func has_item() -> bool:
 	else:
 		return false
 
-func add_item(item: Food) -> bool:
+func add_item(item: Food) -> void:
 	if item_held == null:
 		item_held = item
 		item_changed.emit(item)
-		return true
-	else:
-		return false
 
 func replace_item(item: Food) -> void:
 	item_held = item

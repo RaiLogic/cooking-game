@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://c4ica734bft48"]
+
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_q3a2c"]
+[ext_resource type="Texture2D" uid="uid://bh73tm0farrby" path="res://Assets/Own Assets/Foods&Recipe/burgir.png" id="1_r3n5m"]
+
+[resource]
+script = ExtResource("1_q3a2c")
+food_name = "Burger"
+icon = ExtResource("1_r3n5m")
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

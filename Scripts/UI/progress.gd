@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	if running == true:
 		bar.value += time * delta
 	
-	if bar.value >= 100:
+	if bar.value >= 100 and running == true:
 		running = false
 		finish.emit()
 

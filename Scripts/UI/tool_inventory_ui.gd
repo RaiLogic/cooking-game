@@ -3,8 +3,6 @@ class_name ToolInventoryUI extends Panel
 @onready var item_ui: TextureRect = $TextureRect
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
-func _ready() -> void:
-	visible = false
 
 func set_ui(item: Food) -> void:
 	if item != null:
