@@ -8,8 +8,9 @@ class_name Player extends CharacterBody2D
 @export var inventory: InventoryComponent
 
 func _ready() -> void:
-	pass
-
+	if global.current_location == global.LOCATIONS.MAIN_MENU:
+		input.controls = false
+		
 func _physics_process(delta: float) -> void:
 	# INPUTS
 	input.get_input()

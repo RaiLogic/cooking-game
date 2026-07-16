@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://dgs60ahtwway"]
+
+[ext_resource type="Texture2D" uid="uid://rkpxqfakr4ic" path="res://Assets/Own Assets/Foods&Recipe/sunny_side_egg.png" id="1_6087j"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_otk4e"]
+
+[resource]
+script = ExtResource("1_otk4e")
+icon = ExtResource("1_6087j")
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

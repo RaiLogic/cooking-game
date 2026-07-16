@@ -16,7 +16,10 @@ func update_anim(velocity: Vector2) -> void:
 		dancing = false
 		run()
 	elif velocity == Vector2(0,0) and !dancing:
-		idle()
+		if global.current_location == global.LOCATIONS.MAIN_MENU:
+			dance()
+		else:
+			idle()
 
 func run() -> void:
 	if position == "right":
@@ -55,7 +58,6 @@ func dance() -> void:
 		
 		await sprite.animation_finished
 		dancing = false
-		
 		
 		
 		

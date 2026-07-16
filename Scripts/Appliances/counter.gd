@@ -22,7 +22,6 @@ func interact(interactor: Player) -> void:
 	if has_item():
 		if player.inventory.has_item():
 			item = player.inventory.item_held
-			plate_ui.visible = false
 			food_ui.texture = item.icon
 			player.inventory.clear_item()
 	else:

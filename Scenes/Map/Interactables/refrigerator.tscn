@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_pgw4b"]
 [ext_resource type="Resource" uid="uid://cwti6q3t234i6" path="res://Resources/Food/buns.tres" id="4_psxe0"]
 [ext_resource type="Resource" uid="uid://dh1f63u0ydo" path="res://Resources/Food/whole_lettuce.tres" id="5_psxe0"]
+[ext_resource type="Resource" uid="uid://cayqtoeo0adt0" path="res://Resources/Food/egg_shell.tres" id="6_yiliw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
 size = Vector2(32, 26)
@@ -24,7 +25,7 @@ corner_radius_bottom_left = 5
 [node name="Refrigerator" type="StaticBody2D" unique_id=468929042]
 z_index = 1
 script = ExtResource("1_pgw4b")
-food_group = Array[ExtResource("2_k4iqk")]([ExtResource("3_k4iqk"), ExtResource("4_psxe0"), ExtResource("5_psxe0")])
+food_group = Array[ExtResource("2_k4iqk")]([ExtResource("3_k4iqk"), ExtResource("4_psxe0"), ExtResource("5_psxe0"), ExtResource("6_yiliw")])
 
 [node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("3_pgw4b")]
 interactable = NodePath("..")
