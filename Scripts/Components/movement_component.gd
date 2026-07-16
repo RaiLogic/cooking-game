@@ -10,6 +10,7 @@ var can_move : bool
 func move() -> void:
 	if body == null:
 		return
+		
 	
 	if can_move:
 		body.velocity.x = direction.x * speed 

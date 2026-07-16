@@ -73,10 +73,6 @@ func dish_found(recipe: Recipe) -> void:
 	item = recipe.result
 	plating_ui.show_result(recipe.result)
 
-func make_dish(recipe: Recipe) -> void:
-	items.clear()
-	plating_ui.clear_all()
-	
 func done() -> void:
 	print(current_recipe.result)
 	player.inventory.add_item(current_recipe.result)
@@ -92,4 +88,5 @@ func restart() -> void:
 	progress_bar.restart()
 	plating_ui.clear_all()
 	dish_craftable = false
+	items.clear()
 	set_move(true)

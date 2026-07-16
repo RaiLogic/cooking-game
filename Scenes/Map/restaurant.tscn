@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c0n75gnraxkrp" path="res://Scenes/Map/Interactables/counter.tscn" id="7_y4tkd"]
 [ext_resource type="PackedScene" uid="uid://cx138kpn0wn5w" path="res://Scenes/UI/inventory_ui.tscn" id="9_e8yyl"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dgtp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4tkd"]
 texture = ExtResource("1_2othk")
 0:7/0 = 0
 0:6/0 = 0
@@ -162,7 +162,7 @@ texture = ExtResource("1_2othk")
 
 [sub_resource type="TileSet" id="TileSet_el2r4"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2dgtp")
+sources/0 = SubResource("TileSetAtlasSource_y4tkd")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fbea"]
 bg_color = Color(1, 1, 1, 1)
