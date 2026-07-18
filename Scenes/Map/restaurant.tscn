@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="4_ly26i"]
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_ynmxk"]
 [ext_resource type="PackedScene" uid="uid://gdywnuw04lq3" path="res://Scenes/Map/Interactables/stove.tscn" id="5_aqpy7"]
-[ext_resource type="PackedScene" uid="uid://ch4xkxxn57idu" path="res://Scenes/Map/Interactables/cutting_board.tscn" id="5_e8yyl"]
 [ext_resource type="PackedScene" uid="uid://cnbth563wwffr" path="res://Scenes/Map/Interactables/plate.tscn" id="6_dmty3"]
+[ext_resource type="PackedScene" uid="uid://ch4xkxxn57idu" path="res://Scenes/Map/Interactables/cutting_board.tscn" id="7_m5a0w"]
 [ext_resource type="PackedScene" uid="uid://c0n75gnraxkrp" path="res://Scenes/Map/Interactables/counter.tscn" id="7_y4tkd"]
 [ext_resource type="PackedScene" uid="uid://cx138kpn0wn5w" path="res://Scenes/UI/inventory_ui.tscn" id="9_e8yyl"]
 
@@ -325,14 +325,6 @@ position = Vector2(49, 39)
 [node name="Plate2" parent="Interactables/Plates" unique_id=1498656646 instance=ExtResource("6_dmty3")]
 position = Vector2(81, 39)
 
-[node name="CutBoards" type="Node" parent="Interactables" unique_id=1284873951]
-
-[node name="CuttingBoard" parent="Interactables/CutBoards" unique_id=423598001 instance=ExtResource("5_e8yyl")]
-position = Vector2(169, 74)
-
-[node name="CuttingBoard2" parent="Interactables/CutBoards" unique_id=1496190672 instance=ExtResource("5_e8yyl")]
-position = Vector2(169, 106)
-
 [node name="Counter" type="Node" parent="Interactables" unique_id=959493723]
 
 [node name="Counter" parent="Interactables/Counter" unique_id=2057786546 instance=ExtResource("7_y4tkd")]
@@ -358,6 +350,14 @@ part = "Middle"
 [node name="Counter5" parent="Interactables/Counter" unique_id=1957513409 instance=ExtResource("7_y4tkd")]
 position = Vector2(39, 119)
 part = "Left"
+
+[node name="CuttingBoard" type="Node" parent="Interactables" unique_id=2134918579]
+
+[node name="CuttingBoard" parent="Interactables/CuttingBoard" unique_id=423598001 instance=ExtResource("7_m5a0w")]
+position = Vector2(169, 74)
+
+[node name="CuttingBoard2" parent="Interactables/CuttingBoard" unique_id=492212561 instance=ExtResource("7_m5a0w")]
+position = Vector2(169, 107)
 
 [node name="Camera2D" parent="." unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_ynmxk")]
 position = Vector2(138.765, 182)

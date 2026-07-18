@@ -37,6 +37,7 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_nkiog")
 
 [node name="Progress" parent="." unique_id=157919419 instance=ExtResource("4_rte7f")]
+visible = false
 offset_left = 3.0
 offset_top = -13.999999
 offset_right = 133.0

@@ -9,6 +9,6 @@ script = ExtResource("1_ivmu4")
 food_name = "raw_patty"
 icon = ExtResource("2_8xxku")
 can_cook = true
-cook_time = 33.3
+cook_time = 10.0
 cooked_version = ExtResource("1_8xxku")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"

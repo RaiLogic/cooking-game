@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dublx5ok50g2k"
-path="res://.godot/imported/upuanright.png-2d726f60139782a95da484c99dfe3b1c.ctex"
+uid="uid://1a1uf4e71550"
+path="res://.godot/imported/Eggshell.png-e85408081f0a40a3ac68f7db7b42ed59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Borrowed Assets/upuanright.png"
-dest_files=["res://.godot/imported/upuanright.png-2d726f60139782a95da484c99dfe3b1c.ctex"]
+source_file="res://Assets/Own Assets/Foods&Recipe/Eggshell.png"
+dest_files=["res://.godot/imported/Eggshell.png-e85408081f0a40a3ac68f7db7b42ed59.ctex"]
 
 [params]
 
