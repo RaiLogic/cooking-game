@@ -1,12 +1,18 @@
 extends Node
 
-@onready var player = preload("res://Scenes/music_manager.tscn")
-
 var current_music : AudioStream
 
+func _ready() -> void:
+	print("Music Manger Ready")
+
 func play_music(music: AudioStream) -> void:
+	var player: AudioStreamPlayer = get_node("AudioStreamPlayer")
+	
 	if current_music == music:
 		print("Already Playing!")
 		return
 	
-	print(player)
+	music.loop = true
+	current_music = music
+	player.stream = music
+	player.play()

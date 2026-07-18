@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b5drc1h3jnl50"]
+
+[ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="1_3hmru"]
+[ext_resource type="Texture2D" uid="uid://cf8yhc5605gxk" path="res://icon.svg" id="2_6c3g0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbjh4"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
+size = Vector2(24, 24)
+
+[node name="HostStand" type="StaticBody2D" unique_id=1834784510]
+z_index = 1
+
+[node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("1_3hmru")]
+interactable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=1804014407]
+position = Vector2(0, -19)
+shape = SubResource("RectangleShape2D_pbjh4")
+debug_color = Color(1, 0, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=692154372]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_6c3g0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=483796957]
+shape = SubResource("RectangleShape2D_g13ic")

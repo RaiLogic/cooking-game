@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_ynmxk"]
 [ext_resource type="PackedScene" uid="uid://gdywnuw04lq3" path="res://Scenes/Map/Interactables/stove.tscn" id="5_aqpy7"]
 [ext_resource type="PackedScene" uid="uid://cnbth563wwffr" path="res://Scenes/Map/Interactables/plate.tscn" id="6_dmty3"]
+[ext_resource type="PackedScene" uid="uid://b5drc1h3jnl50" path="res://Scenes/Map/Interactables/host_stand.tscn" id="6_m5a0w"]
 [ext_resource type="PackedScene" uid="uid://ch4xkxxn57idu" path="res://Scenes/Map/Interactables/cutting_board.tscn" id="7_m5a0w"]
 [ext_resource type="PackedScene" uid="uid://c0n75gnraxkrp" path="res://Scenes/Map/Interactables/counter.tscn" id="7_y4tkd"]
 [ext_resource type="PackedScene" uid="uid://cx138kpn0wn5w" path="res://Scenes/UI/inventory_ui.tscn" id="9_e8yyl"]
@@ -300,7 +301,7 @@ tile_set = SubResource("TileSet_el2r4")
 
 [node name="Decoration" type="TileMapLayer" parent="Tilemaps" unique_id=528141989]
 z_index = 1
-tile_map_data = PackedByteArray("AAAKAAgAAAAGABMAAAALAAgAAAAGABMAAAAJAAgAAAAGABMAAAAIAAgAAAAFABMAAAAMAAgAAAAHABMAAAABAAQAAAAHABAAAAAEAAQAAAAGABAAAAAQAAQAAAAFABAAAAAKAPz/AAAAABAAAAAKAPv/AAAAAA8AAAAJAPz/AAACABAAAAAMAAQAAAAGAAcAAAANAAQAAAAHAAcAAAA=")
+tile_map_data = PackedByteArray("AAABAAQAAAAHABAAAAAEAAQAAAAGABAAAAAQAAQAAAAFABAAAAAKAPz/AAAAABAAAAAKAPv/AAAAAA8AAAAJAPz/AAACABAAAAAMAAQAAAAGAAcAAAANAAQAAAAHAAcAAAAIAAgAAAAFABMAAAAJAAgAAAAGABMAAAAKAAgAAAAGABMAAAALAAgAAAAGABMAAAAMAAgAAAAHABMAAAA=")
 tile_set = SubResource("TileSet_el2r4")
 
 [node name="Interactables" type="Node2D" parent="." unique_id=1641766664]
@@ -324,6 +325,9 @@ position = Vector2(49, 39)
 
 [node name="Plate2" parent="Interactables/Plates" unique_id=1498656646 instance=ExtResource("6_dmty3")]
 position = Vector2(81, 39)
+
+[node name="HostStand" parent="Interactables/Plates" unique_id=1834784510 instance=ExtResource("6_m5a0w")]
+position = Vector2(270, 221)
 
 [node name="Counter" type="Node" parent="Interactables" unique_id=959493723]
 

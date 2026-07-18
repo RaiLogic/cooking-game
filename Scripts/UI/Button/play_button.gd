@@ -3,4 +3,4 @@ extends Button
 
 func _on_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Map/restaurant.tscn")
-	global.current_location = global.LOCATIONS.RESTAURANT
+	global.set_location(global.LOCATIONS.RESTAURANT)
