@@ -16,13 +16,12 @@ func _physics_process(delta: float) -> void:
 	input.get_input()
 	
 	# MOVEMENT
-	movement.direction = input.move_action
-	movement.move()
+	movement.move(input.move_action)
 	movement.speed = movement.base_speed
 	movement.can_move = input.controls
 	
 	# DASH
-	if input.dashed and movement.direction != Vector2(0,0):
+	if input.dashed and movement.moving:
 		dash.dash_action()
 		
 	if dash.dash_moving:

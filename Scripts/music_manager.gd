@@ -2,9 +2,6 @@ extends Node
 
 var current_music : AudioStream
 
-func _ready() -> void:
-	print("Music Manger Ready")
-
 func play_music(music: AudioStream) -> void:
 	var player: AudioStreamPlayer = get_node("AudioStreamPlayer")
 	
