@@ -35,7 +35,7 @@ texture = ExtResource("2_gx0m6")
 
 [node name="MovementComponent" parent="." unique_id=1842474206 node_paths=PackedStringArray("body") instance=ExtResource("3_gx0m6")]
 body = NodePath("..")
-base_speed = 60.0
+base_speed = 40.0
 
 [node name="OrderUI" type="Panel" parent="." unique_id=450602127]
 visible = false

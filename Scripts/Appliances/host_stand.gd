@@ -11,5 +11,5 @@ func interact(interactor: Player) -> void:
 	if !customer.agent.is_navigation_finished():
 		return
 		
-	print("Customer wants: ", customer.desired_food)
+	spawner.customer_served()
 	

@@ -5,11 +5,15 @@ class_name Customer extends CharacterBody2D
 
 @onready var agent : NavigationAgent2D = $NavigationAgent2D
 
+var is_leaving : bool
 signal arrived
 # FOOD ORDERING
 var desired_food : Food
 
 func _physics_process(delta: float) -> void:
+	if is_leaving:
+		return
+	
 	movement.can_move = true
 	
 	if agent.is_navigation_finished():

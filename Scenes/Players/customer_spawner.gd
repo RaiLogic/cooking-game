@@ -38,7 +38,10 @@ func update_queue() -> void:
 		
 	
 func customer_served() -> void:
-	pass
+	var served = customers.pop_front()
+	served.is_leaving = true
+	served.queue_free()
+	update_queue()
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_customer()
