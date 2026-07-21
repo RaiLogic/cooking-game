@@ -32,3 +32,5 @@ func set_destination(pos: Vector2) -> void:
 func show_order() -> void:
 	order_ui.visible = true
 	order_ui.get_node("Food").texture = desired_food.icon
+
+	

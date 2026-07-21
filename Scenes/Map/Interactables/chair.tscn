@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dswkifrfmgixe"]
+
+[ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_a1gnm"]
+[ext_resource type="Script" uid="uid://bwa6y8ynw43ef" path="res://Scripts/Appliances/chair.gd" id="1_kq0sf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu1k5"]
+size = Vector2(12, 10.5)
+
+[node name="Chair" type="StaticBody2D" unique_id=747928645]
+script = ExtResource("1_kq0sf")
+
+[node name="Placement" type="Node2D" parent="." unique_id=1994925711]
+
+[node name="Left" type="Node2D" parent="Placement" unique_id=1719718232]
+visible = false
+
+[node name="Top" type="Sprite2D" parent="Placement/Left" unique_id=326226158]
+z_index = 3
+position = Vector2(0, -16)
+texture = ExtResource("1_a1gnm")
+region_enabled = true
+region_rect = Rect2(48, 496, 16, 16)
+
+[node name="Bot" type="Sprite2D" parent="Placement/Left" unique_id=1165806692]
+texture = ExtResource("1_a1gnm")
+region_enabled = true
+region_rect = Rect2(48, 512, 16, 16)
+
+[node name="Down" type="Node2D" parent="Placement" unique_id=205624945]
+
+[node name="Top" type="Sprite2D" parent="Placement/Down" unique_id=860707772]
+z_index = 3
+position = Vector2(0, -16)
+texture = ExtResource("1_a1gnm")
+region_enabled = true
+region_rect = Rect2(32, 496, 16, 16)
+
+[node name="Bot" type="Sprite2D" parent="Placement/Down" unique_id=667322492]
+z_index = 1
+texture = ExtResource("1_a1gnm")
+region_enabled = true
+region_rect = Rect2(32, 512, 16, 16)
+
+[node name="Right" type="Node2D" parent="Placement" unique_id=1472776906]
+visible = false
+
+[node name="Top" type="Sprite2D" parent="Placement/Right" unique_id=1297101813]
+z_index = 3
+position = Vector2(0, -16)
+texture = ExtResource("1_a1gnm")
+region_enabled = true
+region_rect = Rect2(96, 496, 16, 16)
+
+[node name="Bot" type="Sprite2D" parent="Placement/Right" unique_id=1081366390]
+texture = ExtResource("1_a1gnm")
+region_enabled = true
+region_rect = Rect2(96, 512, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794807263]
+position = Vector2(0, -3.75)
+shape = SubResource("RectangleShape2D_fu1k5")
+
+[node name="Point" type="Marker2D" parent="." unique_id=888452681]
+position = Vector2(0, -4)

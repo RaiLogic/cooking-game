@@ -3,9 +3,10 @@ extends Node
 @onready var p1_ui: PlayerInventoryUI = $UI/P1InventoryUI
 @onready var p2_ui: PlayerInventoryUI = $UI/P2InventoryUI
 
-
 @onready var player_1: Player = %Player1
 @onready var player_2: Player = %Player2
+
+@onready var chairs: Array = $Interactables/Dining/Chairs.get_children()
 
 func _ready() -> void:
 	# show inventory to inventory ui
@@ -15,3 +16,10 @@ func _ready() -> void:
 	# show alert when inventory is full
 	player_1.inventory.action_failed.connect(p1_ui.play_alert)
 	player_2.inventory.action_failed.connect(p2_ui.play_alert)
+	
+func get_available_chair() -> Chair:
+	for chair in chairs:
+		if !chair.occupied:
+			return chair
+	
+	return null
