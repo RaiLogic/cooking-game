@@ -21,7 +21,9 @@ func spawn_customer() -> void:
 
 	customer.global_position = main_point.global_position
 	customer.desired_food = menu.foods.pick_random()
-	add_child(customer)	
+	customer.state = customer.STATES.WALKING
+	customer.done.connect(customer_served)
+	add_child(customer)
 	customers.append(customer)
 	
 	var chair = restaurant.get_available_chair()
@@ -31,9 +33,8 @@ func spawn_customer() -> void:
 			chair.sit_point.global_position
 		)
 
-func customer_served() -> void:
-	var served = customers.pop_front()
-	served.is_leaving = true
+func customer_served(served: Customer) -> void:
+	served.state = served.STATES.LEAVING
 	served.queue_free()
 
 func _on_spawn_timer_timeout() -> void:

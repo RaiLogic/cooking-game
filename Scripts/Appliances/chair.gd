@@ -12,11 +12,14 @@ var customer_sitting : Customer
 
 func _ready() -> void:
 	down.visible = false
+	update_sprite()
 	
+
+func update_sprite() -> void:
 	if placement == "left": left.visible = true; print("left")
 	elif placement == "right": right.visible = true; print("right")
 	elif placement == "down": down.visible = true; print("down")
-	
+
 func occupy(customer: Customer) -> void:
 	occupied = true
 	customer_sitting = customer
