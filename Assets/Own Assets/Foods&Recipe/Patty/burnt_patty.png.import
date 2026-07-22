@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beocuguo0bqj1"
-path="res://.godot/imported/lettuce.png-601e4232ccc2da9c99f7b8ae4b2f9ca6.ctex"
+uid="uid://e3moq28artwo"
+path="res://.godot/imported/burnt_patty.png-a367d3dc909a2bbd0d4d64b87fb4509b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Own Assets/Foods&Recipe/lettuce.png"
-dest_files=["res://.godot/imported/lettuce.png-601e4232ccc2da9c99f7b8ae4b2f9ca6.ctex"]
+source_file="res://Assets/Own Assets/Foods&Recipe/Patty/burnt_patty.png"
+dest_files=["res://.godot/imported/burnt_patty.png-a367d3dc909a2bbd0d4d64b87fb4509b.ctex"]
 
 [params]
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://dpfe1iyriq73e"]
+
+[ext_resource type="Texture2D" uid="uid://cq12wod3c8f7b" path="res://Assets/Own Assets/Foods&Recipe/Potato/cooked_potato.png" id="1_qr5xs"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_sh31j"]
+
+[resource]
+script = ExtResource("1_sh31j")
+food_name = "cooked_potato"
+icon = ExtResource("1_qr5xs")
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

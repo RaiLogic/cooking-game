@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://b1lpgwi8m5oh1"]
+
+[ext_resource type="Texture2D" uid="uid://daip4884msnji" path="res://Assets/Own Assets/Foods&Recipe/egg_sandwich.png" id="1_lpnfb"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_uohjk"]
+
+[resource]
+script = ExtResource("1_uohjk")
+food_name = "egg_sandwich"
+icon = ExtResource("1_lpnfb")
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

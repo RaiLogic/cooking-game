@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://cdfhuj2rnjba2"]
 
-[ext_resource type="Texture2D" uid="uid://beocuguo0bqj1" path="res://Assets/Own Assets/Foods&Recipe/lettuce.png" id="1_lfb25"]
+[ext_resource type="Texture2D" uid="uid://beocuguo0bqj1" path="res://Assets/Own Assets/Foods&Recipe/Lettuce/lettuce.png" id="1_lfb25"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_yjjm8"]
 
 [resource]

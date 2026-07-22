@@ -42,7 +42,7 @@ func get_item_slot() -> void:
 	if items.is_empty():
 		player.inventory.request_alert()
 		return
-	elif items.size() == MAX_ITEMS and dish_craftable:
+	elif dish_craftable:
 		progress_bar.start(current_recipe.plating_time)
 		set_move(false)
 	else:

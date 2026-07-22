@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://gu285el5pfna"]
 
-[ext_resource type="Resource" uid="uid://bxgab8qic385t" path="res://Resources/Food/cooked_patty.tres" id="1_8xxku"]
+[ext_resource type="Resource" uid="uid://bxgab8qic385t" path="res://Resources/Food/patty/cooked_patty.tres" id="1_8xxku"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_ivmu4"]
-[ext_resource type="Texture2D" uid="uid://8v1nerkwdcva" path="res://Assets/Own Assets/Foods&Recipe/raw_patty.png" id="2_8xxku"]
+[ext_resource type="Texture2D" uid="uid://8v1nerkwdcva" path="res://Assets/Own Assets/Foods&Recipe/Patty/raw_patty.png" id="2_8xxku"]
 
 [resource]
 script = ExtResource("1_ivmu4")

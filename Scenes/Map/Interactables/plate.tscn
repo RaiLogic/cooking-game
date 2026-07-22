@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://tby4gqes5ncu" path="res://Resources/Script/recipe.gd" id="2_apt1v"]
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="2_r667y"]
 [ext_resource type="Resource" uid="uid://cp6aqetbcx2oh" path="res://Resources/Recipes/burger_recipe.tres" id="3_ly6id"]
+[ext_resource type="Resource" uid="uid://1364ijwg4vm3" path="res://Resources/Recipes/egg_sandwich.tres" id="4_ly6id"]
 [ext_resource type="PackedScene" uid="uid://dg8mn84mjqrqi" path="res://Scenes/UI/progress.tscn" id="4_rte7f"]
 [ext_resource type="PackedScene" uid="uid://d36ge3d83yvbr" path="res://Scenes/UI/plating_ui.tscn" id="5_dyp2j"]
 
@@ -17,7 +18,7 @@ size = Vector2(12, 8)
 [node name="Plate" type="StaticBody2D" unique_id=1513510497]
 z_index = 2
 script = ExtResource("1_r667y")
-recipes = Array[ExtResource("2_apt1v")]([ExtResource("3_ly6id")])
+recipes = Array[ExtResource("2_apt1v")]([ExtResource("3_ly6id"), ExtResource("4_ly6id")])
 
 [node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("1_kqewk")]
 interactable = NodePath("..")

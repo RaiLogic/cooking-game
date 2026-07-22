@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8v1nerkwdcva"
-path="res://.godot/imported/raw_patty.png-c5dcfda650618bc9375e151f2ccad835.ctex"
+uid="uid://rkpxqfakr4ic"
+path="res://.godot/imported/sunny_side_egg.png-bc502b8353cd2884e3b852620d9ff4c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Own Assets/Foods&Recipe/raw_patty.png"
-dest_files=["res://.godot/imported/raw_patty.png-c5dcfda650618bc9375e151f2ccad835.ctex"]
+source_file="res://Assets/Own Assets/Foods&Recipe/Egg/sunny_side_egg.png"
+dest_files=["res://.godot/imported/sunny_side_egg.png-bc502b8353cd2884e3b852620d9ff4c1.ctex"]
 
 [params]
 

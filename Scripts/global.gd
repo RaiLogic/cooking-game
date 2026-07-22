@@ -8,18 +8,16 @@ enum LOCATIONS {
 
 var current_location : int = LOCATIONS.MAIN_MENU
 
-#MUSICS
-const MENU = preload("res://Assets/Music/Mainmenu Music.mp3")
-const INGAME = preload("res://Assets/Music/Ingame Music.mp3")
+
 
 func _ready() -> void:
-	music_manager.play_music(MENU)
+	music_manager.play_music(music_manager.MENU)
 	
 func set_location(location):
 	current_location = location
 	
 	match current_location:
 		LOCATIONS.MAIN_MENU:
-			music_manager.play_music(MENU)
+			music_manager.play_music(music_manager.MENU)
 		LOCATIONS.RESTAURANT:
-			music_manager.play_music(INGAME)
+			music_manager.play_music(music_manager.INGAME)

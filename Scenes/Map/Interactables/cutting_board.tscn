@@ -49,5 +49,4 @@ offset_top = -13.0
 offset_right = 29.0
 offset_bottom = 7.0
 
-[connection signal="body_entered" from="InteractedComponent" to="InteractedComponent" method="_on_body_entered"]
-[connection signal="body_exited" from="InteractedComponent" to="InteractedComponent" method="_on_body_exited"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1921042160]

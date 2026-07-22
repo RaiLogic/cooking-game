@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://5cw5b25ipdu2"]
+
+[ext_resource type="Resource" uid="uid://dpfe1iyriq73e" path="res://Resources/Food/potato/cooked_potato.tres" id="1_k0agm"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_tmrna"]
+[ext_resource type="Texture2D" uid="uid://bthr8lcwn8mn3" path="res://Assets/Own Assets/Foods&Recipe/Potato/potato.png" id="2_tike6"]
+
+[resource]
+script = ExtResource("1_tmrna")
+food_name = "raw_potato"
+icon = ExtResource("2_tike6")
+can_cook = true
+cook_time = 15.0
+cooked_version = ExtResource("1_k0agm")
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

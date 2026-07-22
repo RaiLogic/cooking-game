@@ -1,5 +1,8 @@
 class_name CuttingBoard extends StaticBody2D
 
+@onready var sound_player: AudioStreamPlayer = $AudioStreamPlayer
+const slicing_sound = preload("res://Assets/Music/Slicing Sound Effect.mp3")
+
 @onready var progress_bar: Panel = $Progress
 @onready var tool_inventory: Panel = $ToolInventoryUI
 
@@ -57,11 +60,13 @@ func check_item() -> bool:
 	
 
 func slice() -> void:
+	sfx_manager.play_sfx(sound_player, slicing_sound)
 	tool_inventory.visible = true
 	tool_inventory.set_ui(item)
 	progress_bar.start(item.slice_time)
 	
 func finished() -> void:
+	sfx_manager.stop(sound_player)
 	set_move(true)
 	tool_inventory.set_ui(item.sliced_version)
 	current_state = STATES.FULL

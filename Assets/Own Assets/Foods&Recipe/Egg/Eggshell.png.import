@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2pryoate58j3"
-path="res://.godot/imported/hilawmeowmeow.png-12e50cd08756145e7d281f7fdd81b72b.ctex"
+uid="uid://1a1uf4e71550"
+path="res://.godot/imported/Eggshell.png-f4a633d61b43be8fa6c8720ea156e410.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Own Assets/Foods&Recipe/hilawmeowmeow.png"
-dest_files=["res://.godot/imported/hilawmeowmeow.png-12e50cd08756145e7d281f7fdd81b72b.ctex"]
+source_file="res://Assets/Own Assets/Foods&Recipe/Egg/Eggshell.png"
+dest_files=["res://.godot/imported/Eggshell.png-f4a633d61b43be8fa6c8720ea156e410.ctex"]
 
 [params]
 

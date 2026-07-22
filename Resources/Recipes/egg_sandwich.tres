@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://1364ijwg4vm3"]
+
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_6bqj3"]
+[ext_resource type="Script" uid="uid://tby4gqes5ncu" path="res://Resources/Script/recipe.gd" id="2_jnb1e"]
+[ext_resource type="Resource" uid="uid://cwti6q3t234i6" path="res://Resources/Food/buns.tres" id="2_o635i"]
+[ext_resource type="Resource" uid="uid://dgs60ahtwway" path="res://Resources/Food/egg/sunny_side_egg.tres" id="3_e1a8v"]
+[ext_resource type="Resource" uid="uid://b1lpgwi8m5oh1" path="res://Resources/Food/egg_sandwich.tres" id="4_lcysw"]
+
+[resource]
+script = ExtResource("2_jnb1e")
+ingredients = Array[ExtResource("1_6bqj3")]([ExtResource("2_o635i"), ExtResource("3_e1a8v")])
+result = ExtResource("4_lcysw")
+plating_time = 25.0
+metadata/_custom_type_script = "uid://tby4gqes5ncu"

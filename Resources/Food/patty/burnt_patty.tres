@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://byeopxfjc8f7g"]
 
-[ext_resource type="Texture2D" uid="uid://e3moq28artwo" path="res://Assets/Own Assets/Foods&Recipe/burnt_patty.png" id="1_42eiv"]
+[ext_resource type="Texture2D" uid="uid://e3moq28artwo" path="res://Assets/Own Assets/Foods&Recipe/Patty/burnt_patty.png" id="1_42eiv"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_wbk1v"]
 
 [resource]

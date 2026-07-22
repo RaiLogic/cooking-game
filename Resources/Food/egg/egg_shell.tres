@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://cayqtoeo0adt0"]
 
-[ext_resource type="Resource" uid="uid://dgs60ahtwway" path="res://Resources/Food/sunny_side_egg.tres" id="1_0vdt2"]
+[ext_resource type="Resource" uid="uid://dgs60ahtwway" path="res://Resources/Food/egg/sunny_side_egg.tres" id="1_0vdt2"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_f1quj"]
-[ext_resource type="Texture2D" uid="uid://1a1uf4e71550" path="res://Assets/Own Assets/Foods&Recipe/Eggshell.png" id="2_rihfj"]
+[ext_resource type="Texture2D" uid="uid://1a1uf4e71550" path="res://Assets/Own Assets/Foods&Recipe/Egg/Eggshell.png" id="2_rihfj"]
 
 [resource]
 script = ExtResource("1_f1quj")
