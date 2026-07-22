@@ -27,7 +27,7 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
 [node name="Customer" type="CharacterBody2D" unique_id=660747108 node_paths=PackedStringArray("movement")]
-z_index = 1
+z_index = 3
 script = ExtResource("1_nbxf1")
 movement = NodePath("MovementComponent")
 

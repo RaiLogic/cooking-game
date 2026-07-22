@@ -16,15 +16,20 @@ func _ready() -> void:
 	
 
 func update_sprite() -> void:
-	if placement == "left": left.visible = true; print("left")
-	elif placement == "right": right.visible = true; print("right")
-	elif placement == "down": down.visible = true; print("down")
+	if placement == "left": left.visible = true;
+	elif placement == "right": right.visible = true;
+	elif placement == "down": down.visible = true;
 
 func occupy(customer: Customer) -> void:
 	occupied = true
 	customer_sitting = customer
 	
-func free() -> void:
+func remove(customer: Customer) -> void:
+	if customer_sitting != customer:
+		print("error")
+		return
+
+	print("Chair available")
 	occupied = false
 	customer_sitting = null
 	

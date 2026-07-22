@@ -15,6 +15,7 @@ func _ready() -> void:
 
 func spawn_customer() -> void:
 	if customers.size() >= restaurant.chairs.size():
+		print("Customer limit")
 		return
 	
 	var customer = customer_scene.instantiate()
@@ -29,11 +30,14 @@ func spawn_customer() -> void:
 	var chair = restaurant.get_available_chair()
 	if chair:
 		chair.occupy(customer)
+		customer.done.connect(chair.remove)
 		customer.set_destination(
 			chair.sit_point.global_position
+			
 		)
 
 func customer_served(served: Customer) -> void:
+	customers.erase(served)
 	served.state = served.STATES.LEAVING
 	served.queue_free()
 

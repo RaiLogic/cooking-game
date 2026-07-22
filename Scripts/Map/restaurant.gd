@@ -20,6 +20,7 @@ func _ready() -> void:
 func get_available_chair() -> Chair:
 	for chair in chairs:
 		if !chair.occupied:
+			print(chair, ", not occupied")
 			return chair
 	
 	return null

@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 	
 	if agent.is_navigation_finished():
 		state = STATES.ORDERING
+		if global_position != agent.target_position:
+			global_position = agent.target_position
 		show_order()
 		velocity = Vector2.ZERO
 		return
@@ -38,21 +40,16 @@ func _physics_process(delta: float) -> void:
 
 func interact(interactor: Player) -> void:
 	if interactor.inventory.item_held != desired_food:
-		print("Wrong Food!")
 		return
-	
-	print("Thank you!")
+		
 	interactor.inventory.clear_item()
 	done.emit(self)
 		
 func set_destination(pos: Vector2) -> void:
+	agent.target_desired_distance = 8.0
 	agent.target_position = pos
 
 func show_order() -> void:
 	interact_area.monitoring = true
 	order_ui.visible = true
 	order_ui.get_node("Food").texture = desired_food.icon
-	
-
-
-	
