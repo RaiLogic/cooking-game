@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_f1quj")
-food_name = "egg_shell"
+food_name = "egg"
 icon = ExtResource("2_rihfj")
 can_cook = true
 cook_time = 50.0

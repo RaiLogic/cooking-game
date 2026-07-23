@@ -27,7 +27,7 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
 [node name="Customer" type="CharacterBody2D" unique_id=660747108 node_paths=PackedStringArray("movement")]
-z_index = 3
+z_index = 1
 script = ExtResource("1_nbxf1")
 movement = NodePath("MovementComponent")
 
@@ -41,7 +41,7 @@ debug_color = Color(1, 0, 1, 0.41960785)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=728965768]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=449420283]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.15625, 0.15625)
 texture = ExtResource("2_gx0m6")
 
 [node name="MovementComponent" parent="." unique_id=1842474206 node_paths=PackedStringArray("body") instance=ExtResource("3_gx0m6")]

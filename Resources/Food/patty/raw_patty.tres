@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_ivmu4")
-food_name = "raw_patty"
+food_name = "raw patty"
 icon = ExtResource("2_8xxku")
 can_cook = true
 cook_time = 10.0

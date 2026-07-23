@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_npuh4")
-food_name = "whole_lettuce"
+food_name = "whole lettuce"
 icon = ExtResource("1_5spw6")
 can_slice = true
 slice_time = 50.0

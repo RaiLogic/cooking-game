@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_sh31j")
-food_name = "cooked_potato"
+food_name = "cooked potato"
 icon = ExtResource("1_qr5xs")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"

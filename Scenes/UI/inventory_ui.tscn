@@ -1,10 +1,24 @@
 [gd_scene format=3 uid="uid://cx138kpn0wn5w"]
 
 [ext_resource type="Script" uid="uid://blbdfyk4ydh2j" path="res://Scripts/UI/inventory_ui.gd" id="1_q4ye0"]
+[ext_resource type="PackedScene" uid="uid://bocubqr75l7b7" path="res://Scenes/UI/fridge_ui.tscn" id="3_o62ck"]
+[ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="3_sfqc8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p83af"]
 bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_nkiog"]
+font = ExtResource("3_sfqc8")
+font_color = Color(0, 0, 0, 1)
 
 [node name="InventoryUI" type="Panel" unique_id=1416435068]
 anchors_preset = 2
@@ -31,3 +45,23 @@ offset_right = 41.873875
 offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FoodName" type="Label" parent="." unique_id=1659971836]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.5
+offset_right = 54.5
+offset_bottom = 23.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_nkiog")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FridgeUI" parent="." unique_id=697897164 instance=ExtResource("3_o62ck")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -44.0
+offset_right = 69.0
+offset_bottom = -16.239319

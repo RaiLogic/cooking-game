@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bocubqr75l7b7"]
+
+[ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_2dg55"]
+[ext_resource type="Texture2D" uid="uid://cpwq2wyy6gwv6" path="res://Assets/Own Assets/Foods&Recipe/Bun.png" id="2_jeca8"]
+[ext_resource type="Texture2D" uid="uid://8v1nerkwdcva" path="res://Assets/Own Assets/Foods&Recipe/Patty/raw_patty.png" id="3_l7kr2"]
+[ext_resource type="Texture2D" uid="uid://bthr8lcwn8mn3" path="res://Assets/Own Assets/Foods&Recipe/Potato/potato.png" id="4_0q6pr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkiog"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nkiog"]
+font = ExtResource("1_2dg55")
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FridgeUI" type="Panel" unique_id=697897164]
+offset_right = 67.0
+offset_bottom = 26.025614
+scale = Vector2(1.7290659, 1.7290659)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nkiog")
+
+[node name="Left" type="Label" parent="." unique_id=1381752258]
+layout_mode = 0
+offset_left = 12.145287
+offset_top = 8.096858
+offset_right = 30.145287
+offset_bottom = 31.096859
+text = "<"
+label_settings = SubResource("LabelSettings_nkiog")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Label" parent="." unique_id=1355151404]
+layout_mode = 0
+offset_left = 37.592552
+offset_top = 8.096858
+offset_right = 55.592552
+offset_bottom = 31.096859
+text = ">"
+label_settings = SubResource("LabelSettings_nkiog")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PrevFood" type="TextureRect" parent="." unique_id=1359157568]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 15.0
+offset_bottom = 15.0
+texture = ExtResource("2_jeca8")
+expand_mode = 1
+
+[node name="CurrentFood" type="TextureRect" parent="." unique_id=2123966082]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.5
+offset_right = 9.5
+offset_bottom = 19.0
+grow_horizontal = 2
+texture = ExtResource("3_l7kr2")
+expand_mode = 1
+
+[node name="NextFood" type="TextureRect" parent="." unique_id=1173571181]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 15.0
+grow_horizontal = 0
+texture = ExtResource("4_0q6pr")
+expand_mode = 1

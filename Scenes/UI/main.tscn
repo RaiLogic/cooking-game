@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="3_wjop8"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="4_wjop8"]
 [ext_resource type="Script" uid="uid://m3g4vmmp2afi" path="res://Scripts/UI/Button/play_button.gd" id="5_40bib"]
+[ext_resource type="Texture2D" uid="uid://n5aqljagmn3h" path="res://Assets/Own Assets/game_logo.png" id="5_o0om2"]
+[ext_resource type="Script" uid="uid://c380rosu5t3ug" path="res://Scripts/UI/quit_button.gd" id="7_tvx3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40bib"]
 texture = ExtResource("1_ereyx")
@@ -199,7 +201,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1393686631]
-position = Vector2(183, 102)
+position = Vector2(183, 74)
 zoom = Vector2(3.5, 3.5)
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=113546843]
@@ -241,8 +243,9 @@ z_index = 1
 texture_filter = 1
 anchors_preset = 0
 offset_left = 2.0
+offset_top = 26.0
 offset_right = 369.0
-offset_bottom = 63.454544
+offset_bottom = 89.454544
 
 [node name="First" type="Label" parent="Title" unique_id=942658483]
 layout_mode = 1
@@ -253,7 +256,7 @@ offset_left = -4.0
 offset_right = -140.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "CHEF'S"
+text = "CHEFS"
 label_settings = SubResource("LabelSettings_g13ic")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -264,14 +267,24 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 135.0
+offset_top = -3.0
 offset_right = -4.0
-offset_bottom = 5.545456
+offset_bottom = 2.545456
 grow_horizontal = 2
 grow_vertical = 2
 text = "LEGACY"
 label_settings = SubResource("LabelSettings_wjop8")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Title" unique_id=1125615550]
+layout_mode = 0
+offset_left = 149.0
+offset_top = -28.0
+offset_right = 204.0
+offset_bottom = 27.0
+texture = ExtResource("5_o0om2")
+expand_mode = 1
 
 [node name="Buttons" type="Control" parent="." unique_id=329226853]
 z_index = 1
@@ -360,5 +373,7 @@ offset_top = 2.0
 offset_right = 104.0
 offset_bottom = 32.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wjop8")
+script = ExtResource("7_tvx3w")
 
 [connection signal="pressed" from="Buttons/Play/PlayButton" to="Buttons/Play/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Quit/QuitButton" to="Buttons/Quit/QuitButton" method="_on_pressed"]

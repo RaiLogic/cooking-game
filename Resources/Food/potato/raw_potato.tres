@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_tmrna")
-food_name = "raw_potato"
+food_name = "raw potato"
 icon = ExtResource("2_tike6")
 can_cook = true
 cook_time = 15.0

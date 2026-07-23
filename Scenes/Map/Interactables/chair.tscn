@@ -61,4 +61,3 @@ position = Vector2(0, -3.75)
 shape = SubResource("RectangleShape2D_fu1k5")
 
 [node name="Point" type="Marker2D" parent="." unique_id=888452681]
-position = Vector2(0, 9)

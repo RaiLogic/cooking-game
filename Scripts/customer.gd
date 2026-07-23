@@ -19,6 +19,7 @@ var desired_food : Food
 
 func _ready() -> void:
 	interact_area.monitoring = false
+	agent.avoidance_enabled = true
 
 func _physics_process(delta: float) -> void:
 	if state == STATES.LEAVING: 

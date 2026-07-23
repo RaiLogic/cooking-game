@@ -7,6 +7,6 @@ load_path = "res://.godot/imported/sunny_side_egg.png-ab8b03597b4d6a244f3465d2dd
 
 [resource]
 script = ExtResource("1_otk4e")
-food_name = "sunny_side_egg"
+food_name = "fried egg"
 icon = SubResource("CompressedTexture2D_otk4e")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"
