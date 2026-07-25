@@ -29,7 +29,7 @@ func interact(interactor: Player) -> void:
 			if check_item():
 				current_state = STATES.SLICING
 				player.inventory.clear_item()
-				set_move(false)
+				player.interact.interacting = true
 				slice()
 		STATES.SLICING:
 			tool_inventory.play_alert()
@@ -39,12 +39,6 @@ func interact(interactor: Player) -> void:
 			else:
 				player.inventory.add_item(item.sliced_version)
 				restart()
-
-func set_move(move: bool) -> void:
-	if move:
-		player.input.controls = true
-	else:
-		player.input.controls = false
 
 func check_item() -> bool:
 	if player.inventory.has_item():
@@ -67,7 +61,7 @@ func slice() -> void:
 	
 func finished() -> void:
 	sfx_manager.stop(sound_player)
-	set_move(true)
+	player.interact.interacting = false
 	tool_inventory.set_ui(item.sliced_version)
 	current_state = STATES.FULL
 	

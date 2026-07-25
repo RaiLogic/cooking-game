@@ -7,19 +7,22 @@ var movement: Vector2
 
 var dancing : bool
 
+
 func update_anim(velocity: Vector2) -> void:
+	if global.current_location == global.LOCATIONS.MAIN_MENU:
+		dance()
+		return
+	
 	movement = velocity
 	
 	position_update()
-		
-	if velocity != Vector2(0,0):
+	if movement == Vector2.ZERO:
+		idle()
+	elif movement != Vector2(0,0):
 		dancing = false
 		run()
-	elif velocity == Vector2(0,0) and !dancing:
-		if global.current_location == global.LOCATIONS.MAIN_MENU:
-			dance()
-		else:
-			idle()
+	elif movement == Vector2(0,0) and !dancing:
+		dance()
 
 func run() -> void:
 	if position == "right":
@@ -42,14 +45,14 @@ func idle() -> void:
 		sprite.play("idle:Down")
 	
 func position_update() -> void:
+	if movement.x == 0:
+		if movement.y <= -1: position = "up"
+		if movement.y >= 1: position = "down"
+	
 	if movement.y == 0:
 		if movement.x >= 1: position = "right"
 		if movement.x <= -1: position = "left"
 	
-	elif movement.x == 0:
-		if movement.y <= -1: position = "up"
-		if movement.y >= 1: position = "down"
-		
 func dance() -> void:
 	if movement == Vector2.ZERO:
 		position = "down"

@@ -9,7 +9,7 @@ class_name Player extends CharacterBody2D
 
 func _ready() -> void:
 	if global.current_location == global.LOCATIONS.MAIN_MENU:
-		input.controls = false
+		movement.can_move = false
 		
 func _physics_process(delta: float) -> void:
 	# INPUTS
@@ -18,7 +18,8 @@ func _physics_process(delta: float) -> void:
 	# MOVEMENT
 	movement.move(input.move_action)
 	movement.speed = movement.base_speed
-	movement.can_move = input.controls
+	if interact.interacting: set_move(false)
+	else: set_move(true)
 	
 	# DASH
 	if input.dashed and movement.moving:
@@ -32,10 +33,18 @@ func _physics_process(delta: float) -> void:
 	
 	if input.dance_move:
 		animate.dance()
-	
-	
+
 	# INTERACTION
 	if input.interact:
 		interact.action(self)
+	if interact.interacting:
+		if interact.current_interacted.name == "Refrigerator":
+			print("Fridge Interacted!")
 		
-	# INVENTORY
+
+func set_move(move: bool) -> void:
+	if move:
+		movement.can_move = true
+	else:
+		movement.can_move = false
+		velocity = Vector2.ZERO

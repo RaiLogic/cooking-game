@@ -60,6 +60,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FridgeUI" parent="." unique_id=697897164 instance=ExtResource("3_o62ck")]
+visible = false
 layout_mode = 0
 offset_left = 2.0
 offset_top = -44.0

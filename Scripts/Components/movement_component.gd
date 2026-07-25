@@ -5,7 +5,7 @@ class_name MovementComponent extends Node
 
 @onready var speed : float = base_speed
 
-var can_move : bool
+var can_move : bool = true
 var moving : bool
 
 func move(move_direction: Vector2) -> void:
@@ -21,4 +21,6 @@ func move(move_direction: Vector2) -> void:
 		else: moving = false
 		
 		body.move_and_slide()
+		
+	
 	

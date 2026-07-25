@@ -44,7 +44,7 @@ func get_item_slot() -> void:
 		return
 	elif dish_craftable:
 		progress_bar.start(current_recipe.plating_time)
-		set_move(false)
+		player.interact.interacting = true
 	else:
 		plating_ui.clear_item(items.size())
 		item = items.pop_back()
@@ -78,15 +78,9 @@ func done() -> void:
 	player.inventory.add_item(current_recipe.result)
 	restart()
 
-func set_move(move: bool) -> void:
-	if move:
-		player.input.controls = true
-	else:
-		player.input.controls = false
-
 func restart() -> void:
 	progress_bar.restart()
 	plating_ui.clear_all()
 	dish_craftable = false
 	items.clear()
-	set_move(true)
+	player.interact.interacting = false

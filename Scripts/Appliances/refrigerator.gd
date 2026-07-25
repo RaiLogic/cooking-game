@@ -6,6 +6,7 @@ var food_available : Array[Food]
 var food : Food
 var last_picked_food : Food = null
 
+
 func get_stored_item() -> void:
 	avoid_last_obtained()
 	
@@ -18,6 +19,12 @@ func avoid_last_obtained() -> void:
 		food_available.erase(last_picked_food)
 
 func interact(interactor: Player) -> void:
+	
 	get_stored_item()
 	
 	interactor.inventory.replace_item(food)
+	
+	# This signal triggers the fridge_ui in the inventory ui
+	interactor.interact.fridge(interactor)
+	
+	
