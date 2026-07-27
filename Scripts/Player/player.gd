@@ -7,11 +7,12 @@ class_name Player extends CharacterBody2D
 @export var interact: InteractorComponent
 @export var inventory: InventoryComponent
 
-func _ready() -> void:
-	if global.current_location == global.LOCATIONS.MAIN_MENU:
-		movement.can_move = false
-		
 func _physics_process(delta: float) -> void:
+	# JUST FOR TESTING STUFF, THIS IS TO AVOID BOTH PROCESS RUNNING AND KEEP IT
+	# ONE PLAYER
+	#if name == "Player2":
+		#return
+	
 	# INPUTS
 	input.get_input()
 	
@@ -38,9 +39,11 @@ func _physics_process(delta: float) -> void:
 	if input.interact:
 		interact.action(self)
 	if interact.interacting:
-		if interact.current_interacted.name == "Refrigerator":
-			print("Fridge Interacted!")
-		
+		set_move(false)
+	else:
+		set_move(true)
+
+
 
 func set_move(move: bool) -> void:
 	if move:

@@ -1,8 +1,7 @@
 [gd_scene format=4 uid="uid://ctv4u71krr366"]
 
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_ereyx"]
-[ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="3_wjop8"]
+[ext_resource type="PackedScene" uid="uid://d40j82m6dydy" path="res://Scenes/Players/no_script_player.tscn" id="2_o0om2"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="4_wjop8"]
 [ext_resource type="Script" uid="uid://m3g4vmmp2afi" path="res://Scripts/UI/Button/play_button.gd" id="5_40bib"]
 [ext_resource type="Texture2D" uid="uid://n5aqljagmn3h" path="res://Assets/Own Assets/game_logo.png" id="5_o0om2"]
@@ -230,13 +229,15 @@ tile_set = SubResource("TileSet_o0om2")
 [node name="Players" type="Node2D" parent="." unique_id=2004107776]
 position = Vector2(2, 0)
 
-[node name="Player1" parent="Players" unique_id=1165400651 instance=ExtResource("1_jjgbg")]
-position = Vector2(83, 116)
-scale = Vector2(0.8, 0.8)
+[node name="NoScriptPlayer" parent="Players" unique_id=1738515942 instance=ExtResource("2_o0om2")]
+z_index = 3
+position = Vector2(85, 115)
+dance = "dance1"
 
-[node name="Player2" parent="Players" unique_id=1739635833 instance=ExtResource("3_wjop8")]
-position = Vector2(267, 116)
-scale = Vector2(0.8, 0.8)
+[node name="NoScriptPlayer2" parent="Players" unique_id=379302239 instance=ExtResource("2_o0om2")]
+z_index = 3
+position = Vector2(263, 115)
+dance = "dance2"
 
 [node name="Title" type="Control" parent="." unique_id=172719137]
 z_index = 1

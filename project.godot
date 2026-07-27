@@ -33,9 +33,24 @@ window/stretch/scale_mode="integer"
 
 folder_colors={
 "res://Assets/": "red",
+"res://Assets/Borrowed Assets/": "red",
+"res://Assets/Music/": "yellow",
+"res://Assets/Own Assets/": "green",
 "res://Resources/": "pink",
+"res://Resources/Food/": "orange",
+"res://Resources/Recipes/": "green",
+"res://Resources/Script/": "gray",
 "res://Scenes/": "purple",
-"res://Scripts/": "green"
+"res://Scenes/Components/": "yellow",
+"res://Scenes/Map/": "red",
+"res://Scenes/Players/": "purple",
+"res://Scenes/UI/": "orange",
+"res://Scripts/": "green",
+"res://Scripts/Appliances/": "blue",
+"res://Scripts/Components/": "yellow",
+"res://Scripts/Map/": "red",
+"res://Scripts/Player/": "purple",
+"res://Scripts/UI/": "orange"
 }
 
 [input]

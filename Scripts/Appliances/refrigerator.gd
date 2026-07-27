@@ -1,30 +1,58 @@
 class_name Refrigerator extends StaticBody2D
 
 @export var food_group : Array[Food]
+var fridge_user : Player
+var player : Player
 
-var food_available : Array[Food]
-var food : Food
-var last_picked_food : Food = null
-
-
-func get_stored_item() -> void:
-	avoid_last_obtained()
-	
-	food = food_available.pick_random()
-	last_picked_food = food
-
-func avoid_last_obtained() -> void:
-	food_available = food_group.duplicate()
-	if last_picked_food != null:
-		food_available.erase(last_picked_food)
+var prev_food : Food
+var curr_food : Food
+var next_food : Food
+var index : int = 0
 
 func interact(interactor: Player) -> void:
+	# AVOIDS MULTIPLE PLAYERS USING THE FRIDGE
+	if fridge_user != null:
+		if fridge_user == interactor:
+			player.interact.fridge_toggle.emit(false)
+			get_food()
+			fridge_user = null
+			return
+		else:
+			print("you're not ", fridge_user.name)
+			return
+
+	player = interactor
+	fridge_user = player
+	interactor.input.fridge_mode(self)
 	
-	get_stored_item()
+	update_fridge()
+	player.interact.fridge_toggle.emit(true)
+
+func get_food() -> void:
+	player.inventory.replace_item(curr_food)
+
+func update_fridge() -> void:
+	# Sets the food carousel
+	curr_food = food_group[index]
+	prev_food = food_group[
+		(index - 1 + food_group.size()) % food_group.size()
+		]
+	next_food = food_group[(index + 1) % food_group.size()]
 	
-	interactor.inventory.replace_item(food)
+	player.interact.fridge_food_rotate.emit(prev_food, curr_food, next_food)
 	
-	# This signal triggers the fridge_ui in the inventory ui
-	interactor.interact.fridge(interactor)
+func next() -> void:
+	index += 1
 	
+	if index >= food_group.size():
+		index = 0
+		
+	update_fridge()
+	
+func back() -> void:
+	index -= 1
+	if index < 0:
+		index = food_group.size() - 1
+		
+	update_fridge()
 	

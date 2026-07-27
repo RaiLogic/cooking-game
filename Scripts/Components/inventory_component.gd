@@ -3,7 +3,7 @@ class_name InventoryComponent extends Node
 var item_held : Food
 
 signal item_changed(item)
-signal action_failedd
+signal action_failed
 
 func request_alert() -> void:
 	action_failed.emit()

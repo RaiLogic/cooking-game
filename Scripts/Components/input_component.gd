@@ -7,6 +7,14 @@ var dance_move: bool = false
 
 var controls: bool = true
 
+enum STATES {
+	NORMAL,
+	FRIDGE
+}
+var state : int
+
+var current_fridge : Refrigerator
+
 @export var move_up : String
 @export var move_down : String
 @export var move_left : String
@@ -18,13 +26,38 @@ var controls: bool = true
 
 func get_input() -> void:
 	if controls:
-		move_action = Input.get_vector(
+		match state:
+			STATES.NORMAL:
+				normal_movement()
+			STATES.FRIDGE:
+				fridge_movement()
+				
+	interact = Input.is_action_just_pressed(action)
+
+func normal_movement() -> void:
+	move_action = Input.get_vector(
 			move_left, 
 			move_right, 
 			move_up, 
 			move_down
 			)
 			
-		dashed = Input.is_action_just_pressed(dash)
-		interact = Input.is_action_just_pressed(action)
-		dance_move = Input.is_action_just_pressed(dance)
+	dashed = Input.is_action_just_pressed(dash)
+	dance_move = Input.is_action_just_pressed(dance)
+	
+func fridge_mode(fridge: Refrigerator) -> void:
+	state = STATES.FRIDGE
+	current_fridge = fridge
+	controls = false
+	await get_tree().process_frame
+	controls = true
+	
+func fridge_movement() -> void:
+	await get_tree().process_frame
+	if interact:
+		state = STATES.NORMAL
+	
+	if Input.is_action_just_pressed(move_left):
+		current_fridge.back()
+	if Input.is_action_just_pressed(move_right):
+		current_fridge.next()

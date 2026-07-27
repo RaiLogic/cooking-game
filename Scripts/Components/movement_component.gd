@@ -22,5 +22,5 @@ func move(move_direction: Vector2) -> void:
 		
 		body.move_and_slide()
 		
-	
+
 	

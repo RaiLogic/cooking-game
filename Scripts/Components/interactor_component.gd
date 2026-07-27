@@ -4,7 +4,8 @@ var type : String
 var current_interacted: InteractedComponent = null
 var interacting : bool = false
 
-signal fridge_open(Player)
+signal fridge_food_rotate(Food)
+signal fridge_toggle
 
 func set_interacted(interacted: InteractedComponent) -> void:
 	current_interacted = interacted
@@ -24,8 +25,9 @@ func set_interacts() -> void:
 		interacting = !interacting
 
 # FOR UNIQUE INTERACTABLES
-func fridge(player: Player) -> void:
-	set_interacts()
-	
-	# OPEN FRIDGE_UI IN PLAYER
-	fridge_open.emit(player)
+#func fridge(previous, current, next) -> void:
+	#type = current_interacted.interactable.name
+	##set_interacts()
+	#
+	## OPEN FRIDGE_UI IN PLAYER
+	#fridge_open.emit(previous, current, next)

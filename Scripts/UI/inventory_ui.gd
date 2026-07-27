@@ -20,7 +20,15 @@ func set_inventory(item: Food) -> void:
 func play_alert() -> void:
 	animation.play("alert")
 	
-func fridge_ui(player: Player) -> void:
-	if fridge.visible or !fridge.visible:
-		fridge.visible = !fridge.visible
+func set_fridge_ui(toggle: bool) -> void:
+	if toggle:
+		fridge.visible = true
+	else:
+		print("false")
+		fridge.visible = false
+	
+func fridge_update_ui(previous: Food, current: Food, next: Food) -> void:
+	fridge.update_ui(previous, current, next)
+	
+	
 	

@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://bocubqr75l7b7"]
 
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_2dg55"]
-[ext_resource type="Texture2D" uid="uid://cpwq2wyy6gwv6" path="res://Assets/Own Assets/Foods&Recipe/Bun.png" id="2_jeca8"]
-[ext_resource type="Texture2D" uid="uid://8v1nerkwdcva" path="res://Assets/Own Assets/Foods&Recipe/Patty/raw_patty.png" id="3_l7kr2"]
-[ext_resource type="Texture2D" uid="uid://bthr8lcwn8mn3" path="res://Assets/Own Assets/Foods&Recipe/Potato/potato.png" id="4_0q6pr"]
+[ext_resource type="Script" uid="uid://cmfqbfme61yft" path="res://Scripts/UI/fridge_ui.gd" id="1_3lbov"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkiog"]
 
@@ -18,6 +16,7 @@ offset_right = 67.0
 offset_bottom = 26.025614
 scale = Vector2(1.7290659, 1.7290659)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nkiog")
+script = ExtResource("1_3lbov")
 
 [node name="Left" type="Label" parent="." unique_id=1381752258]
 layout_mode = 0
@@ -47,7 +46,6 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 15.0
 offset_bottom = 15.0
-texture = ExtResource("2_jeca8")
 expand_mode = 1
 
 [node name="CurrentFood" type="TextureRect" parent="." unique_id=2123966082]
@@ -59,7 +57,6 @@ offset_left = -9.5
 offset_right = 9.5
 offset_bottom = 19.0
 grow_horizontal = 2
-texture = ExtResource("3_l7kr2")
 expand_mode = 1
 
 [node name="NextFood" type="TextureRect" parent="." unique_id=1173571181]
@@ -72,5 +69,4 @@ offset_top = 4.0
 offset_right = -4.0
 offset_bottom = 15.0
 grow_horizontal = 0
-texture = ExtResource("4_0q6pr")
 expand_mode = 1
