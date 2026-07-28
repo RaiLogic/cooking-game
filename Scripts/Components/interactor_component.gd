@@ -18,11 +18,11 @@ func action(interactor: Player) -> void:
 	if current_interacted != null:
 		current_interacted.interact(interactor)
 		
-func set_interacts() -> void:
-	# PREVENTS PLAYER MOVING SO THE PLAYER CAN FOCUS ON 
-	# CHOOSING FOOD
-	if interacting or !interacting: 
-		interacting = !interacting
+#func set_interacts() -> void:
+	## PREVENTS PLAYER MOVING SO THE PLAYER CAN FOCUS ON 
+	## CHOOSING FOOD
+	#if interacting or !interacting: 
+		#interacting = !interacting
 
 # FOR UNIQUE INTERACTABLES
 #func fridge(previous, current, next) -> void:

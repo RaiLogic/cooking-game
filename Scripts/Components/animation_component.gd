@@ -7,22 +7,18 @@ var movement: Vector2
 
 var dancing : bool
 
-
 func update_anim(velocity: Vector2) -> void:
-	if global.current_location == global.LOCATIONS.MAIN_MENU:
-		dance()
-		return
-	
 	movement = velocity
 	
 	position_update()
-	if movement == Vector2.ZERO:
-		idle()
-	elif movement != Vector2(0,0):
+	if !dancing:
+		if movement == Vector2.ZERO:
+			idle()
+		if movement != Vector2(0,0):
+			dancing = false
+			run()
+	elif movement != Vector2(0,0) and dancing:
 		dancing = false
-		run()
-	elif movement == Vector2(0,0) and !dancing:
-		dance()
 
 func run() -> void:
 	if position == "right":

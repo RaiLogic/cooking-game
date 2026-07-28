@@ -24,7 +24,6 @@ func set_fridge_ui(toggle: bool) -> void:
 	if toggle:
 		fridge.visible = true
 	else:
-		print("false")
 		fridge.visible = false
 	
 func fridge_update_ui(previous: Food, current: Food, next: Food) -> void:

@@ -61,3 +61,6 @@ func fridge_movement() -> void:
 		current_fridge.back()
 	if Input.is_action_just_pressed(move_right):
 		current_fridge.next()
+	if Input.is_action_just_pressed(move_down):
+		current_fridge.close()
+		state = STATES.NORMAL

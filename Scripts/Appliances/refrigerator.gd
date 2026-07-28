@@ -1,5 +1,8 @@
 class_name Refrigerator extends StaticBody2D
 
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+var close_sfx = preload("res://Assets/Music/Fridge Close.mp3")
+
 @export var food_group : Array[Food]
 var fridge_user : Player
 var player : Player
@@ -13,12 +16,11 @@ func interact(interactor: Player) -> void:
 	# AVOIDS MULTIPLE PLAYERS USING THE FRIDGE
 	if fridge_user != null:
 		if fridge_user == interactor:
-			player.interact.fridge_toggle.emit(false)
-			get_food()
-			fridge_user = null
+			player.inventory.replace_item(curr_food)
+			close()
 			return
 		else:
-			print("you're not ", fridge_user.name)
+			interactor.inventory.request_alert()
 			return
 
 	player = interactor
@@ -27,9 +29,6 @@ func interact(interactor: Player) -> void:
 	
 	update_fridge()
 	player.interact.fridge_toggle.emit(true)
-
-func get_food() -> void:
-	player.inventory.replace_item(curr_food)
 
 func update_fridge() -> void:
 	# Sets the food carousel
@@ -56,3 +55,7 @@ func back() -> void:
 		
 	update_fridge()
 	
+func close() -> void:
+	sfx_manager.play_sfx(audio, close_sfx)
+	fridge_user = null
+	player.interact.fridge_toggle.emit(false)
