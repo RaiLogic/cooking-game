@@ -25,10 +25,11 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = -129.0
+offset_top = -85.0
 offset_right = 129.0
-offset_bottom = -10.0
+offset_bottom = 34.0
 grow_vertical = 0
+scale = Vector2(0.65330637, 0.65330637)
 theme_override_styles/panel = SubResource("StyleBoxFlat_p83af")
 script = ExtResource("1_q4ye0")
 

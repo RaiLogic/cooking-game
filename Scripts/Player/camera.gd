@@ -22,9 +22,7 @@ func _process(delta: float) -> void:
 func fix_horizontal_follow() -> void:
 	global_position.x = fixed
 
-
 func follow_zoom(delta: float) -> void:
-	
 	distance = p1.global_position.distance_to(p2.global_position)
 	# get distance between player 1 and 2
 	
@@ -41,3 +39,5 @@ func follow_zoom(delta: float) -> void:
 	
 	zoom = zoom.lerp(Vector2.ONE * target_zoom, delta * smoothness)
 	# Delays updates to make zoom smoother
+	
+	position = position.round()

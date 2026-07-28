@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://dss2lenr38dbx" path="res://Scripts/Player/camera.gd" id="1_fn66w"]
 
 [node name="Camera2D" type="Camera2D" unique_id=572807410]
-zoom = Vector2(3.5, 3.5)
 limit_top = -100
 limit_bottom = 240
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("1_fn66w")
-fixed = 158.0
+fixed = 320.0
+min_zoom = 3.0
+max_zoom = 1.2
