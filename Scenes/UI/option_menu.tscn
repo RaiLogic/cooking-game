@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bqhnyed021svq"]
+
+[ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_n2a5x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fu1k5"]
+font = ExtResource("1_n2a5x")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="OptionMenu" type="Panel" unique_id=327814313]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="Panel" parent="." unique_id=628114423]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.77777
+offset_top = 19.0
+offset_right = -33.77777
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resolution" type="Control" parent="Margin" unique_id=2063442213]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Margin/Resolution" unique_id=2092112731]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.5
+offset_right = -291.22223
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resolution"
+label_settings = SubResource("LabelSettings_fu1k5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Margin/Resolution" unique_id=27682822]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 325.44446
+offset_right = -50.22223
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "640x320"
+popup/item_0/id = 1
+popup/item_1/text = "1280x720"
+popup/item_1/id = 2
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 3

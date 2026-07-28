@@ -12,6 +12,5 @@ func center_window() -> void:
 	DisplayServer.window_set_position(pos)
 
 func _on_options_button_pressed() -> void:
-	print(get_window().size)
 	get_window().size = Vector2i(1920, 1080)
 	center_window()

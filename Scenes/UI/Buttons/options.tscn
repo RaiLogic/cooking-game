@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://qhw65cl52ea0"]
+
+[ext_resource type="Script" uid="uid://b3wn4ye6sc1uy" path="res://Scripts/UI/Button/options_button.gd" id="1_5jln8"]
+[ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="2_jt7l2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g13ic"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbjh4"]
+font = ExtResource("2_jt7l2")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjop8"]
+
+[node name="Options" type="Control" unique_id=1247900616]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.07371
+offset_top = 12.500183
+offset_right = 54.0737
+offset_bottom = 46.500183
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5jln8")
+
+[node name="Panel" type="Panel" parent="." unique_id=53660373]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g13ic")
+
+[node name="Label" type="Label" parent="." unique_id=347956571]
+layout_mode = 0
+offset_right = 122.813
+offset_bottom = 34.0
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_pbjh4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsButton" type="Button" parent="." unique_id=1564061487]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 121.66522
+offset_bottom = 32.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wjop8")
+
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
