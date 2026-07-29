@@ -25,11 +25,12 @@ func interact(interactor: Player) -> void:
 
 	player = interactor
 	fridge_user = player
+	
 	interactor.input.fridge_mode(self)
 	
 	update_fridge()
 	player.interact.fridge_toggle.emit(true)
-
+	
 func update_fridge() -> void:
 	# Sets the food carousel
 	curr_food = food_group[index]

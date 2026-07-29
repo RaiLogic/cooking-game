@@ -1,6 +1,29 @@
 [gd_scene format=3 uid="uid://bqhnyed021svq"]
 
+[ext_resource type="Script" uid="uid://cf44bseeko3m7" path="res://Scripts/UI/option_menu.gd" id="1_1r881"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_n2a5x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50t1a"]
+bg_color = Color(0.6, 0.6, 0.6, 0.4862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu1k5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_50t1a"]
+font = ExtResource("1_n2a5x")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h38m5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fu1k5"]
 font = ExtResource("1_n2a5x")
@@ -14,28 +37,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_50t1a")
+script = ExtResource("1_1r881")
 
-[node name="Margin" type="Panel" parent="." unique_id=628114423]
+[node name="Back" type="Control" parent="." unique_id=1172555630]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 19.0
+offset_right = 129.74185
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="Back" unique_id=831614047]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 33.77777
-offset_top = 19.0
-offset_right = -33.77777
-offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fu1k5")
 
-[node name="Resolution" type="Control" parent="Margin" unique_id=2063442213]
+[node name="Label" type="Label" parent="Back" unique_id=1018667357]
+layout_mode = 0
+offset_right = 118.100006
+offset_bottom = 45.0
+text = "Back"
+label_settings = SubResource("LabelSettings_50t1a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Back" unique_id=1375364097]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h38m5")
+
+[node name="Resolution" type="Control" parent="." unique_id=2063442213]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 23.0
-offset_bottom = 60.0
+offset_left = 2.0
+offset_top = 85.0
+offset_right = 2.0
+offset_bottom = 122.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="Margin/Resolution" unique_id=2092112731]
+[node name="Label" type="Label" parent="Resolution" unique_id=2092112731]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -51,7 +101,7 @@ label_settings = SubResource("LabelSettings_fu1k5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Margin/Resolution" unique_id=27682822]
+[node name="OptionButton" type="OptionButton" parent="Resolution" unique_id=27682822]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,9 +113,93 @@ grow_vertical = 2
 alignment = 1
 selected = 0
 item_count = 3
-popup/item_0/text = "640x320"
+popup/item_0/text = "640x360"
 popup/item_0/id = 1
 popup/item_1/text = "1280x720"
 popup/item_1/id = 2
 popup/item_2/text = "1920x1080"
 popup/item_2/id = 3
+
+[node name="Music" type="Control" parent="." unique_id=402392079]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 143.0
+offset_right = 2.0
+offset_bottom = 180.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Music" unique_id=591993749]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.5
+offset_right = -291.22223
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_fu1k5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Music" unique_id=306510559]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 325.44446
+offset_right = -50.22223
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -40.0
+max_value = 0.0
+
+[node name="SFX" type="Control" parent="." unique_id=1553737728]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 204.0
+offset_right = 2.0
+offset_bottom = 241.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="SFX" unique_id=575610173]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.5
+offset_right = -291.22223
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_fu1k5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="SFX" unique_id=267166590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 325.44446
+offset_right = -50.22223
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -40.0
+max_value = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=870920895]
+
+[connection signal="pressed" from="Back/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="Resolution/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="value_changed" from="Music/HSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_ended" from="SFX/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="SFX/HSlider" to="." method="_on_sfx_slider_value_changed"]

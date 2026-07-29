@@ -7,6 +7,9 @@ var interacting : bool = false
 signal fridge_food_rotate(Food)
 signal fridge_toggle
 
+func _ready() -> void:
+	fridge_toggle.connect(set_interacts)
+
 func set_interacted(interacted: InteractedComponent) -> void:
 	current_interacted = interacted
 
@@ -18,16 +21,8 @@ func action(interactor: Player) -> void:
 	if current_interacted != null:
 		current_interacted.interact(interactor)
 		
-#func set_interacts() -> void:
-	## PREVENTS PLAYER MOVING SO THE PLAYER CAN FOCUS ON 
-	## CHOOSING FOOD
-	#if interacting or !interacting: 
-		#interacting = !interacting
-
-# FOR UNIQUE INTERACTABLES
-#func fridge(previous, current, next) -> void:
-	#type = current_interacted.interactable.name
-	##set_interacts()
-	#
-	## OPEN FRIDGE_UI IN PLAYER
-	#fridge_open.emit(previous, current, next)
+func set_interacts() -> void:
+	# PREVENTS PLAYER MOVING SO THE PLAYER CAN FOCUS ON 
+	# CHOOSING FOOD
+	if interacting or !interacting: 
+		interacting = !interacting

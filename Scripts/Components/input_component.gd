@@ -32,6 +32,8 @@ func get_input() -> void:
 		if !Input.is_action_pressed(action):
 			controls = true
 			return
+			
+	
 	match state:
 		STATES.NORMAL:
 			normal_movement()

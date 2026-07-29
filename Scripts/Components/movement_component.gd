@@ -21,6 +21,8 @@ func move(move_direction: Vector2) -> void:
 		else: moving = false
 		
 		body.move_and_slide()
+	else:
+		body.velocity = Vector2.ZERO
 		
 
 	
