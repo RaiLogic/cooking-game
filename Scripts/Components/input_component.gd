@@ -9,6 +9,8 @@ var dance_move: bool = false
 # TO ALSO TURN OFF ALL INPUT WHEN FALSE
 var controls: bool = true
 
+signal pause
+
 enum STATES {
 	NORMAL,
 	FRIDGE
@@ -41,7 +43,7 @@ func get_input() -> void:
 			fridge_movement()
 	
 	if Input.is_action_just_pressed("escape"):
-		get_tree().change_scene_to_file("res://Scenes/UI/main.tscn")
+		pause.emit()
 	
 
 func normal_movement() -> void:

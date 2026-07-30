@@ -10,9 +10,14 @@ var last_mode: Window.Mode
 @onready var res_button: OptionButton = $Resolution/ResolutionButton
 @onready var window_button: OptionButton = $Window/WindowButton
 
+@onready var back: Control = $Back
+
 @onready var window : Window = get_window()
 
+
 func _ready() -> void:
+	back.pressed.connect(back_to_menu)
+	
 	last_size = window.size
 	last_mode = window.mode
 
@@ -47,10 +52,6 @@ func update_res_option() -> void:
 func center_window() -> void:
 	var screen = DisplayServer.screen_get_size()
 	get_window().position = (screen - get_window().size) / 2
-
-func _on_back_button_pressed() -> void:
-	visible = false
-
 
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
@@ -91,3 +92,6 @@ func _on_window_button_item_selected(index: int) -> void:
 			window.borderless = false
 		2:
 			window.mode = Window.MODE_FULLSCREEN
+			
+func back_to_menu() -> void:
+	visible = false

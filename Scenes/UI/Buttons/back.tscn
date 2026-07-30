@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b6om6eba8up5j"]
+
+[ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_hettg"]
+[ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="1_lyyk1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu1k5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_50t1a"]
+font = ExtResource("1_hettg")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h38m5"]
+
+[node name="Back" type="Control" unique_id=1995781099]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 19.0
+offset_right = 129.74185
+offset_bottom = 65.0
+script = ExtResource("1_lyyk1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1239969252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fu1k5")
+
+[node name="Label" type="Label" parent="." unique_id=749056535]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+label_settings = SubResource("LabelSettings_50t1a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=522949838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h38m5")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
