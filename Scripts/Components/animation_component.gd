@@ -15,7 +15,7 @@ func update_anim(velocity: Vector2) -> void:
 		if movement == Vector2.ZERO:
 			idle()
 		if movement != Vector2(0,0):
-			dancing = false
+			dancing = false  
 			run()
 	elif movement != Vector2(0,0) and dancing:
 		dancing = false

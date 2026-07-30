@@ -13,6 +13,7 @@ var next_food : Food
 var index : int = 0
 
 func interact(interactor: Player) -> void:
+	
 	# AVOIDS MULTIPLE PLAYERS USING THE FRIDGE
 	if fridge_user != null:
 		if fridge_user == interactor:

@@ -276,9 +276,9 @@ expand_mode = 1
 z_index = 1
 anchors_preset = 0
 offset_left = 1.0
-offset_top = 37.0
+offset_top = 15.0
 offset_right = 369.0
-offset_bottom = 245.0
+offset_bottom = 223.0
 scale = Vector2(1.7424865, 1.7424865)
 
 [node name="Play" parent="Buttons" unique_id=819501465 instance=ExtResource("6_ayamy")]

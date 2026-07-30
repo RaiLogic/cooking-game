@@ -9,6 +9,9 @@ extends Node
 @onready var chairs: Array = $Interactables/Dining/Chairs.get_children()
 
 func _ready() -> void:
+	# SET MUSIC
+	music_manager.play_music(music_manager.INGAME)
+	
 	# PLAYER MOVEMENT
 	player_1.input.state = 0 # 0 MEANS NORMAL MOVEMENT
 	player_2.input.state = 0

@@ -11,6 +11,8 @@ func _ready() -> void:
 	quit.pressed.connect(quit_button)
 	options.pressed.connect(option_button)
 	
+	music_manager.play_music(music_manager.MENU)
+	
 func play_button() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Map/restaurant.tscn")
 	music_manager.play_music(music_manager.INGAME)

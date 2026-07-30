@@ -40,6 +40,8 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_50t1a")
 script = ExtResource("1_1r881")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=870920895]
+
 [node name="Back" type="Control" parent="." unique_id=1172555630]
 layout_mode = 1
 anchors_preset = 0
@@ -101,7 +103,7 @@ label_settings = SubResource("LabelSettings_fu1k5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Resolution" unique_id=27682822]
+[node name="ResolutionButton" type="OptionButton" parent="Resolution" unique_id=27682822]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,14 +122,59 @@ popup/item_1/id = 2
 popup/item_2/text = "1920x1080"
 popup/item_2/id = 3
 
+[node name="Window" type="Control" parent="." unique_id=1315338030]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 152.0
+offset_right = 2.0
+offset_bottom = 189.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Window" unique_id=1562118554]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.5
+offset_right = -291.22223
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Window"
+label_settings = SubResource("LabelSettings_fu1k5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WindowButton" type="OptionButton" parent="Window" unique_id=1842016719]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 325.44446
+offset_right = -50.22223
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Borderless"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+
 [node name="Music" type="Control" parent="." unique_id=402392079]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 2.0
-offset_top = 143.0
+offset_top = 210.0
 offset_right = 2.0
-offset_bottom = 180.0
+offset_bottom = 247.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="Music" unique_id=591993749]
@@ -156,16 +203,17 @@ offset_right = -50.22223
 grow_horizontal = 2
 grow_vertical = 2
 min_value = -40.0
-max_value = 0.0
+max_value = 3.0
+value = 3.0
 
 [node name="SFX" type="Control" parent="." unique_id=1553737728]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 2.0
-offset_top = 204.0
+offset_top = 271.0
 offset_right = 2.0
-offset_bottom = 241.0
+offset_bottom = 308.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="SFX" unique_id=575610173]
@@ -196,10 +244,9 @@ grow_vertical = 2
 min_value = -40.0
 max_value = 0.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=870920895]
-
 [connection signal="pressed" from="Back/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="item_selected" from="Resolution/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Resolution/ResolutionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Window/WindowButton" to="." method="_on_window_button_item_selected"]
 [connection signal="value_changed" from="Music/HSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_ended" from="SFX/HSlider" to="." method="_on_h_slider_drag_ended"]
 [connection signal="value_changed" from="SFX/HSlider" to="." method="_on_sfx_slider_value_changed"]
