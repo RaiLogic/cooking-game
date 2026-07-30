@@ -25,7 +25,12 @@ script = ExtResource("1_1r881")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=870920895]
 
 [node name="Back" parent="." unique_id=1995781099 instance=ExtResource("2_ygpm7")]
+visible = true
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 118.74185
+offset_bottom = 46.0
 
 [node name="Resolution" type="Control" parent="." unique_id=2063442213]
 layout_mode = 1

@@ -14,6 +14,7 @@ var target_zoom : Vector2
 var smoothness : float = position_smoothing_speed
 
 func _process(delta: float) -> void:
+	pause.camera = self
 	
 	follow_zoom(delta)
 	

@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://bfou8y47ttd4l"
 global="*uid://bc4ggsyxvnrw1"
 music_manager="*uid://b5sm7cxbm7lpr"
 sfx_manager="*uid://xqdecokthqv6"
+pause="*uid://bfxtwcv8f01us"
 
 [display]
 

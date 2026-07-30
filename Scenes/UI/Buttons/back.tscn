@@ -23,7 +23,6 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h38m5"]
 
 [node name="Back" type="Control" unique_id=1995781099]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 11.0
