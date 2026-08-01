@@ -4,9 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="2_5gtml"]
 [ext_resource type="Texture2D" uid="uid://cf8yhc5605gxk" path="res://icon.svg" id="2_gx0m6"]
 [ext_resource type="PackedScene" uid="uid://bjsimyj475d2e" path="res://Scenes/Components/Movement/movement_component.tscn" id="3_gx0m6"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fu1k5"]
-radius = 22.022715
+[ext_resource type="PackedScene" uid="uid://bgjefdyrixtw3" path="res://Scenes/Players/waiting_order.tscn" id="5_rgyyp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbjh4"]
 bg_color = Color(1, 1, 1, 1)
@@ -26,27 +24,13 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fu1k5"]
+radius = 22.022715
+
 [node name="Customer" type="CharacterBody2D" unique_id=660747108 node_paths=PackedStringArray("movement")]
 z_index = 1
 script = ExtResource("1_nbxf1")
 movement = NodePath("MovementComponent")
-
-[node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("2_5gtml")]
-interactable = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=1576993875]
-shape = SubResource("CircleShape2D_fu1k5")
-debug_color = Color(1, 0, 1, 0.41960785)
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=728965768]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449420283]
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("2_gx0m6")
-
-[node name="MovementComponent" parent="." unique_id=1842474206 node_paths=PackedStringArray("body") instance=ExtResource("3_gx0m6")]
-body = NodePath("..")
-base_speed = 40.0
 
 [node name="OrderUI" type="Panel" parent="." unique_id=450602127]
 visible = false
@@ -73,3 +57,24 @@ offset_right = 11.916674
 offset_bottom = 15.14711
 rotation = 0.76037836
 theme_override_styles/panel = SubResource("StyleBoxFlat_gx0m6")
+
+[node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("2_5gtml")]
+interactable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=1576993875]
+shape = SubResource("CircleShape2D_fu1k5")
+debug_color = Color(1, 0, 1, 0.41960785)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=728965768]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=449420283]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("2_gx0m6")
+
+[node name="MovementComponent" parent="." unique_id=1842474206 node_paths=PackedStringArray("body") instance=ExtResource("3_gx0m6")]
+body = NodePath("..")
+base_speed = 40.0
+
+[node name="WaitingOrder" parent="." unique_id=1243096468 instance=ExtResource("5_rgyyp")]
+visible = false
+position = Vector2(0, -22)

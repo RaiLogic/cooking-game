@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_2othk"]
 [ext_resource type="Script" uid="uid://cco8367qpssiv" path="res://Scripts/Map/restaurant.gd" id="1_e0itq"]
 [ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="2_2dgtp"]
+[ext_resource type="Texture2D" uid="uid://bh4s5bw12xt58" path="res://Assets/Borrowed Assets/Outdoors/OutdoorsTileset.png" id="3_abp06"]
 [ext_resource type="PackedScene" uid="uid://nyqun6pefchh" path="res://Scenes/Map/Interactables/refrigerator.tscn" id="4_5bm1g"]
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="4_ly26i"]
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_ynmxk"]
@@ -175,9 +176,14 @@ texture = ExtResource("1_2othk")
 7:31/0 = 0
 7:32/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iy6l8"]
+texture = ExtResource("3_abp06")
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_el2r4"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_y4tkd")
+sources/2 = SubResource("TileSetAtlasSource_iy6l8")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fbea"]
 bg_color = Color(1, 1, 1, 1)
@@ -501,11 +507,12 @@ libraries/ = SubResource("AnimationLibrary_538iu")
 script = ExtResource("13_emkxa")
 customer_scene = ExtResource("14_538iu")
 menu = ExtResource("14_7m7i6")
+customer_spawn_time = 0.1
 
 [node name="MainPoint" type="Marker2D" parent="CustomerSpawner" unique_id=923984660]
 position = Vector2(461, 354)
 
 [node name="SpawnTimer" type="Timer" parent="CustomerSpawner" unique_id=1683987105]
-wait_time = 12.0
+one_shot = true
 
 [connection signal="timeout" from="CustomerSpawner/SpawnTimer" to="CustomerSpawner" method="_on_spawn_timer_timeout"]

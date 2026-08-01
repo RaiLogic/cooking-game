@@ -6,16 +6,19 @@ class_name CustomerSpawner extends Node
 @onready var main_point: Marker2D = $MainPoint
 @onready var timer: Timer = $SpawnTimer
 
+@export var customer_spawn_time: float
+
 var customers : Array = []
 @onready var restaurant = get_parent()
 
 func _ready() -> void:
+	timer.wait_time = customer_spawn_time
+	
 	if timer.is_stopped():
 		timer.start()
-
+	
 func spawn_customer() -> void:
 	if customers.size() >= restaurant.chairs.size():
-		print("Customer limit")
 		return
 	
 	var customer = customer_scene.instantiate()
@@ -38,8 +41,7 @@ func spawn_customer() -> void:
 
 func customer_served(served: Customer) -> void:
 	customers.erase(served)
-	served.state = served.STATES.LEAVING
-	served.queue_free()
+	served.set_destination(main_point.global_position)
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_customer()

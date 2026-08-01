@@ -23,13 +23,13 @@ func update_sprite() -> void:
 func occupy(customer: Customer) -> void:
 	occupied = true
 	customer_sitting = customer
-	
+
+# CONNECTED TO CUSTOMER SIGNAL "done"
 func remove(customer: Customer) -> void:
 	if customer_sitting != customer:
 		print("error")
 		return
 
-	print("Chair available")
 	occupied = false
 	customer_sitting = null
 	

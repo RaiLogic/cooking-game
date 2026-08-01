@@ -1,0 +1,44 @@
+[gd_scene format=4 uid="uid://c8l6071iwy3gw"]
+
+[ext_resource type="Texture2D" uid="uid://crfou2n2jiy65" path="res://Assets/Borrowed Assets/For House/Room_Builder_free_16x16.png" id="1_jdd7i"]
+[ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="2_7cjtw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se8ev"]
+texture = ExtResource("1_jdd7i")
+0:17/0 = 0
+0:18/0 = 0
+1:17/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+2:17/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+5:17/0 = 0
+4:17/0 = 0
+3:17/0 = 0
+6:17/0 = 0
+8:0/0 = 0
+7:0/0 = 0
+12:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_axth3"]
+texture = ExtResource("2_7cjtw")
+
+[sub_resource type="TileSet" id="TileSet_1vivr"]
+sources/0 = SubResource("TileSetAtlasSource_se8ev")
+sources/1 = SubResource("TileSetAtlasSource_axth3")
+
+[node name="House" type="Node" unique_id=721783344]
+
+[node name="Tilemaps" type="Node2D" parent="." unique_id=1178458433]
+
+[node name="Background" type="TileMapLayer" parent="Tilemaps" unique_id=1893581371]
+tile_set = SubResource("TileSet_1vivr")
+
+[node name="TopWall" type="TileMapLayer" parent="Tilemaps" unique_id=76904811]
+tile_map_data = PackedByteArray("AAALAAUAAAAJAAMAAAAMAAUAAAABABEAAAANAAUAAAABABEAAAAOAAUAAAABABEAAAAPAAUAAAABABEAAAAQAAUAAAABABEAAAARAAUAAAABABEAAAASAAUAAAABABEAAAATAAUAAAABABEAAAAUAAUAAAABABEAAAAVAAUAAAABABEAAAAWAAUAAAABABEAAAAXAAUAAAABABEAAAAYAAUAAAABABEAAAAZAAUAAAABABEAAAAaAAUAAAACABEAAAALAAYAAAAEABEAAAAMAAYAAAAFABEAAAANAAYAAAAFABEAAAAOAAYAAAAFABEAAAAPAAYAAAAFABEAAAAQAAYAAAAFABEAAAARAAYAAAAFABEAAAASAAYAAAAFABEAAAATAAYAAAAFABEAAAAUAAYAAAAFABEAAAAVAAYAAAAFABEAAAAWAAYAAAAFABEAAAAXAAYAAAAFABEAAAAYAAYAAAAFABEAAAAZAAYAAAAFABEAAAAaAAYAAAAGABEAAAALAAcAAAAAABIAAAAMAAcAAAABABIAAAANAAcAAAABABIAAAAOAAcAAAABABIAAAAPAAcAAAABABIAAAAQAAcAAAABABIAAAARAAcAAAABABIAAAASAAcAAAABABIAAAATAAcAAAABABIAAAAUAAcAAAABABIAAAAVAAcAAAABABIAAAAWAAcAAAABABIAAAAXAAcAAAABABIAAAAYAAcAAAABABIAAAAZAAcAAAABABIAAAAaAAcAAAACABIAAAAKAAUAAAAHAAAAAAAKAAYAAAAHAAAAAAAKAAcAAAAHAAAAAAA=")
+tile_set = SubResource("TileSet_1vivr")
+
+[node name="BottomWall" type="TileMapLayer" parent="Tilemaps" unique_id=533348391]
+tile_set = SubResource("TileSet_1vivr")
