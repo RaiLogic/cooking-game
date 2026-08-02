@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvjy1wioitvmi"
-path="res://.godot/imported/Si_Gurl_nsa_Upuan.png-183232d0cff386d553eb444923dbd327.ctex"
+path="res://.godot/imported/Si_Gurl_nsa_Upuan.png-bc6286a41fe638c0c934371fe3fb60f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Own Assets/Si_Gurl_nsa_Upuan.png"
-dest_files=["res://.godot/imported/Si_Gurl_nsa_Upuan.png-183232d0cff386d553eb444923dbd327.ctex"]
+source_file="res://Assets/Own Assets/Customer/Si_Gurl_nsa_Upuan.png"
+dest_files=["res://.godot/imported/Si_Gurl_nsa_Upuan.png-bc6286a41fe638c0c934371fe3fb60f4.ctex"]
 
 [params]
 

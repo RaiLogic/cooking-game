@@ -33,7 +33,11 @@ func spawn_customer() -> void:
 	var chair = restaurant.get_available_chair()
 	if chair:
 		chair.occupy(customer)
+		
+		# CHAIR TO CUSTOMER CONNECTUIB
 		customer.done.connect(chair.remove)
+		customer.sitting.connect(chair.update_sprite)
+		
 		customer.set_destination(
 			chair.sit_point.global_position
 			

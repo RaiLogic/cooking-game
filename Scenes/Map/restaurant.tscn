@@ -414,6 +414,15 @@ position = Vector2(197, 210)
 [node name="Chairs" type="Node2D" parent="Interactables/Dining" unique_id=627144750]
 position = Vector2(0, -96)
 
+[node name="Chair7" parent="Interactables/Dining/Chairs" unique_id=988679782 instance=ExtResource("9_abp06")]
+position = Vector2(174, 272)
+placement = "down"
+
+[node name="Chair10" parent="Interactables/Dining/Chairs" unique_id=1931212271 instance=ExtResource("9_abp06")]
+z_index = 1
+position = Vector2(152, 296)
+placement = "right"
+
 [node name="Chair2" parent="Interactables/Dining/Chairs" unique_id=747928645 instance=ExtResource("9_abp06")]
 z_index = 1
 position = Vector2(13, 227)
@@ -424,11 +433,6 @@ z_index = 1
 position = Vector2(13, 295)
 placement = "right"
 
-[node name="Chair10" parent="Interactables/Dining/Chairs" unique_id=1931212271 instance=ExtResource("9_abp06")]
-z_index = 1
-position = Vector2(152, 296)
-placement = "right"
-
 [node name="Chair11" parent="Interactables/Dining/Chairs" unique_id=1468505395 instance=ExtResource("9_abp06")]
 z_index = 1
 position = Vector2(164, 209)
@@ -436,10 +440,6 @@ placement = "right"
 
 [node name="Chair4" parent="Interactables/Dining/Chairs" unique_id=603108134 instance=ExtResource("9_abp06")]
 position = Vector2(46, 205)
-placement = "down"
-
-[node name="Chair7" parent="Interactables/Dining/Chairs" unique_id=988679782 instance=ExtResource("9_abp06")]
-position = Vector2(174, 272)
 placement = "down"
 
 [node name="Chair8" parent="Interactables/Dining/Chairs" unique_id=489543099 instance=ExtResource("9_abp06")]
@@ -513,6 +513,7 @@ customer_spawn_time = 0.1
 position = Vector2(461, 354)
 
 [node name="SpawnTimer" type="Timer" parent="CustomerSpawner" unique_id=1683987105]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="CustomerSpawner/SpawnTimer" to="CustomerSpawner" method="_on_spawn_timer_timeout"]

@@ -3,6 +3,7 @@ class_name Customer extends CharacterBody2D
 @export var movement : MovementComponent
 @onready var order_ui: Panel = $OrderUI
 @onready var interact_area: InteractedComponent = $InteractedComponent
+@onready var sprite: Sprite2D = $Sprite2D
 
 @onready var agent : NavigationAgent2D = $NavigationAgent2D
 
@@ -17,8 +18,8 @@ enum STATES {
 }
 var state: STATES
 
-# CONNECTED TO FUNCTION "remove" in Chair.gd
-signal done(customer: Customer)
+signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
+signal sitting(seated: bool) # CONNECTED TO FUNCTION
 
 # FOOD ORDERING
 var desired_food : Food
@@ -31,11 +32,13 @@ func _physics_process(delta: float) -> void:
 	
 	if agent.is_navigation_finished():
 		if state == STATES.WALKING:
+			# FOR CHAIR POSITION AND SPRITES
 			if global_position != agent.target_position:
 				global_position = agent.target_position
-			
+				
 			if state == STATES.WALKING:
-				is_waiting(true)
+				sitting.emit(true)
+				is_sitting(true)
 				state = STATES.WAITING
 
 			velocity = Vector2.ZERO
@@ -51,7 +54,7 @@ func _physics_process(delta: float) -> void:
 func interact(interactor: Player) -> void:
 	if state == STATES.WAITING:
 		# INTERACTING WHILE WAITING STATE SHOWS ORDER
-		is_waiting(false)
+		is_sitting(false)
 		state = STATES.ORDERING
 		show_order()
 	elif state == STATES.ORDERING:
@@ -62,17 +65,18 @@ func interact(interactor: Player) -> void:
 		else:
 			order_ui.visible = false
 			interactor.inventory.clear_item()
-			done.emit(self)
+			done.emit(self) # to customer_spawner
 			done_order()
 		
 func set_destination(pos: Vector2) -> void:
 	agent.target_desired_distance = 8.0
 	agent.target_position = pos
 
-func is_waiting(index: bool) -> void:
+func is_sitting(index: bool) -> void:
 	if index == true:
 		wait.visible = true
 		wait_anim.play("show")
+		sprite.visible = false # INVISIBLE SO CHAIR HAS THE ANIMATION
 	elif index == false:
 		wait_anim.stop()
 		wait.visible = false
@@ -84,3 +88,4 @@ func show_order() -> void:
 func done_order() -> void:
 	# CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 	state = STATES.LEAVING
+	sprite.visible = true
