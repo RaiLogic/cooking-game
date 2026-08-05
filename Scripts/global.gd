@@ -1,5 +1,8 @@
 extends Node
 
+signal money_changed(amount)
+var money: int = 0
+
 enum LOCATIONS {
 	MAIN_MENU,
 	RESTAURANT,
@@ -23,3 +26,12 @@ func set_location(location):
 			music_manager.play_music(music_manager.MENU)
 		LOCATIONS.RESTAURANT:
 			music_manager.play_music(music_manager.INGAME)
+			
+func add_money(amount) -> void:
+	money += amount
+	money_changed.emit(money)
+	
+func spend_money(amount) -> void:
+	if money < amount:
+		print("Not Enough Money!")
+		return

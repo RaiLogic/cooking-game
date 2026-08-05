@@ -89,3 +89,4 @@ func done_order() -> void:
 	# CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 	state = STATES.LEAVING
 	sprite.visible = true
+	global.add_money(120)

@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bu61210to1pue" path="res://Scenes/Players/customer_spawner.gd" id="13_emkxa"]
 [ext_resource type="Resource" uid="uid://c4v051qosrjsh" path="res://Resources/Recipes/restaurant_menu.tres" id="14_7m7i6"]
 [ext_resource type="PackedScene" uid="uid://bqsjpkc8u85dp" path="res://Scenes/Players/customer.tscn" id="14_538iu"]
+[ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="15_iy6l8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ekhw0"]
 vertices = PackedVector2Array(126, 269.20313, 142.3125, 267.84375, 143.29688, 302.78125, 126, 295.1172, 125, 334.85156, 144.0625, 323.5703, 140.89063, 356.2578, 126.36719, 356.70313, 189, 265, 148.54688, 265, 149.46875, 247.92969, 281.71875, 247.0625, 189, 299.2578, 284.7422, 287.1875, 268.52344, 308.27344, 354, 285.79688, 354, 248.28906, 403.25, 249.71875, 407.72656, 416.34375, 366.3672, 417.7422, 354.96094, 379.4375, 352.6875, 294.25, 257.90625, 362.29688, 190, 330.3672, 190, 356.77344)
@@ -503,17 +504,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_emkxa")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/P2InventoryUI" unique_id=1622089071]
 libraries/ = SubResource("AnimationLibrary_538iu")
 
+[node name="MoneyUI" parent="UI" unique_id=1084197604 instance=ExtResource("15_iy6l8")]
+
 [node name="CustomerSpawner" type="Node" parent="." unique_id=509079700]
 script = ExtResource("13_emkxa")
 customer_scene = ExtResource("14_538iu")
 menu = ExtResource("14_7m7i6")
-customer_spawn_time = 0.1
+customer_spawn_time = 12.0
 
 [node name="MainPoint" type="Marker2D" parent="CustomerSpawner" unique_id=923984660]
 position = Vector2(461, 354)
 
 [node name="SpawnTimer" type="Timer" parent="CustomerSpawner" unique_id=1683987105]
 wait_time = 3.0
-one_shot = true
 
 [connection signal="timeout" from="CustomerSpawner/SpawnTimer" to="CustomerSpawner" method="_on_spawn_timer_timeout"]
