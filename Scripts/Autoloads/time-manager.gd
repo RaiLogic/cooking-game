@@ -14,32 +14,33 @@ var hour : int = 8
 var minute : int = 0
 var is_morning : bool = true
 
-
-	
-
 func _ready() -> void:
 	add_child(timer)
 	timer.wait_time = REAL_SECOND_STEP
 	timer.timeout.connect(_update_time)
-	day_ended.connect(func (): print("Day Ended"))
+	day_ended.connect(func(): print("Closing Time"))
 	start_day()
 	
 func start_day() -> void:
+	is_morning = false
 	timer.start()
 	
 func _update_time() -> void:
-	
 	minute += TIME_PROGRESS
 	
 	if minute >= 60:
 		hour += 1
 		minute = 0
-		
-	time_changed.emit(hour, minute)
-	print("Time: ", hour, ":%02d" % minute)
-	if hour >= 18:
+	
+	# CONDITION WHEN MORNING
+	if is_morning and hour >= 13:
+		hour = 1
+		minute = 0
+		is_morning = false
+	
+	# CONDITION WHEN MID-DAY AND CLOSING
+	if !is_morning and hour >= 8:
 		day_ended.emit()
 		timer.stop()
 		
-	
-	
+	time_changed.emit(hour, minute)

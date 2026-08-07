@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://cbrvh7ws4av1l"]
 
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_t1xxb"]
+[ext_resource type="Script" uid="uid://d3low1h13ivq6" path="res://Scripts/UI/time_ui.gd" id="1_ul3sl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1vivr"]
 font = ExtResource("1_t1xxb")
 font_size = 48
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vrlf"]
+font = ExtResource("1_t1xxb")
+font_size = 42
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
@@ -13,9 +20,10 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -117.0
+offset_left = -169.0
 offset_bottom = 63.0
 grow_horizontal = 0
+script = ExtResource("1_ul3sl")
 
 [node name="Background" type="Panel" parent="." unique_id=75540903]
 layout_mode = 1
@@ -25,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimeLabel" type="Label" parent="." unique_id=1679054463]
+[node name="Time" type="Label" parent="." unique_id=1679054463]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,4 +47,20 @@ grow_vertical = 2
 text = "8:00"
 label_settings = SubResource("LabelSettings_1vivr")
 horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Meridium" type="Label" parent="." unique_id=151776157]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = -103.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AM"
+label_settings = SubResource("LabelSettings_8vrlf")
+horizontal_alignment = 1
 vertical_alignment = 1
