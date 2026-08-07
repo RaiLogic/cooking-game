@@ -10,5 +10,5 @@
 script = ExtResource("2_jnb1e")
 ingredients = Array[ExtResource("1_6bqj3")]([ExtResource("2_o635i"), ExtResource("3_e1a8v")])
 result = ExtResource("4_lcysw")
-plating_time = 25.0
+plating_time = 100.0
 metadata/_custom_type_script = "uid://tby4gqes5ncu"

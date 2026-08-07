@@ -30,6 +30,7 @@ func interact(interactor: Player) -> void:
 	interactor.input.fridge_mode(self)
 	
 	update_fridge()
+	# CONNECTED TO FRIDGE_MODE()
 	player.interact.fridge_toggle.emit(true)
 	
 func update_fridge() -> void:

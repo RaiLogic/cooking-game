@@ -5,6 +5,7 @@ var dashed: bool = false
 var interact: bool = false
 var dance_move: bool = false
 
+
 # FOR DELAYING WHEN PRESSING A BUTTON THAT CHANGES THE STATE
 # TO ALSO TURN OFF ALL INPUT WHEN FALSE
 var controls: bool = true
@@ -15,8 +16,9 @@ enum STATES {
 }
 var state : int
 
-
 var current_fridge : Refrigerator
+
+signal order_pressed
 
 @export var move_up : String
 @export var move_down : String
@@ -40,10 +42,6 @@ func get_input() -> void:
 		STATES.FRIDGE:
 			fridge_movement()
 	
-	if Input.is_action_just_pressed("escape"):
-		pause.pause_game()
-	
-
 func normal_movement() -> void:
 	move_action = Input.get_vector(
 			move_left, 

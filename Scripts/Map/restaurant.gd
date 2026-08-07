@@ -6,12 +6,38 @@ extends Node
 @onready var player_1: Player = %Player1
 @onready var player_2: Player = %Player2
 
+# CHAIRS
 @onready var chairs: Array = $Interactables/Dining/Chairs.get_children()
+var next_chair: int = 0
+
+# ORDER UI
+@onready var orders_ui: Control = $UI/OrdersUI
 
 func _ready() -> void:
 	# SET MUSIC
 	music_manager.play_music(music_manager.INGAME)
 	
+	# PLAYER SIGNALS
+	player_signal_connections()
+	
+	
+
+# USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
+# CONNECTED TO CUSTOMER_SPAWNER.GD
+func get_available_chair() -> Chair:
+# MAKES IT SO THAT CHAIRS WONT BE REUSED AND HAS TO CYCLE THROUGH EVERY CHAIR FIRST
+	var count := chairs.size()
+
+	for i in range(count):	
+		var index: int = (next_chair + i) % count
+
+		if chairs[index].customer_sitting == null:
+			next_chair = (index + 1) % count
+			return chairs[index]
+
+	return null
+	
+func player_signal_connections() -> void:
 	# PLAYER MOVEMENT
 	player_1.input.state = 0 # 0 MEANS NORMAL MOVEMENT
 	player_2.input.state = 0
@@ -31,11 +57,6 @@ func _ready() -> void:
 	
 	player_1.interact.fridge_food_rotate.connect(p1_ui.fridge_update_ui)
 	player_2.interact.fridge_food_rotate.connect(p2_ui.fridge_update_ui)
-
-# USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
-func get_available_chair() -> Chair:
-	for chair in chairs:
-		if !chair.occupied:
-			return chair
 	
-	return null	
+	# Global Inputs Connection
+	GInput.order_pressed.connect(orders_ui.toggle)

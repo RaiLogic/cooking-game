@@ -21,8 +21,10 @@ var state: STATES
 signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
 signal sitting(seated: bool) # CONNECTED TO FUNCTION
 
+
 # FOOD ORDERING
 var desired_food : Food
+signal has_ordered(Customer)
 
 func _ready() -> void:
 	interact_area.monitoring = false
@@ -76,7 +78,6 @@ func is_sitting(index: bool) -> void:
 	if index == true:
 		wait.visible = true
 		wait_anim.play("show")
-		sprite.visible = false # INVISIBLE SO CHAIR HAS THE ANIMATION
 	elif index == false:
 		wait_anim.stop()
 		wait.visible = false
@@ -84,9 +85,10 @@ func is_sitting(index: bool) -> void:
 func show_order() -> void:
 	order_ui.visible = true
 	order_ui.get_node("Food").texture = desired_food.icon
+	has_ordered.emit(self)
 
 func done_order() -> void:
 	# CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 	state = STATES.LEAVING
-	sprite.visible = true
 	global.add_money(120)
+	sprite.visible = true

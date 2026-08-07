@@ -19,14 +19,7 @@ func _ready() -> void:
 	
 
 func update_sprite(seated: bool) -> void:
-	if !seated:
-		if placement == "left": 
-			left.visible = true;
-		elif placement == "right": 
-			right.visible = true;
-		elif placement == "down": 
-			down.visible = true;
-	else:
+	if seated and customer_sitting != null:
 		left.visible = false
 		right.visible = false
 		down.visible = false
@@ -35,12 +28,22 @@ func update_sprite(seated: bool) -> void:
 		
 		if placement == "left": 
 			left.visible = true
+			animation.visible = false # TEMPORARY UNTIL ASSET DONE
 		elif placement == "right": 
 			right.visible = true
+			animation.visible = false # TEMPORARY UNTIL ASSET DONE
 		elif placement == "down": 
+			customer_sitting.sprite.visible = false
 			animation.play("down")
-			print("seated")
-
+	else:
+		if placement == "left": 
+			left.visible = true;
+		elif placement == "right": 
+			right.visible = true;
+		elif placement == "down": 
+			down.visible = true;
+	
+	
 func occupy(customer: Customer) -> void:
 	occupied = true
 	customer_sitting = customer
