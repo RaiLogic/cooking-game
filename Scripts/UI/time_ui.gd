@@ -3,11 +3,24 @@ extends Control
 @onready var time_label: Label = $Time
 @onready var meridium: Label = $Meridium
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	time_label.text = str(time.hour) + " " + str(time.minute)
+	time.time_changed.connect(update_time)	
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	check_meridium()
+	
+func update_time(hour: int, minute: int) -> void:
+	time_label.text = (
+		str("%02d" % time.hour) + " " + str("%02d" % time.minute)
+		)
+	
+	
+func check_meridium() -> void:
+	
+	if time.is_morning:
+		meridium.text = "AM"
+	else:
+		meridium.text = "PM"

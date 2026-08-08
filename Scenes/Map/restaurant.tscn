@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://c4v051qosrjsh" path="res://Resources/Recipes/restaurant_menu.tres" id="14_7m7i6"]
 [ext_resource type="PackedScene" uid="uid://bqsjpkc8u85dp" path="res://Scenes/Players/customer.tscn" id="14_538iu"]
 [ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="15_iy6l8"]
+[ext_resource type="PackedScene" uid="uid://cbrvh7ws4av1l" path="res://Scenes/time_ui.tscn" id="17_grp70"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ekhw0"]
 vertices = PackedVector2Array(126, 269.20313, 142.3125, 267.84375, 143.29688, 302.78125, 126, 295.1172, 125, 334.85156, 144.0625, 323.5703, 140.89063, 356.2578, 126.36719, 356.70313, 189, 265, 148.54688, 265, 149.46875, 247.92969, 281.71875, 247.0625, 189, 299.2578, 284.7422, 287.1875, 268.52344, 308.27344, 354, 285.79688, 354, 248.28906, 403.25, 249.71875, 407.72656, 416.34375, 366.3672, 417.7422, 354.96094, 379.4375, 352.6875, 294.25, 257.90625, 362.29688, 190, 330.3672, 190, 356.77344)
@@ -472,7 +473,7 @@ placement = "left"
 position = Vector2(197, 12)
 
 [node name="Camera2D" parent="Players" unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_ynmxk")]
-position = Vector2(138.765, 182)
+position = Vector2(137.765, 182)
 limit_top = -20
 limit_bottom = 345
 position_smoothing_enabled = false
@@ -511,6 +512,8 @@ libraries/ = SubResource("AnimationLibrary_538iu")
 unique_name_in_owner = true
 offset_top = -114.0
 offset_bottom = -2.0
+
+[node name="TimeUI" parent="UI" unique_id=1710532550 instance=ExtResource("17_grp70")]
 
 [node name="CustomerSpawner" type="Node" parent="." unique_id=509079700]
 script = ExtResource("13_emkxa")
