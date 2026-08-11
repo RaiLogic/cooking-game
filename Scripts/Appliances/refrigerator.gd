@@ -13,6 +13,7 @@ var next_food : Food
 var index : int = 0
 
 func interact(interactor: Player) -> void:
+	
 	# AVOIDS MULTIPLE PLAYERS USING THE FRIDGE
 	if fridge_user != null:
 		if fridge_user == interactor:
@@ -25,11 +26,13 @@ func interact(interactor: Player) -> void:
 
 	player = interactor
 	fridge_user = player
+	
 	interactor.input.fridge_mode(self)
 	
 	update_fridge()
+	# CONNECTED TO FRIDGE_MODE()
 	player.interact.fridge_toggle.emit(true)
-
+	
 func update_fridge() -> void:
 	# Sets the food carousel
 	curr_food = food_group[index]

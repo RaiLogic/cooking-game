@@ -50,3 +50,4 @@ offset_right = 10.0
 offset_bottom = -8.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1535079444]
+bus = &"SFX"

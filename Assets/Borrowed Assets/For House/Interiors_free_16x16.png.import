@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvjy1wioitvmi"
-path="res://.godot/imported/Si_Gurl_nsa_Upuan.png-183232d0cff386d553eb444923dbd327.ctex"
+uid="uid://p0i12g6df4t1"
+path="res://.godot/imported/Interiors_free_16x16.png-42525a54b7cf853a174b3b0f994fbb36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Own Assets/Si_Gurl_nsa_Upuan.png"
-dest_files=["res://.godot/imported/Si_Gurl_nsa_Upuan.png-183232d0cff386d553eb444923dbd327.ctex"]
+source_file="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png"
+dest_files=["res://.godot/imported/Interiors_free_16x16.png-42525a54b7cf853a174b3b0f994fbb36.ctex"]
 
 [params]
 

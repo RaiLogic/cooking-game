@@ -1,12 +1,14 @@
 [gd_scene format=4 uid="uid://ctv4u71krr366"]
 
+[ext_resource type="Script" uid="uid://domrucbpox2c1" path="res://Scripts/UI/main.gd" id="1_ayamy"]
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_ereyx"]
 [ext_resource type="PackedScene" uid="uid://d40j82m6dydy" path="res://Scenes/Players/no_script_player.tscn" id="2_o0om2"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="4_wjop8"]
-[ext_resource type="Script" uid="uid://m3g4vmmp2afi" path="res://Scripts/UI/Button/play_button.gd" id="5_40bib"]
 [ext_resource type="Texture2D" uid="uid://n5aqljagmn3h" path="res://Assets/Own Assets/game_logo.png" id="5_o0om2"]
-[ext_resource type="Script" uid="uid://b3wn4ye6sc1uy" path="res://Scripts/UI/Button/options_button.gd" id="7_4jq3l"]
-[ext_resource type="Script" uid="uid://c380rosu5t3ug" path="res://Scripts/UI/Button/quit_button.gd" id="7_tvx3w"]
+[ext_resource type="PackedScene" uid="uid://dahhttlo1p4kd" path="res://Scenes/UI/Buttons/play.tscn" id="6_ayamy"]
+[ext_resource type="PackedScene" uid="uid://b87653wcgvex6" path="res://Scenes/UI/Buttons/quit.tscn" id="7_7dvw4"]
+[ext_resource type="PackedScene" uid="uid://qhw65cl52ea0" path="res://Scenes/UI/Buttons/options.tscn" id="8_y7ngx"]
+[ext_resource type="PackedScene" uid="uid://bqhnyed021svq" path="res://Scenes/UI/option_menu.tscn" id="9_7dvw4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40bib"]
 texture = ExtResource("1_ereyx")
@@ -172,35 +174,15 @@ font_size = 32
 font_color = Color(0, 0.70980394, 1, 1)
 outline_size = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g13ic"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="LabelSettings" id="LabelSettings_pbjh4"]
-font = ExtResource("4_wjop8")
-font_size = 28
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjop8"]
-
 [node name="MainMenu" type="Control" unique_id=919386426]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -17.0
-offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ayamy")
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=113546843]
 position = Vector2(0, 51)
@@ -232,12 +214,12 @@ position = Vector2(2, 51)
 scale = Vector2(1.7424865, 1.7424865)
 
 [node name="NoScriptPlayer" parent="Players" unique_id=1738515942 instance=ExtResource("2_o0om2")]
-z_index = 3
+z_index = 1
 position = Vector2(85, 115)
 dance = "dance1"
 
 [node name="NoScriptPlayer2" parent="Players" unique_id=379302239 instance=ExtResource("2_o0om2")]
-z_index = 3
+z_index = 1
 position = Vector2(263, 115)
 dance = "dance2"
 
@@ -294,136 +276,21 @@ expand_mode = 1
 z_index = 1
 anchors_preset = 0
 offset_left = 1.0
-offset_top = 37.0
+offset_top = 15.0
 offset_right = 369.0
-offset_bottom = 245.0
+offset_bottom = 223.0
 scale = Vector2(1.7424865, 1.7424865)
 
-[node name="Play" type="Control" parent="Buttons" unique_id=54052845]
+[node name="Play" parent="Buttons" unique_id=819501465 instance=ExtResource("6_ayamy")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -30.541756
-offset_right = 46.0
-offset_bottom = 3.4582443
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_40bib")
 
-[node name="Panel" type="Panel" parent="Buttons/Play" unique_id=269333821]
+[node name="Quit" parent="Buttons" unique_id=151607117 instance=ExtResource("7_7dvw4")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -7.499817
-offset_right = 7.499817
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g13ic")
 
-[node name="Label" type="Label" parent="Buttons/Play" unique_id=1285256457]
-layout_mode = 0
-offset_right = 106.0
-offset_bottom = 34.0
-text = "PLAY"
-label_settings = SubResource("LabelSettings_pbjh4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PlayButton" type="Button" parent="Buttons/Play" unique_id=930612905]
-layout_mode = 0
-offset_left = -8.313187
-offset_top = 2.0
-offset_right = 115.31319
-offset_bottom = 32.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wjop8")
-
-[node name="Quit" type="Control" parent="Buttons" unique_id=269372775]
+[node name="Options" parent="Buttons" unique_id=1213576477 instance=ExtResource("8_y7ngx")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -67.49982
-offset_top = 54.96823
-offset_right = 53.499817
-offset_bottom = 88.96823
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_tvx3w")
 
-[node name="Panel" type="Panel" parent="Buttons/Quit" unique_id=9813841]
+[node name="OptionMenu" parent="." unique_id=2023566271 instance=ExtResource("9_7dvw4")]
+visible = false
+z_index = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g13ic")
-
-[node name="Label" type="Label" parent="Buttons/Quit" unique_id=1987208081]
-layout_mode = 0
-offset_right = 122.23911
-offset_bottom = 34.0
-text = "QUIT"
-label_settings = SubResource("LabelSettings_pbjh4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="QuitButton" type="Button" parent="Buttons/Quit" unique_id=1585266941]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 121.66521
-offset_bottom = 32.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wjop8")
-
-[node name="Options" type="Control" parent="Buttons" unique_id=1358032861]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.07371
-offset_top = 12.500183
-offset_right = 54.0737
-offset_bottom = 46.500183
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_4jq3l")
-
-[node name="Panel" type="Panel" parent="Buttons/Options" unique_id=1156620197]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_g13ic")
-
-[node name="Label" type="Label" parent="Buttons/Options" unique_id=1152544692]
-layout_mode = 0
-offset_right = 122.813
-offset_bottom = 34.0
-text = "OPTIONS"
-label_settings = SubResource("LabelSettings_pbjh4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OptionsButton" type="Button" parent="Buttons/Options" unique_id=1037938985]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 121.66522
-offset_bottom = 32.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wjop8")
-
-[connection signal="pressed" from="Buttons/Play/PlayButton" to="Buttons/Play" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Buttons/Quit/QuitButton" to="Buttons/Quit" method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Buttons/Options/OptionsButton" to="Buttons/Options" method="_on_options_button_pressed"]

@@ -1,12 +1,10 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://dgs60ahtwway"]
 
+[ext_resource type="Texture2D" uid="uid://rkpxqfakr4ic" path="res://Assets/Own Assets/Foods&Recipe/Egg/sunny_side_egg.png" id="1_166wh"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_otk4e"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_otk4e"]
-load_path = "res://.godot/imported/sunny_side_egg.png-ab8b03597b4d6a244f3465d2dd61ea03.ctex"
 
 [resource]
 script = ExtResource("1_otk4e")
 food_name = "fried egg"
-icon = SubResource("CompressedTexture2D_otk4e")
+icon = ExtResource("1_166wh")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"

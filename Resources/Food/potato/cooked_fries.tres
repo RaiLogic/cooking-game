@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://bsgopvo2nfp5j"]
+
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_5jjos"]
+[ext_resource type="Texture2D" uid="uid://dipyngonbuth1" path="res://Assets/Own Assets/Foods&Recipe/fRENCHfRIES.png" id="1_mi5da"]
+
+[resource]
+script = ExtResource("1_5jjos")
+food_name = "cooked fries"
+icon = ExtResource("1_mi5da")
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

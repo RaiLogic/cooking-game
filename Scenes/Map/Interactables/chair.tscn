@@ -2,6 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_a1gnm"]
 [ext_resource type="Script" uid="uid://bwa6y8ynw43ef" path="res://Scripts/Appliances/chair.gd" id="1_kq0sf"]
+[ext_resource type="Texture2D" uid="uid://bvjy1wioitvmi" path="res://Assets/Own Assets/Customer/Si_Gurl_nsa_Upuan.png" id="2_e1km2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tbwm"]
+atlas = ExtResource("2_e1km2")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tbwm")
+}],
+"loop": 0,
+"name": &"down",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu1k5"]
 size = Vector2(12, 10.5)
@@ -9,54 +25,62 @@ size = Vector2(12, 10.5)
 [node name="Chair" type="StaticBody2D" unique_id=747928645]
 script = ExtResource("1_kq0sf")
 
-[node name="Placement" type="Node2D" parent="." unique_id=1994925711]
+[node name="Occupied" type="AnimatedSprite2D" parent="." unique_id=1856248759]
+visible = false
+z_index = 1
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1vivr")
+animation = &"down"
 
-[node name="Left" type="Node2D" parent="Placement" unique_id=1719718232]
+[node name="Unoccupied" type="Node2D" parent="." unique_id=1994925711]
+
+[node name="Left" type="Node2D" parent="Unoccupied" unique_id=1719718232]
 visible = false
 
-[node name="Top" type="Sprite2D" parent="Placement/Left" unique_id=326226158]
+[node name="Top" type="Sprite2D" parent="Unoccupied/Left" unique_id=326226158]
 z_index = 3
 position = Vector2(0, -16)
 texture = ExtResource("1_a1gnm")
 region_enabled = true
 region_rect = Rect2(48, 496, 16, 16)
 
-[node name="Bot" type="Sprite2D" parent="Placement/Left" unique_id=1165806692]
+[node name="Bot" type="Sprite2D" parent="Unoccupied/Left" unique_id=1165806692]
 texture = ExtResource("1_a1gnm")
 region_enabled = true
 region_rect = Rect2(48, 512, 16, 16)
 
-[node name="Down" type="Node2D" parent="Placement" unique_id=205624945]
+[node name="Down" type="Node2D" parent="Unoccupied" unique_id=205624945]
 
-[node name="Top" type="Sprite2D" parent="Placement/Down" unique_id=860707772]
+[node name="Top" type="Sprite2D" parent="Unoccupied/Down" unique_id=860707772]
 z_index = 3
 position = Vector2(0, -16)
 texture = ExtResource("1_a1gnm")
 region_enabled = true
 region_rect = Rect2(32, 496, 16, 16)
 
-[node name="Bot" type="Sprite2D" parent="Placement/Down" unique_id=667322492]
+[node name="Bot" type="Sprite2D" parent="Unoccupied/Down" unique_id=667322492]
 z_index = 1
 texture = ExtResource("1_a1gnm")
 region_enabled = true
 region_rect = Rect2(32, 512, 16, 16)
 
-[node name="Right" type="Node2D" parent="Placement" unique_id=1472776906]
+[node name="Right" type="Node2D" parent="Unoccupied" unique_id=1472776906]
 visible = false
 
-[node name="Top" type="Sprite2D" parent="Placement/Right" unique_id=1297101813]
+[node name="Top" type="Sprite2D" parent="Unoccupied/Right" unique_id=1297101813]
 z_index = 3
 position = Vector2(0, -16)
 texture = ExtResource("1_a1gnm")
 region_enabled = true
 region_rect = Rect2(96, 496, 16, 16)
 
-[node name="Bot" type="Sprite2D" parent="Placement/Right" unique_id=1081366390]
+[node name="Bot" type="Sprite2D" parent="Unoccupied/Right" unique_id=1081366390]
 texture = ExtResource("1_a1gnm")
 region_enabled = true
 region_rect = Rect2(96, 512, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794807263]
+z_index = 1
 position = Vector2(0, -3.75)
 shape = SubResource("RectangleShape2D_fu1k5")
 

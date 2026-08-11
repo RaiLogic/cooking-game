@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_2othk"]
 [ext_resource type="Script" uid="uid://cco8367qpssiv" path="res://Scripts/Map/restaurant.gd" id="1_e0itq"]
 [ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="2_2dgtp"]
+[ext_resource type="PackedScene" uid="uid://duil2ybtswyv1" path="res://Scenes/UI/orders_ui.tscn" id="2_ekhw0"]
+[ext_resource type="Texture2D" uid="uid://bh4s5bw12xt58" path="res://Assets/Borrowed Assets/Outdoors/OutdoorsTileset.png" id="3_abp06"]
 [ext_resource type="PackedScene" uid="uid://nyqun6pefchh" path="res://Scenes/Map/Interactables/refrigerator.tscn" id="4_5bm1g"]
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="4_ly26i"]
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_ynmxk"]
@@ -16,6 +18,8 @@
 [ext_resource type="Script" uid="uid://bu61210to1pue" path="res://Scenes/Players/customer_spawner.gd" id="13_emkxa"]
 [ext_resource type="Resource" uid="uid://c4v051qosrjsh" path="res://Resources/Recipes/restaurant_menu.tres" id="14_7m7i6"]
 [ext_resource type="PackedScene" uid="uid://bqsjpkc8u85dp" path="res://Scenes/Players/customer.tscn" id="14_538iu"]
+[ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="15_iy6l8"]
+[ext_resource type="PackedScene" uid="uid://cbrvh7ws4av1l" path="res://Scenes/time_ui.tscn" id="17_grp70"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ekhw0"]
 vertices = PackedVector2Array(126, 269.20313, 142.3125, 267.84375, 143.29688, 302.78125, 126, 295.1172, 125, 334.85156, 144.0625, 323.5703, 140.89063, 356.2578, 126.36719, 356.70313, 189, 265, 148.54688, 265, 149.46875, 247.92969, 281.71875, 247.0625, 189, 299.2578, 284.7422, 287.1875, 268.52344, 308.27344, 354, 285.79688, 354, 248.28906, 403.25, 249.71875, 407.72656, 416.34375, 366.3672, 417.7422, 354.96094, 379.4375, 352.6875, 294.25, 257.90625, 362.29688, 190, 330.3672, 190, 356.77344)
@@ -175,9 +179,14 @@ texture = ExtResource("1_2othk")
 7:31/0 = 0
 7:32/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iy6l8"]
+texture = ExtResource("3_abp06")
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_el2r4"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_y4tkd")
+sources/2 = SubResource("TileSetAtlasSource_iy6l8")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fbea"]
 bg_color = Color(1, 1, 1, 1)
@@ -408,6 +417,15 @@ position = Vector2(197, 210)
 [node name="Chairs" type="Node2D" parent="Interactables/Dining" unique_id=627144750]
 position = Vector2(0, -96)
 
+[node name="Chair7" parent="Interactables/Dining/Chairs" unique_id=988679782 instance=ExtResource("9_abp06")]
+position = Vector2(174, 272)
+placement = "down"
+
+[node name="Chair10" parent="Interactables/Dining/Chairs" unique_id=1931212271 instance=ExtResource("9_abp06")]
+z_index = 1
+position = Vector2(152, 296)
+placement = "right"
+
 [node name="Chair2" parent="Interactables/Dining/Chairs" unique_id=747928645 instance=ExtResource("9_abp06")]
 z_index = 1
 position = Vector2(13, 227)
@@ -418,11 +436,6 @@ z_index = 1
 position = Vector2(13, 295)
 placement = "right"
 
-[node name="Chair10" parent="Interactables/Dining/Chairs" unique_id=1931212271 instance=ExtResource("9_abp06")]
-z_index = 1
-position = Vector2(152, 296)
-placement = "right"
-
 [node name="Chair11" parent="Interactables/Dining/Chairs" unique_id=1468505395 instance=ExtResource("9_abp06")]
 z_index = 1
 position = Vector2(164, 209)
@@ -430,10 +443,6 @@ placement = "right"
 
 [node name="Chair4" parent="Interactables/Dining/Chairs" unique_id=603108134 instance=ExtResource("9_abp06")]
 position = Vector2(46, 205)
-placement = "down"
-
-[node name="Chair7" parent="Interactables/Dining/Chairs" unique_id=988679782 instance=ExtResource("9_abp06")]
-position = Vector2(174, 272)
 placement = "down"
 
 [node name="Chair8" parent="Interactables/Dining/Chairs" unique_id=489543099 instance=ExtResource("9_abp06")]
@@ -464,7 +473,7 @@ placement = "left"
 position = Vector2(197, 12)
 
 [node name="Camera2D" parent="Players" unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_ynmxk")]
-position = Vector2(138.765, 182)
+position = Vector2(137.765, 182)
 limit_top = -20
 limit_bottom = 345
 position_smoothing_enabled = false
@@ -497,15 +506,25 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_emkxa")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/P2InventoryUI" unique_id=1622089071]
 libraries/ = SubResource("AnimationLibrary_538iu")
 
+[node name="MoneyUI" parent="UI" unique_id=1084197604 instance=ExtResource("15_iy6l8")]
+
+[node name="OrdersUI" parent="UI" unique_id=968118782 instance=ExtResource("2_ekhw0")]
+unique_name_in_owner = true
+offset_top = -114.0
+offset_bottom = -2.0
+
+[node name="TimeUI" parent="UI" unique_id=1710532550 instance=ExtResource("17_grp70")]
+
 [node name="CustomerSpawner" type="Node" parent="." unique_id=509079700]
 script = ExtResource("13_emkxa")
 customer_scene = ExtResource("14_538iu")
 menu = ExtResource("14_7m7i6")
+customer_spawn_time = 3.0
 
 [node name="MainPoint" type="Marker2D" parent="CustomerSpawner" unique_id=923984660]
 position = Vector2(461, 354)
 
 [node name="SpawnTimer" type="Timer" parent="CustomerSpawner" unique_id=1683987105]
-wait_time = 12.0
+wait_time = 3.0
 
 [connection signal="timeout" from="CustomerSpawner/SpawnTimer" to="CustomerSpawner" method="_on_spawn_timer_timeout"]

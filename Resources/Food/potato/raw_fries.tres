@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://do33ffsujxtsy"]
+
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_hta7f"]
+[ext_resource type="Resource" uid="uid://bsgopvo2nfp5j" path="res://Resources/Food/potato/cooked_fries.tres" id="1_xj5nj"]
+[ext_resource type="Texture2D" uid="uid://bxitkin08st5q" path="res://Assets/Own Assets/Foods&Recipe/FRIES.png" id="2_8o7p8"]
+
+[resource]
+script = ExtResource("1_hta7f")
+food_name = "raw fries"
+icon = ExtResource("2_8o7p8")
+can_cook = true
+cook_time = 30.0
+cooked_version = ExtResource("1_xj5nj")
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

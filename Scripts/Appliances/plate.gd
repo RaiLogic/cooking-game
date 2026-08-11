@@ -43,6 +43,10 @@ func get_item_slot() -> void:
 		player.inventory.request_alert()
 		return
 	elif dish_craftable:
+		if player.inventory.item_held != null:
+			player.inventory.request_alert()
+			return
+			
 		progress_bar.start(current_recipe.plating_time)
 		player.interact.interacting = true
 	else:

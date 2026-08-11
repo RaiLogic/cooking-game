@@ -61,3 +61,4 @@ offset_bottom = -26.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3owqy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=835634779]
+bus = &"SFX"
