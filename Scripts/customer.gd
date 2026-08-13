@@ -1,14 +1,21 @@
 class_name Customer extends CharacterBody2D
 
+# COMPONENTS
 @export var movement : MovementComponent
-@onready var order_ui: Panel = $OrderUI
-@onready var interact_area: InteractedComponent = $InteractedComponent
+@onready var skin : SkinComponent = $Components/SkinComponent
+@onready var animation: AnimationComponent = $Components/AnimationComponent
+@onready var interact_area: InteractedComponent = $Components/InteractedComponent
+
+# TEMP
 @onready var sprite: Sprite2D = $Sprite2D
 
+# NAVIGATION
 @onready var agent : NavigationAgent2D = $NavigationAgent2D
 
-@onready var wait: Node2D = $WaitingOrder
-@onready var wait_anim: AnimationPlayer = wait.get_node("AnimationPlayer")
+# ORDERING AND WAITING
+@onready var question: Node2D = $QuestionMark
+@onready var question_anim: AnimationPlayer = question.get_node("AnimationPlayer")
+@onready var order_ui: Panel = $OrderUI
 
 enum STATES {
 	WALKING,
@@ -28,30 +35,15 @@ signal has_ordered(Customer)
 
 func _ready() -> void:
 	interact_area.monitoring = false
+	movement.can_move = true
+	animation.sprite = skin.get_random_skin()
 
 func _physics_process(delta: float) -> void:
-	movement.can_move = true
 	
-	if agent.is_navigation_finished():
-		if state == STATES.WALKING:
-			# FOR CHAIR POSITION AND SPRITES
-			if global_position != agent.target_position:
-				global_position = agent.target_position
-				
-			if state == STATES.WALKING:
-				sitting.emit(true)
-				is_sitting(true)
-				state = STATES.WAITING
-
-			velocity = Vector2.ZERO
-			interact_area.monitoring = true
-			return
-		elif state == STATES.LEAVING:
-			queue_free()
-	else:
-		var next_point = agent.get_next_path_position()
-		var direction = (next_point - global_position).normalized()
-		movement.move(direction)
+	navigation_check()
+	
+	if state == STATES.WALKING:
+		animation.update_anim(velocity)
 
 func interact(interactor: Player) -> void:
 	if state == STATES.WAITING:
@@ -69,18 +61,41 @@ func interact(interactor: Player) -> void:
 			interactor.inventory.clear_item()
 			done.emit(self) # to customer_spawner
 			done_order()
-		
+			
 func set_destination(pos: Vector2) -> void:
 	agent.target_desired_distance = 8.0
 	agent.target_position = pos
+	
+func navigation_check() -> void:
+	if !agent.is_navigation_finished():
+		var next_point = agent.get_next_path_position()
+		var direction = (next_point - global_position).normalized()
+		movement.move(direction)
+		return
+	
+	if global_position != agent.target_position:
+		# FOR CHAIR POSITION AND SPRITES, ALIGN CUSTOMER TO CHAIR
+		global_position = agent.target_position
+	
+	if state == STATES.WALKING:
+		sitting.emit(true)
+		is_sitting(true)
+		state = STATES.WAITING
+
+		velocity = Vector2.ZERO
+		interact_area.monitoring = true
+		return
+
+	if state == STATES.LEAVING:
+		queue_free()
 
 func is_sitting(index: bool) -> void:
 	if index == true:
-		wait.visible = true
-		wait_anim.play("show")
+		question.visible = true
+		question_anim.play("show")
 	elif index == false:
-		wait_anim.stop()
-		wait.visible = false
+		question_anim.stop()
+		question.visible = false
 
 func show_order() -> void:
 	order_ui.visible = true
@@ -91,4 +106,3 @@ func done_order() -> void:
 	# CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 	state = STATES.LEAVING
 	global.add_money(120)
-	sprite.visible = true

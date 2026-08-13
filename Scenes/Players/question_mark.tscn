@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgjefdyrixtw3"]
 
-[ext_resource type="Texture2D" uid="uid://bspcfdkgokxp2" path="res://Assets/Own Assets/Customer/question.png" id="1_5n2fe"]
+[ext_resource type="Texture2D" uid="uid://bspcfdkgokxp2" path="res://Assets/Own Assets/Customer/question.png" id="1_yisk2"]
 
 [sub_resource type="Animation" id="Animation_fnm2p"]
 length = 0.001
@@ -40,11 +40,11 @@ _data = {
 &"show": SubResource("Animation_hfox2")
 }
 
-[node name="WaitingOrder" type="Node2D" unique_id=1243096468]
+[node name="QuestionMark" type="Node2D" unique_id=1243096468]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201836141]
 position = Vector2(0, 2)
-texture = ExtResource("1_5n2fe")
+texture = ExtResource("1_yisk2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1993559298]
 libraries/ = SubResource("AnimationLibrary_dssrc")

@@ -14,7 +14,7 @@ func _ready() -> void:
 	music_manager.play_music(music_manager.MENU)
 	
 func play_button() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Map/restaurant.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Map/house.tscn")
 	music_manager.play_music(music_manager.INGAME)
 	
 func quit_button() -> void:

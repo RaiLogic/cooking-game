@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_ereyx"]
 [ext_resource type="PackedScene" uid="uid://d40j82m6dydy" path="res://Scenes/Players/no_script_player.tscn" id="2_o0om2"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="4_wjop8"]
-[ext_resource type="Texture2D" uid="uid://n5aqljagmn3h" path="res://Assets/Own Assets/game_logo.png" id="5_o0om2"]
+[ext_resource type="Texture2D" uid="uid://dvhu500ssy2yw" path="res://Assets/Own Assets/game_logo.png" id="5_o0om2"]
 [ext_resource type="PackedScene" uid="uid://dahhttlo1p4kd" path="res://Scenes/UI/Buttons/play.tscn" id="6_ayamy"]
 [ext_resource type="PackedScene" uid="uid://b87653wcgvex6" path="res://Scenes/UI/Buttons/quit.tscn" id="7_7dvw4"]
 [ext_resource type="PackedScene" uid="uid://qhw65cl52ea0" path="res://Scenes/UI/Buttons/options.tscn" id="8_y7ngx"]

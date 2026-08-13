@@ -1,5 +1,6 @@
-extends Node
+class_name Restaurant extends Node
 
+# PLAYERS
 @onready var p1_ui: PlayerInventoryUI = $UI/P1InventoryUI
 @onready var p2_ui: PlayerInventoryUI = $UI/P2InventoryUI
 
@@ -13,14 +14,24 @@ var next_chair: int = 0
 # ORDER UI
 @onready var orders_ui: Control = $UI/OrdersUI
 
+# CUSTOMER SPAWNER
+@onready var customer_spawner: CustomerSpawner = $CustomerSpawner
+
+# LOCATION
+const LOCATION = global.LOCATIONS.RESTAURANT
+
+
 func _ready() -> void:
 	# SET MUSIC
 	music_manager.play_music(music_manager.INGAME)
 	
+	# START DAY
+	global.set_location(LOCATION)
+	customer_spawner.start_spawning()
+	time.start_day()
+	
 	# PLAYER SIGNALS
 	player_signal_connections()
-	
-	
 
 # USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
 # CONNECTED TO CUSTOMER_SPAWNER.GD

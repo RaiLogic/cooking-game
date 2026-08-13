@@ -6,7 +6,7 @@ signal day_ended
 @onready var timer: Timer = Timer.new()
 
 # HOW LONG WILL IT TAKE BEFORE TIME_PROGRESS
-const REAL_SECOND_STEP : float = 2
+const REAL_SECOND_STEP : float = 5
 # HOW MUCH TIME WILL PASS EVERY EVERY REAL SECONDS
 const TIME_PROGRESS: int = 10
 
@@ -19,10 +19,6 @@ func _ready() -> void:
 	timer.wait_time = REAL_SECOND_STEP
 	timer.timeout.connect(_update_time)
 	day_ended.connect(func(): print("Closing Time"))
-	start_day()
-	
-func _process(delta: float) -> void:
-	print("%02d:%02d" % [hour, minute])
 	
 func start_day() -> void:
 	is_morning = true

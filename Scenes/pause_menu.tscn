@@ -9,7 +9,10 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkiog"]
 bg_color = Color(0.6, 0.6, 0.6, 0.6039216)
 
-[node name="PauseMenu" type="Panel" unique_id=2073025229]
+[node name="PauseMenu" type="CanvasLayer" unique_id=128763513]
+script = ExtResource("1_bpi0q")
+
+[node name="Menu" type="Panel" parent="." unique_id=2073025229]
 process_mode = 3
 z_index = 10
 anchors_preset = 15
@@ -18,12 +21,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nkiog")
-script = ExtResource("1_bpi0q")
 
-[node name="Resume" parent="." unique_id=2138684853 instance=ExtResource("2_vmyb1")]
+[node name="Resume" parent="Menu" unique_id=2138684853 instance=ExtResource("2_vmyb1")]
 layout_mode = 1
 
-[node name="Options" parent="." unique_id=1213576477 instance=ExtResource("3_myy0f")]
+[node name="Options" parent="Menu" unique_id=1213576477 instance=ExtResource("3_myy0f")]
 layout_mode = 1
 offset_left = -81.0
 offset_top = -25.0
@@ -31,7 +33,7 @@ offset_right = 41.1474
 offset_bottom = 9.0
 scale = Vector2(1.3504202, 1.3504202)
 
-[node name="Back" parent="." unique_id=1995781099 instance=ExtResource("4_sjs17")]
+[node name="Back" parent="Menu" unique_id=1995781099 instance=ExtResource("4_sjs17")]
 layout_mode = 0
 offset_left = 240.0
 offset_top = 215.0
@@ -40,4 +42,3 @@ offset_bottom = 261.0
 
 [node name="OptionMenu" parent="." unique_id=327814313 instance=ExtResource("5_vmyb1")]
 visible = false
-layout_mode = 1

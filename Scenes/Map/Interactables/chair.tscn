@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bnubw52m5utqc" path="res://Assets/Borrowed Assets/tileset 16x16.png" id="1_a1gnm"]
 [ext_resource type="Script" uid="uid://bwa6y8ynw43ef" path="res://Scripts/Appliances/chair.gd" id="1_kq0sf"]
-[ext_resource type="Texture2D" uid="uid://bvjy1wioitvmi" path="res://Assets/Own Assets/Customer/Si_Gurl_nsa_Upuan.png" id="2_e1km2"]
+[ext_resource type="Texture2D" uid="uid://bvjy1wioitvmi" path="res://Assets/Own Assets/Customer/Girl/Sitting/Si_Gurl_nsa_Upuan.png" id="2_e1km2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tbwm"]
 atlas = ExtResource("2_e1km2")
@@ -85,3 +85,4 @@ position = Vector2(0, -3.75)
 shape = SubResource("RectangleShape2D_fu1k5")
 
 [node name="Point" type="Marker2D" parent="." unique_id=888452681]
+position = Vector2(0, -6)

@@ -479,6 +479,8 @@ limit_bottom = 345
 position_smoothing_enabled = false
 p2 = NodePath("../Player2")
 p1 = NodePath("../Player1")
+is_fixed = true
+min_zoom = 2.9
 
 [node name="Player2" parent="Players" unique_id=1739635833 instance=ExtResource("4_ly26i")]
 unique_name_in_owner = true
