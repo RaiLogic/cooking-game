@@ -1023,5 +1023,4 @@ animation = &"sitting:Down"
 [node name="Boy" type="AnimatedSprite2D" parent="." unique_id=650486338]
 visible = false
 sprite_frames = SubResource("SpriteFrames_1vivr")
-animation = &"sitting:Right"
-frame_progress = 0.68569016
+animation = &"sitting:Down"

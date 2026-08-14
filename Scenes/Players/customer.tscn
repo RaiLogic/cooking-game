@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjd06f1ei321p" path="res://Scenes/Components/skin_component.tscn" id="4_23hwh"]
 [ext_resource type="PackedScene" uid="uid://dmwssfgb5vk8n" path="res://Scenes/Components/Movement/animation_component.tscn" id="5_3deeu"]
 [ext_resource type="PackedScene" uid="uid://bgjefdyrixtw3" path="res://Scenes/Players/question_mark.tscn" id="5_rgyyp"]
-[ext_resource type="Texture2D" uid="uid://7ak0e3ul7qn" path="res://Assets/Own Assets/player.svg" id="11_18t3h"]
+[ext_resource type="PackedScene" uid="uid://dg8mn84mjqrqi" path="res://Scenes/UI/progress.tscn" id="7_23hwh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbjh4"]
 bg_color = Color(1, 1, 1, 1)
@@ -60,6 +60,13 @@ offset_bottom = 15.14711
 rotation = 0.76037836
 theme_override_styles/panel = SubResource("StyleBoxFlat_gx0m6")
 
+[node name="Progress" parent="." unique_id=157919419 instance=ExtResource("7_23hwh")]
+offset_left = -12.0
+offset_top = 10.0
+offset_right = 118.0
+offset_bottom = 60.0
+rotation = -1.5707964
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=728965768]
 
 [node name="QuestionMark" parent="." unique_id=1243096468 instance=ExtResource("5_rgyyp")]
@@ -82,8 +89,3 @@ interactable = NodePath("../..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/InteractedComponent" unique_id=1576993875]
 shape = SubResource("CircleShape2D_fu1k5")
 debug_color = Color(1, 0, 1, 0.41960785)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=802526129]
-visible = false
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("11_18t3h")

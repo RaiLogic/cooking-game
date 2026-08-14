@@ -15,7 +15,7 @@ var customer_sitting : Customer
 
 func _ready() -> void:
 	down.visible = false
-	update_sprite(false)
+	update_sprite()
 	
 func occupy(customer: Customer) -> void:
 	occupied = true
@@ -24,7 +24,7 @@ func occupy(customer: Customer) -> void:
 
 # CONNECTED TO CUSTOMER SIGNAL "done"
 func remove(customer: Customer) -> void:
-	update_sprite(false)
+	update_sprite()
 	
 	if customer_sitting != customer:
 		print("error")
@@ -32,19 +32,23 @@ func remove(customer: Customer) -> void:
 
 	occupied = false
 	customer_sitting = null
+	animation = null
 	
 #region ANIMATION SPRITE
-func update_sprite(seated: bool) -> void:
-	if !seated and customer_sitting == null:
+func update_sprite() -> void:
+	if customer_sitting == null:
 		not_occupied()
 		return
 		
 	animation.visible = true
-	
 	left.visible = false
 	right.visible = false
 	down.visible = false
-	sitting()
+	
+	if customer_sitting.state == customer_sitting.STATES.WAITING:
+		sitting() # IF CUSTOMER IS JUST SITTING AND NOT EATING
+	elif customer_sitting.state == customer_sitting.STATES.EATING:
+		eating() # IF CUSTOMER IS EATING
 	
 func not_occupied() -> void:
 	if placement == "left": 
@@ -53,7 +57,9 @@ func not_occupied() -> void:
 		right.visible = true;
 	elif placement == "down": 
 		down.visible = true;
-			
+
+# CUSTOMER ANIMATION WHEN JUST SITTING ON CHAIR
+# NOT EATING, WAITING FOR ORDER
 func sitting() -> void:
 	if placement == "left":
 		animation.play("sitting:Left")
@@ -68,6 +74,7 @@ func sitting() -> void:
 		animation.stop()
 		animation.frame = 0
 
+# CUSTOMER ANIMATION WHEN EATING ON CHAIR
 func eating() -> void:
 	if placement == "left":
 		animation.play("sitting:Left")

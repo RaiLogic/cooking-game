@@ -39,7 +39,7 @@ func spawn_customer() -> void:
 	# SIGNAL CONNECTIONS
 	customer.done.connect(customer_served)
 	customer.done.connect(chair.remove)
-	customer.sitting.connect(chair.update_sprite)
+	customer.state_changed.connect(chair.update_sprite)
 	customer.has_ordered.connect(orders_ui.add_order)
 
 # CALL WHEN READY TO SPAWN CUSTOMERS

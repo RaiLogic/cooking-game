@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bgjefdyrixtw3"]
 
+[ext_resource type="Script" uid="uid://cq213afldkflh" path="res://Scripts/Player/question_mark.gd" id="1_x25yv"]
 [ext_resource type="Texture2D" uid="uid://bspcfdkgokxp2" path="res://Assets/Own Assets/Customer/question.png" id="1_yisk2"]
 
 [sub_resource type="Animation" id="Animation_fnm2p"]
@@ -41,6 +42,7 @@ _data = {
 }
 
 [node name="QuestionMark" type="Node2D" unique_id=1243096468]
+script = ExtResource("1_x25yv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201836141]
 position = Vector2(0, 2)
