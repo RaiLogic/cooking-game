@@ -14,9 +14,6 @@ var customers : Array = []
 @onready var restaurant: Node = get_parent()
 @onready var orders_ui: Control = %OrdersUI
 
-func _ready() -> void:
-	timer.wait_time = customer_spawn_time
-	
 func spawn_customer() -> void:
 	if customers.size() >= restaurant.chairs.size():
 		return
@@ -41,10 +38,12 @@ func spawn_customer() -> void:
 	customer.done.connect(chair.remove)
 	customer.state_changed.connect(chair.update_sprite)
 	customer.has_ordered.connect(orders_ui.add_order)
+	customer.eating.connect(orders_ui.remove_order)
 
 # CALL WHEN READY TO SPAWN CUSTOMERS
 func start_spawning() -> void:
 	if timer.is_stopped():
+		timer.wait_time = 3.0
 		timer.start()
 
 # CALLED WHEN THE CUSTOMER EMITS DONE SIGNAL
@@ -56,9 +55,11 @@ func customer_served(served: Customer) -> void:
 func _on_spawn_timer_timeout() -> void:
 	spawn_customer()
 	randomize_timer()
+	timer.start()
 
 # FUNCTION TO RANDOMIZE CUSTOMER SPAWNING TIME
 func randomize_timer() -> void:
 	random_time = randf_range(2.0, 30.0)
 	timer.wait_time = random_time
-	print(random_time)
+	print("Random: ", random_time)
+	print("Timer: ", timer.wait_time)

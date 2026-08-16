@@ -78,7 +78,6 @@ func dish_found(recipe: Recipe) -> void:
 	plating_ui.show_result(recipe.result)
 
 func done() -> void:
-	print(current_recipe.result)
 	player.inventory.add_item(current_recipe.result)
 	restart()
 

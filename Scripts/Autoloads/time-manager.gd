@@ -10,7 +10,7 @@ const REAL_SECOND_STEP : float = 5
 # HOW MUCH TIME WILL PASS EVERY EVERY REAL SECONDS
 const TIME_PROGRESS: int = 10
 
-@onready var hour : int = 8
+@onready var hour : int = 12
 @onready var minute : int = 0
 @onready var is_morning : bool = true
 

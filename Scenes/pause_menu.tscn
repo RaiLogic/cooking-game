@@ -10,6 +10,8 @@
 bg_color = Color(0.6, 0.6, 0.6, 0.6039216)
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=128763513]
+process_mode = 3
+layer = 3
 script = ExtResource("1_bpi0q")
 
 [node name="Menu" type="Panel" parent="." unique_id=2073025229]

@@ -29,7 +29,8 @@ signal state_changed(seated: bool) # CONNECTED TO FUNCTION "update_sprite" in Ch
 
 # FOOD ORDERING
 var desired_food : Food
-signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_irder" in orders_ui.gd
+signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
+signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
 
 func _ready() -> void:
 	interact_area.monitoring = false
@@ -62,6 +63,7 @@ func interact(interactor: Player) -> void:
 			interactor.inventory.clear_item()
 			state = STATES.EATING
 			state_changed.emit()
+			eating.emit(self)
 			# VALUE IS HARD SET AND MIGHT CHANGE SOON
 			progress.start(10.0)
 			# THIS IS TO NOT SHOW THE PROGRESS BAR AND MAKE IT LOOK LIKE THE CUSTOMER IS

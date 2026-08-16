@@ -7,6 +7,10 @@ class_name Player extends CharacterBody2D
 @export var interact: InteractorComponent
 @export var inventory: InventoryComponent
 
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+const DASH_SFX = preload("uid://bkfdfd0ua24rx")
+
+
 func _physics_process(delta: float) -> void:
 	# JUST FOR TESTING STUFF, THIS IS TO AVOID BOTH PROCESS RUNNING AND KEEP IT
 	# ONE PLAYER
@@ -42,6 +46,11 @@ func _physics_process(delta: float) -> void:
 		set_move(false)
 	else:
 		set_move(true)
+		
+	# SFX
+	if input.dashed:
+		if !audio.is_playing() and !dash.dash_cd:
+			sfx_manager.play_sfx(audio, DASH_SFX)
 
 
 
