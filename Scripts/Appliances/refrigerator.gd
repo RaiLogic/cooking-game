@@ -59,6 +59,6 @@ func back() -> void:
 	update_fridge()
 	
 func close() -> void:
-	sfx_manager.play_sfx(audio, close_sfx)
+	sfx_manager.play_sfx(audio, close_sfx, 0)
 	fridge_user = null
 	player.interact.fridge_toggle.emit(false)

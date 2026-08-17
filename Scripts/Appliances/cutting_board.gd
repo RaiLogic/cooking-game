@@ -54,7 +54,7 @@ func check_item() -> bool:
 	
 
 func slice() -> void:
-	sfx_manager.play_sfx(sound_player, slicing_sound)
+	sfx_manager.play_sfx(sound_player, slicing_sound, 0)
 	tool_inventory.visible = true
 	tool_inventory.set_ui(item)
 	progress_bar.start(item.slice_time)

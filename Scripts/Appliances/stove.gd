@@ -1,7 +1,7 @@
 class_name Stove extends StaticBody2D
 
 @onready var sound_player: AudioStreamPlayer = $AudioStreamPlayer
-var cooking_sfx = preload("res://Assets/Music/Food Sizzling Sound Effect.mp3")
+var cooking_sfx = preload("uid://chib26i7gb8a")
 
 @onready var progress_bar: Panel = $Progress
 @onready var tool_inventory: Panel = $ToolInventoryUI
@@ -54,13 +54,14 @@ func check_item() -> bool:
 	
 
 func cook() -> void:
-	sfx_manager.play_sfx(sound_player, cooking_sfx)
+	sfx_manager.play_sfx(sound_player, cooking_sfx, 0)
+	sfx_manager.fade_in(sound_player, 0.5)
 	tool_inventory.visible = true
 	tool_inventory.set_ui(item)
 	progress_bar.start(item.cook_time)
 	
 func finished() -> void:
-	sfx_manager.stop(sound_player)
+	sfx_manager.fade_out(sound_player, 3.0)
 	tool_inventory.set_ui(item.cooked_version)
 	current_state = STATES.FULL
 	

@@ -48,9 +48,6 @@ func _physics_process(delta: float) -> void:
 		set_move(true)
 		
 	# SFX
-	if input.dashed:
-		if !audio.is_playing() and !dash.dash_cd:
-			sfx_manager.play_sfx(audio, DASH_SFX)
 
 
 

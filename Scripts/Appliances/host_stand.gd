@@ -10,6 +10,4 @@ func interact(interactor: Player) -> void:
 	
 	if !customer.agent.is_navigation_finished():
 		return
-		
-	spawner.customer_served()
 	
