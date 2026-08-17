@@ -3,7 +3,9 @@ extends Camera2D
 @export var p2: Player
 @export var p1: Player
 
+# FIXED POINT TO NOT MOVE HORIZONTALLY
 @export var fixed : float = 640.0
+@export var is_fixed: bool
 
 @export var min_zoom : float = 3.5
 @export var max_zoom : float = 2.5
@@ -14,11 +16,10 @@ var target_zoom : Vector2
 var smoothness : float = position_smoothing_speed
 
 func _process(delta: float) -> void:
-	pause.camera = self
-	
 	follow_zoom(delta)
 	
-	fix_horizontal_follow()
+	if is_fixed:
+		fix_horizontal_follow()
 	
 func fix_horizontal_follow() -> void:
 	global_position.x = fixed

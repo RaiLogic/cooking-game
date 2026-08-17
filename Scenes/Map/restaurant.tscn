@@ -479,6 +479,8 @@ limit_bottom = 345
 position_smoothing_enabled = false
 p2 = NodePath("../Player2")
 p1 = NodePath("../Player1")
+is_fixed = true
+min_zoom = 2.9
 
 [node name="Player2" parent="Players" unique_id=1739635833 instance=ExtResource("4_ly26i")]
 unique_name_in_owner = true
@@ -526,5 +528,6 @@ position = Vector2(461, 354)
 
 [node name="SpawnTimer" type="Timer" parent="CustomerSpawner" unique_id=1683987105]
 wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="CustomerSpawner/SpawnTimer" to="CustomerSpawner" method="_on_spawn_timer_timeout"]

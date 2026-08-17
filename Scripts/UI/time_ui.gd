@@ -5,7 +5,9 @@ extends Control
 
 
 func _ready() -> void:
-	time_label.text = str(time.hour) + " " + str(time.minute)
+	time_label.text = (
+		str("%02d" % time.hour) + " " + str("%02d" % time.minute)
+		)
 	time.time_changed.connect(update_time)	
 	
 

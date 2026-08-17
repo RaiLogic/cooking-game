@@ -377,6 +377,8 @@ animate = NodePath("Compositions/AnimationComponent")
 interact = NodePath("Compositions/InteractorComponent")
 inventory = NodePath("Compositions/InventoryComponent")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2000777685]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1031632667]
 position = Vector2(2, -2)
 scale = Vector2(2.25, 2.25)

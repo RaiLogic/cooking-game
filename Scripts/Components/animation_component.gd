@@ -33,19 +33,19 @@ func run() -> void:
 func idle() -> void:
 	if position == "right":
 		sprite.play("idle:Right")
-	elif position == "left":
+	if position == "left":
 		sprite.play("idle:Left")
-	elif position == "up":
+	if position == "up":
 		sprite.play("idle:Up")
-	elif position == "down":
+	if position == "down":
 		sprite.play("idle:Down")
 	
 func position_update() -> void:
-	if movement.x == 0:
+	if movement.x == 0 or abs(movement.y) > abs(movement.x):
 		if movement.y <= -1: position = "up"
 		if movement.y >= 1: position = "down"
 	
-	if movement.y == 0:
+	if movement.y == 0 or abs(movement.x) > abs(movement.y):
 		if movement.x >= 1: position = "right"
 		if movement.x <= -1: position = "left"
 	
@@ -58,7 +58,3 @@ func dance() -> void:
 		await sprite.animation_finished
 		dancing = false
 		
-		
-		
-	
-	

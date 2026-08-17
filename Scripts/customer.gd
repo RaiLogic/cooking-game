@@ -1,94 +1,121 @@
 class_name Customer extends CharacterBody2D
 
+# COMPONENTS
 @export var movement : MovementComponent
-@onready var order_ui: Panel = $OrderUI
-@onready var interact_area: InteractedComponent = $InteractedComponent
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var skin : SkinComponent = $Components/SkinComponent
+@onready var animation: AnimationComponent = $Components/AnimationComponent
+@onready var interact_area: InteractedComponent = $Components/InteractedComponent
 
+# NAVIGATION
 @onready var agent : NavigationAgent2D = $NavigationAgent2D
 
-@onready var wait: Node2D = $WaitingOrder
-@onready var wait_anim: AnimationPlayer = wait.get_node("AnimationPlayer")
+# ORDERING AND WAITING
+@onready var question: Node2D = $QuestionMark
+@onready var order_ui: Panel = $OrderUI
+@onready var progress: Panel = $Progress
 
 enum STATES {
 	WALKING,
 	WAITING,
 	ORDERING,
+	EATING,
 	LEAVING
 }
 var state: STATES
 
 signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
-signal sitting(seated: bool) # CONNECTED TO FUNCTION
+signal state_changed(seated: bool) # CONNECTED TO FUNCTION "update_sprite" in Chair.gd
 
 
 # FOOD ORDERING
 var desired_food : Food
-signal has_ordered(Customer)
+signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
+signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
 
 func _ready() -> void:
 	interact_area.monitoring = false
-
-func _physics_process(delta: float) -> void:
 	movement.can_move = true
-	
-	if agent.is_navigation_finished():
-		if state == STATES.WALKING:
-			# FOR CHAIR POSITION AND SPRITES
-			if global_position != agent.target_position:
-				global_position = agent.target_position
-				
-			if state == STATES.WALKING:
-				sitting.emit(true)
-				is_sitting(true)
-				state = STATES.WAITING
+	animation.sprite = skin.get_random_skin()
+	progress.finish.connect(done_order)
 
-			velocity = Vector2.ZERO
-			interact_area.monitoring = true
-			return
-		elif state == STATES.LEAVING:
-			queue_free()
-	else:
-		var next_point = agent.get_next_path_position()
-		var direction = (next_point - global_position).normalized()
-		movement.move(direction)
+func _physics_process(_delta: float) -> void:
+	navigation_check()
+	
+	if state == STATES.WALKING or state == STATES.LEAVING:
+		animation.update_anim(velocity)
 
 func interact(interactor: Player) -> void:
 	if state == STATES.WAITING:
 		# INTERACTING WHILE WAITING STATE SHOWS ORDER
-		is_sitting(false)
+		question.hide_mark()
 		state = STATES.ORDERING
 		show_order()
+		state_changed.emit()
 	elif state == STATES.ORDERING:
 		# INTERACTING WHILE ORDERING STATE GET DESIRED FOOD OF CUSTOMER FROM PLAYER
-		if interactor.inventory.item_held != desired_food:
+		if interactor.inventory.item_held != desired_food: 
+			# THIS IS IF THE PLAYER IS 'NOT GIVING' WHAT THE CUSTOMER WANTS
 			interactor.inventory.request_alert()
 			return
 		else:
+			# THIS IS IF THE ORDER IS ACCEPTED AND WHAT THE CUSTOMER WANTS
 			order_ui.visible = false
 			interactor.inventory.clear_item()
-			done.emit(self) # to customer_spawner
-			done_order()
-		
+			state = STATES.EATING
+			state_changed.emit()
+			eating.emit(self)
+			# VALUE IS HARD SET AND MIGHT CHANGE SOON
+			progress.start(10.0)
+			# THIS IS TO NOT SHOW THE PROGRESS BAR AND MAKE IT LOOK LIKE THE CUSTOMER IS
+			# JUST EATING
+			progress.visible = false 
+
+#region NAVIGATION
+# THIS STARTS THE CUSTOMER'S WALKING PROCESS TOWARDS THE 'POS'
 func set_destination(pos: Vector2) -> void:
 	agent.target_desired_distance = 8.0
 	agent.target_position = pos
+	
+func navigation_check() -> void:
+	# WHEN NAVIGATING/WALKING TOWARDS THE CHAIR
+	if !agent.is_navigation_finished():
+		var next_point = agent.get_next_path_position()
+		var direction = (next_point - global_position).normalized()
+		movement.move(direction)
+		return
+	
+	# WHEN CUSTOMER IS FINISHED WALKING
+	if global_position != agent.target_position:
+		# FOR CHAIR POSITION AND SPRITES, ALIGN CUSTOMER TO CHAIR
+		global_position = agent.target_position
+	
+	# IF THEY GOT IN THEIR CHAIR
+	if state == STATES.WALKING:
+		state_changed.emit()
+		question.show_mark()
+		state = STATES.WAITING
+		state_changed.emit()
 
-func is_sitting(index: bool) -> void:
-	if index == true:
-		wait.visible = true
-		wait_anim.play("show")
-	elif index == false:
-		wait_anim.stop()
-		wait.visible = false
+		velocity = Vector2.ZERO
+		interact_area.monitoring = true
+		return
+	
+	# IF THEY ARE NOW OUTSIDE
+	if state == STATES.LEAVING:
+		queue_free()
+	###
+#endregion
 
+# SHOW ORDER ABOVE THE CUSTOMER
 func show_order() -> void:
 	order_ui.visible = true
 	order_ui.get_node("Food").texture = desired_food.icon
 	has_ordered.emit(self)
 
+# CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 func done_order() -> void:
-	# CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
+	progress.restart()
 	state = STATES.LEAVING
 	global.add_money(120)
-	sprite.visible = true
+	done.emit(self)
+	state_changed.emit()
