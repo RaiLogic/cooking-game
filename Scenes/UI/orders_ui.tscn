@@ -84,6 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Slot1" parent="Slots" unique_id=1333045980 instance=ExtResource("1_5kmtg")]
+z_index = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

@@ -14,6 +14,15 @@ class_name Customer extends CharacterBody2D
 @onready var order_ui: Panel = $OrderUI
 @onready var progress: Panel = $Progress
 
+# FOOD ORDERING
+var desired_food : Food
+signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
+signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
+
+#region STATES
+signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
+signal state_changed(seated: bool) # CONNECTED TO FUNCTION "update_sprite" in Chair.gd
+
 enum STATES {
 	WALKING,
 	WAITING,
@@ -23,20 +32,22 @@ enum STATES {
 }
 var state: STATES
 
-signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
-signal state_changed(seated: bool) # CONNECTED TO FUNCTION "update_sprite" in Chair.gd
-
-
-# FOOD ORDERING
-var desired_food : Food
-signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
-signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
+enum EMOTION_STATES {
+	HAPPY,
+	NEUTRAL,
+	SAD,
+	ANGRY
+}
+var emotion_state : EMOTION_STATES # NOT FINISHED YET
+#endregion
 
 func _ready() -> void:
 	interact_area.monitoring = false
 	movement.can_move = true
 	animation.sprite = skin.get_random_skin()
 	progress.finish.connect(done_order)
+	state = STATES.WALKING
+	emotion_state = EMOTION_STATES.HAPPY
 
 func _physics_process(_delta: float) -> void:
 	navigation_check()

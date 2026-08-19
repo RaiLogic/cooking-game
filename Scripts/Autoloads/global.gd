@@ -13,10 +13,11 @@ var current_location : int = LOCATIONS.MAIN_MENU
 
 func _ready() -> void:
 	# DEVELOPING, REMOVED MUSIC
-	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Music"),
-		-80
-	)
+	#AudioServer.set_bus_volume_db(
+		#AudioServer.get_bus_index("Music"),
+		#-80
+	#)
+	pass
 
 func set_location(location):
 	current_location = location

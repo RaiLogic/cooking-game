@@ -14,11 +14,16 @@ var next_chair: int = 0
 # ORDER UI
 @onready var orders_ui: Control = $UI/OrdersUI
 
+# TIME UI
+@onready var times_up: Control = $UI/TimesUpUI
+
 # CUSTOMER SPAWNER
 @onready var customer_spawner: CustomerSpawner = $CustomerSpawner
 
 # LOCATION
 const LOCATION = global.LOCATIONS.RESTAURANT
+
+
 
 
 func _ready() -> void:
@@ -30,8 +35,12 @@ func _ready() -> void:
 	customer_spawner.start_spawning()
 	time.start_day()
 	
+	# END DAY
+	time.day_ended.connect(game_over)
+	
 	# PLAYER SIGNALS
 	player_signal_connections()
+	
 
 # USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
 # CONNECTED TO CUSTOMER_SPAWNER.GD
@@ -47,6 +56,10 @@ func get_available_chair() -> Chair:
 			return chairs[index]
 
 	return null
+	
+func game_over() -> void:
+	get_tree().paused = true
+	times_up.play()
 	
 func player_signal_connections() -> void:
 	# PLAYER MOVEMENT

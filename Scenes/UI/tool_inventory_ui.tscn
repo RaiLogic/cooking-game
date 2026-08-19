@@ -52,14 +52,13 @@ _data = {
 }
 
 [node name="ToolInventoryUI" type="Panel" unique_id=1468582869]
-z_index = 4
+z_index = 2
 offset_right = 20.0
 offset_bottom = 20.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_50t1a")
 script = ExtResource("1_na8f2")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1870582819]
-z_index = 4
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

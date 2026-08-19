@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkjcdyas6oxon" path="res://Scripts/customer.gd" id="1_nbxf1"]
 [ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="2_5gtml"]
+[ext_resource type="PackedScene" uid="uid://hasgymouhqpi" path="res://Scenes/UI/emotions_ui.tscn" id="3_ec442"]
 [ext_resource type="PackedScene" uid="uid://bjsimyj475d2e" path="res://Scenes/Components/Movement/movement_component.tscn" id="3_gx0m6"]
 [ext_resource type="PackedScene" uid="uid://cjd06f1ei321p" path="res://Scenes/Components/skin_component.tscn" id="4_23hwh"]
 [ext_resource type="PackedScene" uid="uid://dmwssfgb5vk8n" path="res://Scenes/Components/Movement/animation_component.tscn" id="5_3deeu"]
@@ -61,11 +62,18 @@ rotation = 0.76037836
 theme_override_styles/panel = SubResource("StyleBoxFlat_gx0m6")
 
 [node name="Progress" parent="." unique_id=157919419 instance=ExtResource("7_23hwh")]
+visible = false
 offset_left = -12.0
 offset_top = 10.0
 offset_right = 118.0
 offset_bottom = 60.0
 rotation = -1.5707964
+
+[node name="EmotionsUI" parent="." unique_id=149319994 instance=ExtResource("3_ec442")]
+offset_left = -2.0
+offset_top = -9.0
+offset_right = 1.9199991
+offset_bottom = -5.04
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=728965768]
 
