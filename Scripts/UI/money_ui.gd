@@ -4,7 +4,7 @@ extends Control
 
 func _ready() -> void:
 	global.money_changed.connect(change_value)
-	change_value(global.money)
+	change_value(0)
 
 func change_value(value: int) -> void:
 	money.text = str(value)

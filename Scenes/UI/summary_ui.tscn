@@ -1,0 +1,421 @@
+[gd_scene format=3 uid="uid://b1wealu8rh8hf"]
+
+[ext_resource type="Script" uid="uid://dy0qoesflhbq" path="res://Scripts/UI/summary_ui.gd" id="1_7mmi5"]
+[ext_resource type="Shader" uid="uid://bd86honf3bam5" path="res://Shaders/scroll.gdshader" id="1_k0bg0"]
+[ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_p4rv8"]
+[ext_resource type="Texture2D" uid="uid://c2b74qbm2oinb" path="res://Assets/Borrowed Assets/Background.png" id="2_7mmi5"]
+[ext_resource type="PackedScene" uid="uid://d40j82m6dydy" path="res://Scenes/Players/no_script_player.tscn" id="2_m800v"]
+[ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="6_c4v25"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vrlf"]
+shader = ExtResource("1_k0bg0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0bg0"]
+bg_color = Color(0.84313726, 0.48235294, 0.7294118, 1)
+shadow_size = 4
+shadow_offset = Vector2(1, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0bg0"]
+font = ExtResource("1_p4rv8")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5gy4"]
+font = ExtResource("1_p4rv8")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbdty"]
+font = ExtResource("1_p4rv8")
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_auskg"]
+font = ExtResource("1_p4rv8")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mmi5"]
+font = ExtResource("1_p4rv8")
+font_size = 24
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4v25"]
+font = ExtResource("1_p4rv8")
+font_size = 32
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1vivr"]
+font = ExtResource("1_p4rv8")
+font_size = 72
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.5294118)
+shadow_offset = Vector2(4, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
+bg_color = Color(0.84313726, 0.48235294, 0.7294118, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vrlf"]
+font = ExtResource("1_p4rv8")
+font_size = 18
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vivr"]
+
+[node name="SummaryUI" type="CanvasLayer" unique_id=1663591735]
+script = ExtResource("1_7mmi5")
+
+[node name="Background" type="TextureRect" parent="." unique_id=10593313]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_8vrlf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -118.5
+offset_right = 148.5
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7mmi5")
+
+[node name="Info" type="Panel" parent="." unique_id=1503385170]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 82.0
+offset_top = -163.37433
+offset_right = 284.0
+offset_bottom = 146.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k0bg0")
+
+[node name="Summary" type="Label" parent="Info" unique_id=1724960980]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 22.374329
+offset_right = 55.0
+offset_bottom = 56.37433
+grow_horizontal = 2
+text = "Summary"
+label_settings = SubResource("LabelSettings_k0bg0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Customer" type="Control" parent="Info" unique_id=1107067736]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 84.37433
+offset_right = -10.0
+offset_bottom = 114.74866
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Info/Customer" unique_id=1437948473]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 91.0
+grow_vertical = 2
+text = "Customers:"
+label_settings = SubResource("LabelSettings_v5gy4")
+vertical_alignment = 1
+
+[node name="Count" type="Label" parent="Info/Customer" unique_id=669457167]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -2.0
+offset_bottom = 8.625671
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_qbdty")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Served" type="Control" parent="Info" unique_id=853669906]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 119.37433
+offset_right = -10.0
+offset_bottom = 149.74866
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Info/Served" unique_id=205307170]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 91.0
+grow_vertical = 2
+text = "Customer  Served:"
+label_settings = SubResource("LabelSettings_v5gy4")
+vertical_alignment = 1
+
+[node name="Count" type="Label" parent="Info/Served" unique_id=153705138]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -2.0
+offset_bottom = 8.625671
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_qbdty")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Earned" type="Control" parent="Info" unique_id=598939022]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 152.37433
+offset_right = -10.0
+offset_bottom = 182.74866
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Info/Earned" unique_id=709650046]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 91.0
+grow_vertical = 2
+text = "Money Earned:"
+label_settings = SubResource("LabelSettings_v5gy4")
+vertical_alignment = 1
+
+[node name="Count" type="Label" parent="Info/Earned" unique_id=8467281]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -2.0
+offset_bottom = 8.625671
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_qbdty")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bills" type="Label" parent="Info" unique_id=1649171141]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 181.37433
+offset_right = 51.0
+offset_bottom = 204.37433
+text = "Bills:"
+label_settings = SubResource("LabelSettings_auskg")
+
+[node name="HouseRent" type="Control" parent="Info" unique_id=1116579525]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 200.37433
+offset_right = -10.0
+offset_bottom = 230.74866
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Info/HouseRent" unique_id=84627743]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 91.0
+grow_vertical = 2
+text = "House Rent:"
+label_settings = SubResource("LabelSettings_v5gy4")
+vertical_alignment = 1
+
+[node name="Count" type="Label" parent="Info/HouseRent" unique_id=1065381053]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -2.0
+offset_bottom = 8.625671
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_qbdty")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RestaurantRent" type="Control" parent="Info" unique_id=1805884327]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 225.37433
+offset_right = -10.0
+offset_bottom = 255.74866
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Info/RestaurantRent" unique_id=466845924]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 91.0
+grow_vertical = 2
+text = "Restaurant Rent:"
+label_settings = SubResource("LabelSettings_v5gy4")
+vertical_alignment = 1
+
+[node name="Count" type="Label" parent="Info/RestaurantRent" unique_id=1015317460]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -2.0
+offset_bottom = 8.625671
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_qbdty")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TotalMoney" type="Control" parent="Info" unique_id=1683490212]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 268.37433
+offset_right = -10.0
+offset_bottom = 298.74866
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Info/TotalMoney" unique_id=2132603489]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_right = 91.0
+offset_bottom = 10.625671
+grow_vertical = 2
+text = "Total :
+Money:"
+label_settings = SubResource("LabelSettings_7mmi5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Count" type="Label" parent="Info/TotalMoney" unique_id=1138718594]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -8.0
+offset_bottom = 2.6256714
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_c4v25")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GreatJob" type="Label" parent="." unique_id=1496244884]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -293.0
+offset_top = -146.0
+offset_right = -95.0
+offset_bottom = 5.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Great
+Job"
+label_settings = SubResource("LabelSettings_1vivr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoScriptPlayer" parent="." unique_id=1738515942 instance=ExtResource("2_m800v")]
+position = Vector2(441.00003, 276)
+scale = Vector2(3.071859, 3.071859)
+dance = "dance2"
+
+[node name="Continue" type="Control" parent="." unique_id=1076080123]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -45.0
+offset_right = -13.875
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Continue" unique_id=1902322277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vivr")
+
+[node name="Label" type="Label" parent="Continue" unique_id=1744391427]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Finish"
+label_settings = SubResource("LabelSettings_8vrlf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Continue" unique_id=1864837522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1vivr")
+script = ExtResource("6_c4v25")

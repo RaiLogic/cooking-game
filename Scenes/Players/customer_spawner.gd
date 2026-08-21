@@ -48,12 +48,14 @@ func start_spawning() -> void:
 
 # CALLED WHEN THE CUSTOMER EMITS DONE SIGNAL
 func customer_served(served: Customer) -> void:
+	global.customer_served += 1
 	customers.erase(served)
 	served.set_destination(main_point.global_position)
 
 # SPAWNS THE CUSTOMER ON TIMER TIMEOUT, ALSO RANDOMIZES CUSTOMER SPAWN TIME
 func _on_spawn_timer_timeout() -> void:
 	spawn_customer()
+	global.customer_count += 1
 	randomize_timer()
 	timer.start()
 

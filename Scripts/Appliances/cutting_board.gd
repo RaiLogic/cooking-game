@@ -21,6 +21,7 @@ var current_state : int = STATES.EMPTY
 
 func _ready() -> void:
 	progress_bar.finish.connect(finished)
+	time.day_ended.connect(stop_everything)
 
 func interact(interactor: Player) -> void:
 	player = interactor
@@ -69,4 +70,8 @@ func restart() -> void:
 	current_state = STATES.EMPTY
 	tool_inventory.clear_ui()
 	progress_bar.restart()
+
+# MIGHT CHANGE THIS SOON
+func stop_everything() -> void:
+	sfx_manager.stop(sound_player)
 	

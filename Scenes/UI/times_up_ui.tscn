@@ -473,9 +473,6 @@ animations = [{
 "speed": 25.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vivr"]
-bg_color = Color(0, 0, 0, 0)
-
 [sub_resource type="Animation" id="Animation_8csx2"]
 length = 0.001
 tracks/0/type = "value"
@@ -505,31 +502,59 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FadeOut:theme_override_styles/panel:bg_color")
+tracks/2/path = NodePath("Alarm:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t7vib"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alarm:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_g51p4"]
 resource_name = "fade_out"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeOut:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.5, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
+length = 3.0000000000000004
 
 [sub_resource type="Animation" id="Animation_k1org"]
 resource_name = "show"
@@ -562,13 +587,13 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wwu7w"]
 _data = {
 &"RESET": SubResource("Animation_8csx2"),
+&"fade_in": SubResource("Animation_t7vib"),
 &"fade_out": SubResource("Animation_g51p4"),
 &"show": SubResource("Animation_k1org")
 }
 
 [node name="TimesUpUI" type="Control" unique_id=561809422]
 process_mode = 3
-visible = false
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -602,18 +627,9 @@ scale = Vector2(0.046875037, 0.046875037)
 sprite_frames = SubResource("SpriteFrames_1vivr")
 animation = &"alarm"
 autoplay = "alarm"
-frame_progress = 0.43111172
+frame_progress = 0.60636926
 
-[node name="FadeOut" type="Panel" parent="." unique_id=943414285]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1vivr")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1739499830]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1849928781]
 libraries/ = SubResource("AnimationLibrary_wwu7w")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1739499830]

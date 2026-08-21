@@ -27,6 +27,7 @@ sfx_manager="*uid://xqdecokthqv6"
 pause="*uid://bfxtwcv8f01us"
 GInput="*uid://dbm7lqonpw7yi"
 time="*uid://h8qq1lr2i6c1"
+fade="*uid://bd50f86gve1xc"
 
 [display]
 
@@ -58,7 +59,8 @@ folder_colors={
 "res://Scripts/Components/": "yellow",
 "res://Scripts/Map/": "red",
 "res://Scripts/Player/": "purple",
-"res://Scripts/UI/": "orange"
+"res://Scripts/UI/": "orange",
+"res://Shaders/": "teal"
 }
 
 [input]

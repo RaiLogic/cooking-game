@@ -21,6 +21,7 @@ var current_state : int = STATES.EMPTY
 
 func _ready() -> void:
 	progress_bar.finish.connect(finished)
+	time.day_ended.connect(stop_everything)
 
 func interact(interactor: Player) -> void:
 	player = interactor
@@ -52,7 +53,6 @@ func check_item() -> bool:
 		player.inventory.request_alert()
 		return false
 	
-
 func cook() -> void:
 	sfx_manager.play_sfx(sound_player, cooking_sfx, 0)
 	sfx_manager.fade_in(sound_player, 0.5)
@@ -69,4 +69,8 @@ func restart() -> void:
 	current_state = STATES.EMPTY
 	tool_inventory.clear_ui()
 	progress_bar.restart()
+
+# MIGHT CHANGE THIS SOON
+func stop_everything() -> void:
+	sfx_manager.stop(sound_player)
 	

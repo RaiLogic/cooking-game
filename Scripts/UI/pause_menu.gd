@@ -16,7 +16,8 @@ func _ready() -> void:
 	option_menu.back.pressed.connect(back_to_menu)
 	
 	visible = false
-	
+
+# PAUSE GAME AND SHOW MENU
 func pause_game() -> void:
 	is_paused = true
 	visible = true

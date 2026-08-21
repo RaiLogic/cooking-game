@@ -347,4 +347,4 @@ position = Vector2(2, -2)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_qqxu6")
 animation = &"dance2"
-autoplay = "dance1"
+autoplay = "dance2"

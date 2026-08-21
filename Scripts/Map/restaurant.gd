@@ -11,20 +11,17 @@ class_name Restaurant extends Node
 @onready var chairs: Array = $Interactables/Dining/Chairs.get_children()
 var next_chair: int = 0
 
-# ORDER UI
+# UI
 @onready var orders_ui: Control = $UI/OrdersUI
-
-# TIME UI
 @onready var times_up: Control = $UI/TimesUpUI
+@onready var money_ui: Control = $UI/MoneyUI
+
 
 # CUSTOMER SPAWNER
 @onready var customer_spawner: CustomerSpawner = $CustomerSpawner
 
 # LOCATION
 const LOCATION = global.LOCATIONS.RESTAURANT
-
-
-
 
 func _ready() -> void:
 	# SET MUSIC
@@ -34,6 +31,7 @@ func _ready() -> void:
 	global.set_location(LOCATION)
 	customer_spawner.start_spawning()
 	time.start_day()
+	money_ui.change_value(global.earned_money)
 	
 	# END DAY
 	time.day_ended.connect(game_over)
@@ -41,7 +39,6 @@ func _ready() -> void:
 	# PLAYER SIGNALS
 	player_signal_connections()
 	
-
 # USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
 # CONNECTED TO CUSTOMER_SPAWNER.GD
 func get_available_chair() -> Chair:
@@ -60,6 +57,11 @@ func get_available_chair() -> Chair:
 func game_over() -> void:
 	get_tree().paused = true
 	times_up.play()
+	await times_up.animation.animation_finished
+	await fade.fade_out(4.0)
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/UI/summary_ui.tscn")
+	fade.fade_in(3.0)
 	
 func player_signal_connections() -> void:
 	# PLAYER MOVEMENT

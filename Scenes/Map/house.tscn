@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_561lb"]
 [ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="5_4u0iy"]
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="6_flp3e"]
+[ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="7_561lb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se8ev"]
 texture = ExtResource("1_jdd7i")
@@ -157,5 +158,9 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveHouse" unique_id=1748449315]
 position = Vector2(434, 237.5)
 shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1944159858]
+
+[node name="MoneyUI" parent="UI" unique_id=1084197604 instance=ExtResource("7_561lb")]
 
 [connection signal="body_entered" from="LeaveHouse" to="." method="_on_leave_house_entered"]

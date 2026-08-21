@@ -11,8 +11,8 @@ const REAL_SECOND_STEP : float = 5
 const TIME_PROGRESS: int = 10
 
 # TIME START SETTING
-@onready var hour : int = 10
-@onready var minute : int = 0
+@onready var hour : int
+@onready var minute : int
 @onready var is_morning : bool
 
 func _ready() -> void:
@@ -23,6 +23,9 @@ func _ready() -> void:
 	
 func start_day() -> void:
 	is_morning = true
+	hour = 11
+	minute = 0
+	time_changed.emit(hour, minute)
 	timer.start()
 	
 func _update_time() -> void:

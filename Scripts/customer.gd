@@ -127,6 +127,7 @@ func show_order() -> void:
 func done_order() -> void:
 	progress.restart()
 	state = STATES.LEAVING
-	global.add_money(120)
 	done.emit(self)
 	state_changed.emit()
+	
+	global.add_money(120)
