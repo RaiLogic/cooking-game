@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crfou2n2jiy65" path="res://Assets/Borrowed Assets/For House/Room_Builder_free_16x16.png" id="1_jdd7i"]
 [ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="2_7cjtw"]
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_561lb"]
+[ext_resource type="PackedScene" uid="uid://bi1ous3e6wk7x" path="res://Scenes/Furniture/computer.tscn" id="4_flp3e"]
 [ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="5_4u0iy"]
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="6_flp3e"]
 [ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="7_561lb"]
@@ -254,12 +255,18 @@ tile_set = SubResource("TileSet_8vrlf")
 [node name="WallAccessories" type="TileMapLayer" parent="World/Furnitures" unique_id=1468893596]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAGAAoAAQAIABYAAAAGAAsAAQAIABcAAAAHAAoAAQAJABYAAAAHAAsAAQAJABcAAAAKAAMAAQAIABQAAAAKAAQAAQAIABUAAAALAAMAAQAJABQAAAALAAQAAQAJABUAAAAWABEAAQAPACcAAAAWABIAAQAPACgAAAAWABMAAQAPACkAAAA=")
+tile_map_data = PackedByteArray("AAAKAAMAAQAIABQAAAAKAAQAAQAIABUAAAALAAMAAQAJABQAAAALAAQAAQAJABUAAAAWABEAAQAPACcAAAAWABIAAQAPACgAAAAWABMAAQAPACkAAAAUAAoAAQAIABYAAAAUAAsAAQAIABcAAAAVAAoAAQAJABYAAAAVAAsAAQAJABcAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="Template" type="TileMapLayer" parent="World/Furnitures" unique_id=11450705]
 z_index = 1
 tile_set = SubResource("TileSet_8vrlf")
+
+[node name="Interactable" type="Node2D" parent="World/Furnitures" unique_id=815448085]
+
+[node name="Computer" parent="World/Furnitures/Interactable" unique_id=692889055 instance=ExtResource("4_flp3e")]
+position = Vector2(96, 187)
+scale = Vector2(0.5, 0.5)
 
 [node name="Players" type="Node2D" parent="World" unique_id=249466130]
 y_sort_enabled = true
@@ -293,5 +300,6 @@ shape = SubResource("RectangleShape2D_1vivr")
 [node name="MoneyUI" parent="UI" unique_id=1084197604 instance=ExtResource("7_561lb")]
 
 [node name="FurnitureShop" parent="." unique_id=602606315 instance=ExtResource("8_4u0iy")]
+visible = false
 
 [connection signal="body_entered" from="LeaveHouse" to="." method="_on_leave_house_entered"]

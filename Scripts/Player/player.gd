@@ -41,6 +41,8 @@ func _physics_process(delta: float) -> void:
 
 	# INTERACTION
 	if input.interact:
+		
+		
 		interact.action(self)
 	if interact.interacting:
 		set_move(false)

@@ -46,6 +46,7 @@ folder_colors={
 "res://Assets/Own Assets/": "green",
 "res://Resources/": "pink",
 "res://Resources/Food/": "orange",
+"res://Resources/Furniture/": "teal",
 "res://Resources/Recipes/": "green",
 "res://Resources/Script/": "gray",
 "res://Scenes/": "purple",

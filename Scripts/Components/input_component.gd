@@ -53,7 +53,8 @@ func normal_movement() -> void:
 	dashed = Input.is_action_just_pressed(dash)
 	dance_move = Input.is_action_just_pressed(dance)
 	interact = Input.is_action_just_pressed(action)
-	
+
+#region FRIDGE MODE AND FRIDGE MOVEMENT
 func fridge_mode(fridge: Refrigerator) -> void:
 	state = STATES.FRIDGE
 	current_fridge = fridge
@@ -72,6 +73,7 @@ func fridge_movement() -> void:
 	if Input.is_action_just_pressed(move_down):
 		current_fridge.close()
 		state = STATES.NORMAL
+#endregion
 		
-	
+
 	
