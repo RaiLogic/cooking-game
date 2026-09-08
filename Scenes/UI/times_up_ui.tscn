@@ -630,6 +630,7 @@ autoplay = "alarm"
 frame_progress = 0.60636926
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1739499830]
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1849928781]
 libraries/ = SubResource("AnimationLibrary_wwu7w")

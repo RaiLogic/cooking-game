@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bbrvwa4exmk6f"]
 
-[ext_resource type="Script" path="res://Scripts/Components/build_component.gd" id="1_7nikw"]
+[ext_resource type="Script" uid="uid://dctcd1srvl0he" path="res://Scripts/Components/build_component.gd" id="1_7nikw"]
 
-[node name="BuildComponent" type="Node2D" unique_id=1059253641]
+[node name="BuildComponent" type="Node2D" unique_id=537324138]
 script = ExtResource("1_7nikw")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=666393206]

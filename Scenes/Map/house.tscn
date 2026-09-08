@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bi1ous3e6wk7x" path="res://Scenes/Furniture/computer.tscn" id="4_flp3e"]
 [ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="5_4u0iy"]
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="6_flp3e"]
+[ext_resource type="PackedScene" uid="uid://bbrvwa4exmk6f" path="res://Scenes/Components/build_component.tscn" id="7_27j8n"]
 [ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="7_561lb"]
 [ext_resource type="PackedScene" uid="uid://cs68u40vjow4i" path="res://Scenes/UI/furniture_shop.tscn" id="8_4u0iy"]
 
@@ -281,11 +282,17 @@ p1 = NodePath("../Player1")
 fixed = 240.0
 max_zoom = 1.4
 
-[node name="Player1" parent="World/Players" unique_id=1165400651 instance=ExtResource("5_4u0iy")]
+[node name="Player1" parent="World/Players" unique_id=1165400651 node_paths=PackedStringArray("build") instance=ExtResource("5_4u0iy")]
 position = Vector2(302, 246)
+build = NodePath("BuildComponent")
 
-[node name="Player2" parent="World/Players" unique_id=1739635833 instance=ExtResource("6_flp3e")]
+[node name="BuildComponent" parent="World/Players/Player1" unique_id=537324138 instance=ExtResource("7_27j8n")]
+
+[node name="Player2" parent="World/Players" unique_id=1739635833 node_paths=PackedStringArray("build") instance=ExtResource("6_flp3e")]
 position = Vector2(416, 246)
+build = NodePath("BuildComponent")
+
+[node name="BuildComponent" parent="World/Players/Player2" unique_id=1470079777 instance=ExtResource("7_27j8n")]
 
 [node name="LeaveHouse" type="Area2D" parent="." unique_id=588890288]
 position = Vector2(-48, 12)

@@ -24,5 +24,7 @@ func _ready() -> void:
 	button.pressed.connect(go_home)
 	
 func go_home() -> void:
+	# THIS SHOULDN'T BE HERE
+	global.earned_money = 0
 	global.reset_stats()
 	fade.change_scene("res://Scenes/Map/house.tscn", 2.5)

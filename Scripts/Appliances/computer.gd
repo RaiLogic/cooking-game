@@ -1,6 +1,8 @@
-extends StaticBody2D
+class_name Computer extends StaticBody2D
 
 signal opened
 
+var shop_ui: CanvasLayer
+
 func interact(player: Player) -> void:
-	opened.emit()
+	shop_ui.show_ui(player)

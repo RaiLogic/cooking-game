@@ -58,6 +58,7 @@ func game_over() -> void:
 	get_tree().paused = true
 	times_up.play()
 	await times_up.animation.animation_finished
+	
 	await fade.fade_out(4.0)
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/UI/summary_ui.tscn")
