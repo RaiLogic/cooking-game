@@ -238,25 +238,22 @@ y_sort_enabled = true
 
 [node name="FloorAccessories" type="TileMapLayer" parent="World/Furnitures" unique_id=1668230152]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAPAA4AAQAHAA8AAAAPAA8AAQAHABAAAAAPABAAAQAHABEAAAAQAA4AAQAIAA8AAAAQAA8AAQAIABAAAAAQABAAAQAIABEAAAARAA4AAQAJAA8AAAARAA8AAQAJABAAAAARABAAAQAJABEAAAASAA4AAQAKAA8AAAASAA8AAQAKABAAAAASABAAAQAKABEAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="Big" type="TileMapLayer" parent="World/Furnitures" unique_id=1949752474]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAFAAMAAQAEABgAAAAFAAQAAQAEABkAAAAGAAMAAQAFABgAAAAGAAQAAQAFABkAAAAHAAMAAQAGABgAAAAHAAQAAQAGABkAAAANAAMAAQAEABgAAAANAAQAAQAEABkAAAAOAAMAAQAFABgAAAAOAAQAAQAFABkAAAAPAAMAAQAGABgAAAAPAAQAAQAGABkAAAAIAAQAAQABADkAAAAIAAUAAQABADoAAAAMAAQAAQABADkAAAAMAAUAAQABADoAAAAJAAQAAQALADMAAAAJAAUAAQALADQAAAAPAAsAAQAHAEgAAAAPAAwAAQAHAEkAAAAQAAsAAQAJAEgAAAAQAAwAAQAJAEkAAAARAAsAAQAJAEgAAAARAAwAAQAJAEkAAAASAAsAAQAIAEgAAAASAAwAAQAIAEkAAAAPAA4AAQAAAAoAAAAPAA8AAQAAAAsAAAAPABAAAQAAAAwAAAAQAA4AAQABAAoAAAAQAA8AAQABAAsAAAAQABAAAQABAAwAAAARAA4AAQACAAoAAAARAA8AAQACAAsAAAARABAAAQACAAwAAAASAA4AAQADAAoAAAASAA8AAQADAAsAAAASABAAAQADAAwAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="Small" type="TileMapLayer" parent="World/Furnitures" unique_id=2044969757]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAIAAMAAQAPADUAAAAIAAQAAQAPADYAAAAMAAMAAQAPADUAAAAMAAQAAQAPADYAAAAJAAMAAQANADMAAAAJAAQAAQANADQAAAAOAAoAAQAMADgAAAAOAAsAAQAMADkAAAAOAAwAAQAMADoAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="WallAccessories" type="TileMapLayer" parent="World/Furnitures" unique_id=1468893596]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAKAAMAAQAIABQAAAAKAAQAAQAIABUAAAALAAMAAQAJABQAAAALAAQAAQAJABUAAAAWABEAAQAPACcAAAAWABIAAQAPACgAAAAWABMAAQAPACkAAAAUAAoAAQAIABYAAAAUAAsAAQAIABcAAAAVAAoAAQAJABYAAAAVAAsAAQAJABcAAAA=")
+tile_map_data = PackedByteArray("AAAWABEAAQAPACcAAAAWABIAAQAPACgAAAAWABMAAQAPACkAAAAUAAoAAQAIABYAAAAUAAsAAQAIABcAAAAVAAoAAQAJABYAAAAVAAsAAQAJABcAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="Template" type="TileMapLayer" parent="World/Furnitures" unique_id=11450705]
@@ -268,6 +265,8 @@ tile_set = SubResource("TileSet_8vrlf")
 [node name="Computer" parent="World/Furnitures/Interactable" unique_id=692889055 instance=ExtResource("4_flp3e")]
 position = Vector2(96, 187)
 scale = Vector2(0.5, 0.5)
+
+[node name="PlayerPlaced" type="Node2D" parent="World/Furnitures" unique_id=1263986790]
 
 [node name="Players" type="Node2D" parent="World" unique_id=249466130]
 y_sort_enabled = true
@@ -283,12 +282,14 @@ fixed = 240.0
 max_zoom = 1.4
 
 [node name="Player1" parent="World/Players" unique_id=1165400651 node_paths=PackedStringArray("build") instance=ExtResource("5_4u0iy")]
+unique_name_in_owner = true
 position = Vector2(302, 246)
 build = NodePath("BuildComponent")
 
 [node name="BuildComponent" parent="World/Players/Player1" unique_id=537324138 instance=ExtResource("7_27j8n")]
 
 [node name="Player2" parent="World/Players" unique_id=1739635833 node_paths=PackedStringArray("build") instance=ExtResource("6_flp3e")]
+unique_name_in_owner = true
 position = Vector2(416, 246)
 build = NodePath("BuildComponent")
 

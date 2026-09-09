@@ -12,13 +12,12 @@ var controls: bool = true
 
 enum STATES {
 	NORMAL,
-	FRIDGE
+	FRIDGE,
+	BUILD
 }
 var state : int
 
 var current_fridge : Refrigerator
-
-signal order_pressed
 
 @export var move_up : String
 @export var move_down : String
@@ -41,6 +40,8 @@ func get_input() -> void:
 			normal_movement()
 		STATES.FRIDGE:
 			fridge_movement()
+		STATES.BUILD:
+			build_movement()
 	
 func normal_movement() -> void:
 	move_action = Input.get_vector(
@@ -52,6 +53,16 @@ func normal_movement() -> void:
 			
 	dashed = Input.is_action_just_pressed(dash)
 	dance_move = Input.is_action_just_pressed(dance)
+	interact = Input.is_action_just_pressed(action)
+	
+func build_movement() -> void:
+	move_action = Input.get_vector(
+			move_left, 
+			move_right, 
+			move_up, 
+			move_down
+			)
+			
 	interact = Input.is_action_just_pressed(action)
 
 #region FRIDGE MODE AND FRIDGE MOVEMENT

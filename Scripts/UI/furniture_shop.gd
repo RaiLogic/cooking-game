@@ -7,11 +7,14 @@ class_name FurnitureShop extends CanvasLayer
 # SHOP
 @export var furnitures: Array[FurnitureData]
 @onready var furniture_list: VBoxContainer = $Margin/FurnitureList/VBoxContainer
+
 # INFORMATION OF FURNITURE
+
 @onready var furniture_name: Label = $Margin/ToolInventoryUI/Name
 @onready var furniture_price: Label = $Margin/ToolInventoryUI/Price/Price
-@onready var furniture_texture: TextureRect = $Margin/ToolInventoryUI.item_ui
+@onready var furniture_texture: TextureRect = $Margin/ToolInventoryUI/FurniturePreview
 @onready var inventory_ui: ToolInventoryUI = $Margin/ToolInventoryUI
+
 # THE PLAYER WHO USED THE COMPUTER
 var current_player: Player
 var current_furniture
@@ -43,14 +46,14 @@ func setup_furniture(item: Control, furniture: FurnitureData) -> void:
 func show_furniture(furniture: FurnitureData) -> void:
 	current_furniture = furniture
 	
-	furniture_name.text = furniture.name
-	furniture_price.text = str(furniture.price)
+	furniture_name.text = current_furniture.name
+	furniture_price.text = str(current_furniture.price)
 	
 	# ATLAS WILL GET THE SPRITESHEET OF THE FURNITURE AND GET ITS SPRITE FROM THERE
 	# USED TO SHOW PREVIEW OF THE TEXTURE IN THE FURNITURE PREVIEW
 	var atlas : AtlasTexture = AtlasTexture.new()
-	atlas.atlas = furniture.spritesheet
-	atlas.region = furniture.texture_region
+	atlas.atlas = current_furniture.spritesheet
+	atlas.region = current_furniture.texture_region
 	furniture_texture.texture = atlas
 	
 	buy.pressed.connect(call_build_mode)
@@ -64,8 +67,10 @@ func call_build_mode() -> void:
 	get_tree().paused = false
 	hide()
 	
+	current_player.input.state = current_player.input.STATES.BUILD
 	current_player.build.select_furniture(current_furniture)
 	current_furniture = null
+	current_player = null
 	 
 # WHEN PRESSED 'X' BUTTON IN SHOP UI
 func exit_shop() -> void:
