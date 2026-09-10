@@ -12,8 +12,11 @@ const GRID_SIZE: int = 16
 # PLAYER ATTRIBUTES TO BE FOLLOWED BY FURNIURE
 var direction: Vector2 # ASSIGNED IN PLAYER SCRIPT
 var target_position: Vector2
-@onready var furniture_container = get_tree().current_scene.get_node("World/Furnitures/PlayerPlaced")
+@onready var furniture_container = (
+	get_tree().current_scene.get_node("World/Players/PlayerFurnitures")
+	)
 
+# NO USE YET
 signal furniture_placed(furniture: FurnitureData)
 
 func _process(delta: float) -> void:
@@ -52,6 +55,7 @@ func place_furniture() -> void:
 	
 	furniture_container.add_child(furniture)
 	
+	player.input.state = player.input.STATES.NORMAL
 	is_building = false
 	preview.queue_free()
 	

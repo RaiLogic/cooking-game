@@ -12,7 +12,9 @@ class_name FurnitureShop extends CanvasLayer
 
 @onready var furniture_name: Label = $Margin/ToolInventoryUI/Name
 @onready var furniture_price: Label = $Margin/ToolInventoryUI/Price/Price
-@onready var furniture_texture: TextureRect = $Margin/ToolInventoryUI/FurniturePreview
+@onready var furniture_texture: TextureRect = (
+	$Margin/ToolInventoryUI/FurniturePreview
+	)
 @onready var inventory_ui: ToolInventoryUI = $Margin/ToolInventoryUI
 
 # THE PLAYER WHO USED THE COMPUTER
@@ -49,7 +51,7 @@ func show_furniture(furniture: FurnitureData) -> void:
 	furniture_name.text = current_furniture.name
 	furniture_price.text = str(current_furniture.price)
 	
-	# ATLAS WILL GET THE SPRITESHEET OF THE FURNITURE AND GET ITS SPRITE FROM THERE
+	# ATLAS WILL GET THE SPRITESHEET OF THE FURNITURE AND GET ITS SPRITE 
 	# USED TO SHOW PREVIEW OF THE TEXTURE IN THE FURNITURE PREVIEW
 	var atlas : AtlasTexture = AtlasTexture.new()
 	atlas.atlas = current_furniture.spritesheet
@@ -60,17 +62,28 @@ func show_furniture(furniture: FurnitureData) -> void:
 	
 func call_build_mode() -> void:
 	# IF NOTHING HAS BEEN SELECTED IN SHOP THEN PRESSING BUY
-	if furniture_texture.texture == null:# or global.total_money < furniture.price:
+	if (
+	furniture_texture.texture == null or
+	not global.spend_money(current_furniture.price)
+	):
 		inventory_ui.play_alert()
 		return
 	
 	get_tree().paused = false
+	reset_shop()
 	hide()
+	
+	global.spend_money(current_furniture.price)
 	
 	current_player.input.state = current_player.input.STATES.BUILD
 	current_player.build.select_furniture(current_furniture)
 	current_furniture = null
 	current_player = null
+	
+func reset_shop() -> void:
+	furniture_name.text = "Furniture Name"
+	furniture_price.text = "00000"
+	furniture_texture.texture = null
 	 
 # WHEN PRESSED 'X' BUTTON IN SHOP UI
 func exit_shop() -> void:

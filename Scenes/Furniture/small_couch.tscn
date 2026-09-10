@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="1_edy6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(32, 4)
+size = Vector2(32, 7)
 
 [node name="SmallCouch" type="StaticBody2D" unique_id=1814727982]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1620525855]
 texture = ExtResource("1_edy6n")
@@ -13,5 +14,5 @@ region_enabled = true
 region_rect = Rect2(112, 1152, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=465527883]
-position = Vector2(0, 2)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1vivr")

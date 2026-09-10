@@ -23,6 +23,7 @@ var restaurant_rent: int = 150
 #endregion
 
 signal money_changed(amount)
+signal no_money
 
 enum LOCATIONS {
 	MAIN_MENU,
@@ -34,10 +35,10 @@ var current_location : int = LOCATIONS.MAIN_MENU
 
 func _ready() -> void:
 	# DEVELOPING, REMOVED MUSIC
-	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Music"),
-		-80
-	)
+	#AudioServer.set_bus_volume_db(
+		#AudioServer.get_bus_index("Music"),
+		#-80
+	#)
 	
 	time.day_ended.connect(end_day)
 
@@ -55,10 +56,15 @@ func add_money(amount) -> void:
 	total_money += amount
 	money_changed.emit(earned_money)
 	
-func spend_money(amount) -> void:
+func spend_money(amount) -> bool:
 	if total_money < amount:
 		print("Not Enough Money!")
-		return
+		no_money.emit()
+		return false
+		
+	total_money -= amount
+	money_changed.emit(total_money)
+	return true
 
 # WHEN DAY ENDING AND RESTAURANT WILL RESET, THIS WILL RESET THE SUMMARY STATS
 func reset_stats() -> void:

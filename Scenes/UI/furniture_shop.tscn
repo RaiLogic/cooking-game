@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dc1u6me8r0ho1" path="res://Resources/Script/furniture_data.gd" id="2_ml1rq"]
 [ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="3_83rye"]
 [ext_resource type="Resource" uid="uid://ce3rkpkgd2icf" path="res://Resources/Furniture/small_couch.tres" id="3_arn6t"]
-[ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="4_2ntbt"]
 [ext_resource type="Resource" uid="uid://bjpj8fu6nu4ty" path="res://Resources/Furniture/cabinet.tres" id="4_arn6t"]
 [ext_resource type="PackedScene" uid="uid://b0e6cjaagek0s" path="res://Scenes/UI/tool_inventory_ui.tscn" id="5_2ntbt"]
 
@@ -995,10 +994,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = 14.0
-offset_right = -14.0
-offset_bottom = -14.0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1145,13 +1144,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mn87h")
-
-[node name="MoneyUI" parent="Margin" unique_id=1084197604 instance=ExtResource("4_2ntbt")]
-layout_mode = 1
-offset_left = 7.777771
-offset_top = 7.0
-offset_right = 94.77779
-offset_bottom = 29.0
 
 [node name="Title" type="Label" parent="Margin" unique_id=754036218]
 layout_mode = 1

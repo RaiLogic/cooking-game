@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bbrvwa4exmk6f" path="res://Scenes/Components/build_component.tscn" id="7_27j8n"]
 [ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="7_561lb"]
 [ext_resource type="PackedScene" uid="uid://cs68u40vjow4i" path="res://Scenes/UI/furniture_shop.tscn" id="8_4u0iy"]
+[ext_resource type="Script" uid="uid://dc1u6me8r0ho1" path="res://Resources/Script/furniture_data.gd" id="11_v422u"]
+[ext_resource type="Resource" uid="uid://ce3rkpkgd2icf" path="res://Resources/Furniture/small_couch.tres" id="12_fvulb"]
+[ext_resource type="Resource" uid="uid://bjpj8fu6nu4ty" path="res://Resources/Furniture/cabinet.tres" id="13_trlx5"]
+[ext_resource type="Resource" uid="uid://brxc5jisl35pf" path="res://Resources/Furniture/mirror.tres" id="14_ilqwy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se8ev"]
 texture = ExtResource("1_jdd7i")
@@ -208,6 +212,7 @@ size = Vector2(4, 55)
 script = ExtResource("1_ay2ny")
 
 [node name="World" type="Node2D" parent="." unique_id=1831604831]
+y_sort_enabled = true
 
 [node name="Tilemaps" type="Node2D" parent="World" unique_id=1178458433]
 
@@ -266,11 +271,13 @@ tile_set = SubResource("TileSet_8vrlf")
 position = Vector2(96, 187)
 scale = Vector2(0.5, 0.5)
 
-[node name="PlayerPlaced" type="Node2D" parent="World/Furnitures" unique_id=1263986790]
-
 [node name="Players" type="Node2D" parent="World" unique_id=249466130]
 y_sort_enabled = true
 position = Vector2(-187, -28)
+
+[node name="PlayerFurnitures" type="Node2D" parent="World/Players" unique_id=1263986790]
+y_sort_enabled = true
+position = Vector2(187, 28)
 
 [node name="Camera2D" parent="World/Players" unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_561lb")]
 position = Vector2(321, 0)
@@ -309,5 +316,6 @@ shape = SubResource("RectangleShape2D_1vivr")
 
 [node name="FurnitureShop" parent="." unique_id=602606315 instance=ExtResource("8_4u0iy")]
 visible = false
+furnitures = Array[ExtResource("11_v422u")]([ExtResource("12_fvulb"), ExtResource("13_trlx5"), ExtResource("14_ilqwy")])
 
 [connection signal="body_entered" from="LeaveHouse" to="." method="_on_leave_house_entered"]
