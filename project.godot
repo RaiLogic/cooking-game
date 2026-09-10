@@ -1,3 +1,11 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
@@ -20,6 +28,7 @@ pause="*uid://bfxtwcv8f01us"
 GInput="*uid://dbm7lqonpw7yi"
 time="*uid://h8qq1lr2i6c1"
 fade="*uid://bd50f86gve1xc"
+saveload="*uid://cjn4gb63vejg7"
 
 [display]
 
@@ -38,6 +47,7 @@ folder_colors={
 "res://Assets/Own Assets/": "green",
 "res://Resources/": "pink",
 "res://Resources/Food/": "orange",
+"res://Resources/Furniture/": "teal",
 "res://Resources/Recipes/": "green",
 "res://Resources/Script/": "gray",
 "res://Scenes/": "purple",

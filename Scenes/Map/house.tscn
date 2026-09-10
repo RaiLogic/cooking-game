@@ -4,9 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://crfou2n2jiy65" path="res://Assets/Borrowed Assets/For House/Room_Builder_free_16x16.png" id="1_jdd7i"]
 [ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="2_7cjtw"]
 [ext_resource type="PackedScene" uid="uid://0t8485uxvmqo" path="res://Scenes/Players/camera.tscn" id="4_561lb"]
+[ext_resource type="PackedScene" uid="uid://bi1ous3e6wk7x" path="res://Scenes/Furniture/computer.tscn" id="4_flp3e"]
 [ext_resource type="PackedScene" uid="uid://cj0il6qr8osmx" path="res://Scenes/Players/player_1.tscn" id="5_4u0iy"]
 [ext_resource type="PackedScene" uid="uid://cvec24utcv6rg" path="res://Scenes/Players/player_2.tscn" id="6_flp3e"]
+[ext_resource type="PackedScene" uid="uid://bbrvwa4exmk6f" path="res://Scenes/Components/build_component.tscn" id="7_27j8n"]
 [ext_resource type="PackedScene" uid="uid://tyty0nsws7df" path="res://Scenes/UI/money_ui.tscn" id="7_561lb"]
+[ext_resource type="PackedScene" uid="uid://cs68u40vjow4i" path="res://Scenes/UI/furniture_shop.tscn" id="8_4u0iy"]
+[ext_resource type="Script" uid="uid://dc1u6me8r0ho1" path="res://Resources/Script/furniture_data.gd" id="11_v422u"]
+[ext_resource type="Resource" uid="uid://ce3rkpkgd2icf" path="res://Resources/Furniture/small_couch.tres" id="12_fvulb"]
+[ext_resource type="Resource" uid="uid://bjpj8fu6nu4ty" path="res://Resources/Furniture/cabinet.tres" id="13_trlx5"]
+[ext_resource type="Resource" uid="uid://brxc5jisl35pf" path="res://Resources/Furniture/mirror.tres" id="14_ilqwy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se8ev"]
 texture = ExtResource("1_jdd7i")
@@ -205,6 +212,7 @@ size = Vector2(4, 55)
 script = ExtResource("1_ay2ny")
 
 [node name="World" type="Node2D" parent="." unique_id=1831604831]
+y_sort_enabled = true
 
 [node name="Tilemaps" type="Node2D" parent="World" unique_id=1178458433]
 
@@ -235,34 +243,41 @@ y_sort_enabled = true
 
 [node name="FloorAccessories" type="TileMapLayer" parent="World/Furnitures" unique_id=1668230152]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAPAA4AAQAHAA8AAAAPAA8AAQAHABAAAAAPABAAAQAHABEAAAAQAA4AAQAIAA8AAAAQAA8AAQAIABAAAAAQABAAAQAIABEAAAARAA4AAQAJAA8AAAARAA8AAQAJABAAAAARABAAAQAJABEAAAASAA4AAQAKAA8AAAASAA8AAQAKABAAAAASABAAAQAKABEAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="Big" type="TileMapLayer" parent="World/Furnitures" unique_id=1949752474]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAFAAMAAQAEABgAAAAFAAQAAQAEABkAAAAGAAMAAQAFABgAAAAGAAQAAQAFABkAAAAHAAMAAQAGABgAAAAHAAQAAQAGABkAAAANAAMAAQAEABgAAAANAAQAAQAEABkAAAAOAAMAAQAFABgAAAAOAAQAAQAFABkAAAAPAAMAAQAGABgAAAAPAAQAAQAGABkAAAAIAAQAAQABADkAAAAIAAUAAQABADoAAAAMAAQAAQABADkAAAAMAAUAAQABADoAAAAJAAQAAQALADMAAAAJAAUAAQALADQAAAAPAAsAAQAHAEgAAAAPAAwAAQAHAEkAAAAQAAsAAQAJAEgAAAAQAAwAAQAJAEkAAAARAAsAAQAJAEgAAAARAAwAAQAJAEkAAAASAAsAAQAIAEgAAAASAAwAAQAIAEkAAAAPAA4AAQAAAAoAAAAPAA8AAQAAAAsAAAAPABAAAQAAAAwAAAAQAA4AAQABAAoAAAAQAA8AAQABAAsAAAAQABAAAQABAAwAAAARAA4AAQACAAoAAAARAA8AAQACAAsAAAARABAAAQACAAwAAAASAA4AAQADAAoAAAASAA8AAQADAAsAAAASABAAAQADAAwAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="Small" type="TileMapLayer" parent="World/Furnitures" unique_id=2044969757]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAIAAMAAQAPADUAAAAIAAQAAQAPADYAAAAMAAMAAQAPADUAAAAMAAQAAQAPADYAAAAJAAMAAQANADMAAAAJAAQAAQANADQAAAAOAAoAAQAMADgAAAAOAAsAAQAMADkAAAAOAAwAAQAMADoAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="WallAccessories" type="TileMapLayer" parent="World/Furnitures" unique_id=1468893596]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAGAAoAAQAIABYAAAAGAAsAAQAIABcAAAAHAAoAAQAJABYAAAAHAAsAAQAJABcAAAAKAAMAAQAIABQAAAAKAAQAAQAIABUAAAALAAMAAQAJABQAAAALAAQAAQAJABUAAAAWABEAAQAPACcAAAAWABIAAQAPACgAAAAWABMAAQAPACkAAAA=")
+tile_map_data = PackedByteArray("AAAWABEAAQAPACcAAAAWABIAAQAPACgAAAAWABMAAQAPACkAAAAUAAoAAQAIABYAAAAUAAsAAQAIABcAAAAVAAoAAQAJABYAAAAVAAsAAQAJABcAAAA=")
 tile_set = SubResource("TileSet_8vrlf")
 
 [node name="Template" type="TileMapLayer" parent="World/Furnitures" unique_id=11450705]
 z_index = 1
 tile_set = SubResource("TileSet_8vrlf")
 
+[node name="Interactable" type="Node2D" parent="World/Furnitures" unique_id=815448085]
+
+[node name="Computer" parent="World/Furnitures/Interactable" unique_id=692889055 instance=ExtResource("4_flp3e")]
+position = Vector2(96, 187)
+scale = Vector2(0.5, 0.5)
+
 [node name="Players" type="Node2D" parent="World" unique_id=249466130]
 y_sort_enabled = true
 position = Vector2(-187, -28)
+
+[node name="PlayerFurnitures" type="Node2D" parent="World/Players" unique_id=1263986790]
+y_sort_enabled = true
+position = Vector2(187, 28)
 
 [node name="Camera2D" parent="World/Players" unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_561lb")]
 position = Vector2(321, 0)
@@ -273,11 +288,19 @@ p1 = NodePath("../Player1")
 fixed = 240.0
 max_zoom = 1.4
 
-[node name="Player1" parent="World/Players" unique_id=1165400651 instance=ExtResource("5_4u0iy")]
+[node name="Player1" parent="World/Players" unique_id=1165400651 node_paths=PackedStringArray("build") instance=ExtResource("5_4u0iy")]
+unique_name_in_owner = true
 position = Vector2(302, 246)
+build = NodePath("BuildComponent")
 
-[node name="Player2" parent="World/Players" unique_id=1739635833 instance=ExtResource("6_flp3e")]
+[node name="BuildComponent" parent="World/Players/Player1" unique_id=537324138 instance=ExtResource("7_27j8n")]
+
+[node name="Player2" parent="World/Players" unique_id=1739635833 node_paths=PackedStringArray("build") instance=ExtResource("6_flp3e")]
+unique_name_in_owner = true
 position = Vector2(416, 246)
+build = NodePath("BuildComponent")
+
+[node name="BuildComponent" parent="World/Players/Player2" unique_id=1470079777 instance=ExtResource("7_27j8n")]
 
 [node name="LeaveHouse" type="Area2D" parent="." unique_id=588890288]
 position = Vector2(-48, 12)
@@ -290,5 +313,9 @@ shape = SubResource("RectangleShape2D_1vivr")
 [node name="UI" type="CanvasLayer" parent="." unique_id=1944159858]
 
 [node name="MoneyUI" parent="UI" unique_id=1084197604 instance=ExtResource("7_561lb")]
+
+[node name="FurnitureShop" parent="." unique_id=602606315 instance=ExtResource("8_4u0iy")]
+visible = false
+furnitures = Array[ExtResource("11_v422u")]([ExtResource("12_fvulb"), ExtResource("13_trlx5"), ExtResource("14_ilqwy")])
 
 [connection signal="body_entered" from="LeaveHouse" to="." method="_on_leave_house_entered"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bi1ous3e6wk7x"]
+
+[ext_resource type="Texture2D" uid="uid://djsnbvtk0o2id" path="res://Assets/Own Assets/computer.png" id="1_mbhc0"]
+[ext_resource type="Script" uid="uid://8qafx7b4ab8j" path="res://Scripts/Appliances/computer.gd" id="1_yxa3n"]
+[ext_resource type="PackedScene" uid="uid://c1fhlfxbrpua" path="res://Scenes/Components/interacted_component.tscn" id="3_2g58t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrlf"]
+size = Vector2(64, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(64, 2)
+
+[node name="Computer" type="StaticBody2D" unique_id=692889055]
+y_sort_enabled = true
+script = ExtResource("1_yxa3n")
+
+[node name="InteractedComponent" parent="." unique_id=876625429 node_paths=PackedStringArray("interactable") instance=ExtResource("3_2g58t")]
+position = Vector2(0, 21)
+interactable = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractedComponent" unique_id=379013054]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_8vrlf")
+debug_color = Color(1, 0, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=242197958]
+texture = ExtResource("1_mbhc0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=926642537]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_1vivr")

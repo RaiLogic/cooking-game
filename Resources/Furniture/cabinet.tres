@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FurnitureData" format=3 uid="uid://bjpj8fu6nu4ty"]
+
+[ext_resource type="Script" uid="uid://dc1u6me8r0ho1" path="res://Resources/Script/furniture_data.gd" id="1_d1gdm"]
+[ext_resource type="PackedScene" uid="uid://b14ey5tkmuv51" path="res://Scenes/Furniture/cabinet.tscn" id="1_wj6m7"]
+[ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="3_ayxpu"]
+
+[resource]
+script = ExtResource("1_d1gdm")
+name = "Cabinet"
+scene = ExtResource("1_wj6m7")
+price = 350
+size = Vector2i(2, 2)
+spritesheet = ExtResource("3_ayxpu")
+texture_region = Rect2(179, 777, 27, 32)
+metadata/_custom_type_script = "uid://dc1u6me8r0ho1"

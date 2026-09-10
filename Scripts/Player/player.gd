@@ -6,6 +6,7 @@ class_name Player extends CharacterBody2D
 @export var animate: AnimationComponent
 @export var interact: InteractorComponent
 @export var inventory: InventoryComponent
+@export var build: BuildComponent
 
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 const DASH_SFX = preload("uid://bkfdfd0ua24rx")
@@ -41,13 +42,17 @@ func _physics_process(delta: float) -> void:
 
 	# INTERACTION
 	if input.interact:
+		
+		
 		interact.action(self)
 	if interact.interacting:
 		set_move(false)
 	else:
 		set_move(true)
 		
-	# SFX
+	# BUILD MODE
+	if has_node("BuildComponent"):
+		build.direction = input.move_action
 
 
 
