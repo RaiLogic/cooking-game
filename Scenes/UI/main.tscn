@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://b87653wcgvex6" path="res://Scenes/UI/Buttons/quit.tscn" id="7_7dvw4"]
 [ext_resource type="PackedScene" uid="uid://qhw65cl52ea0" path="res://Scenes/UI/Buttons/options.tscn" id="8_y7ngx"]
 [ext_resource type="PackedScene" uid="uid://bqhnyed021svq" path="res://Scenes/UI/option_menu.tscn" id="9_7dvw4"]
+[ext_resource type="PackedScene" uid="uid://b6om6eba8up5j" path="res://Scenes/UI/Buttons/back.tscn" id="9_y7ngx"]
+[ext_resource type="PackedScene" uid="uid://ce4vhxy5prbib" path="res://Scenes/UI/saves_ui.tscn" id="10_y7ngx"]
+[ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="11_smf5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40bib"]
 texture = ExtResource("1_ereyx")
@@ -174,6 +177,31 @@ font_size = 32
 font_color = Color(0, 0.70980394, 1, 1)
 outline_size = 8
 
+[sub_resource type="LabelSettings" id="LabelSettings_8vrlf"]
+font = ExtResource("4_wjop8")
+font_color = Color(0.98234254, 0.9823423, 0.9823424, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5gy4"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5gy4"]
+font = ExtResource("4_wjop8")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vivr"]
+
 [node name="MainMenu" type="Control" unique_id=919386426]
 texture_filter = 1
 layout_mode = 3
@@ -282,14 +310,154 @@ offset_right = 369.0
 offset_bottom = 223.0
 scale = Vector2(1.7424865, 1.7424865)
 
-[node name="Play" parent="Buttons" unique_id=819501465 instance=ExtResource("6_ayamy")]
+[node name="Main" type="Control" parent="Buttons" unique_id=799932577]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" parent="Buttons/Main" unique_id=819501465 instance=ExtResource("6_ayamy")]
 layout_mode = 1
 
-[node name="Quit" parent="Buttons" unique_id=151607117 instance=ExtResource("7_7dvw4")]
+[node name="Quit" parent="Buttons/Main" unique_id=151607117 instance=ExtResource("7_7dvw4")]
 layout_mode = 1
 
-[node name="Options" parent="Buttons" unique_id=1213576477 instance=ExtResource("8_y7ngx")]
+[node name="Options" parent="Buttons/Main" unique_id=1213576477 instance=ExtResource("8_y7ngx")]
 layout_mode = 1
+
+[node name="Game" type="Control" parent="Buttons" unique_id=316191257]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.756173
+offset_bottom = -9.75618
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" parent="Buttons/Game" unique_id=1995781099 instance=ExtResource("9_y7ngx")]
+layout_mode = 0
+offset_left = 5.738926
+offset_top = 5.1650333
+offset_right = 94.46492
+offset_bottom = 39.53704
+
+[node name="Saves" parent="Buttons/Game" unique_id=830772011 instance=ExtResource("10_y7ngx")]
+layout_mode = 1
+offset_left = 46.4853
+offset_top = 78.049385
+offset_right = -185.5022
+offset_bottom = -3.6942444
+
+[node name="NewGame" type="Control" parent="Buttons/Game" unique_id=522179224]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -179.76326
+offset_top = -115.6033
+offset_right = -64.41083
+offset_bottom = -16.319885
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NewLabel" type="Label" parent="Buttons/Game/NewGame" unique_id=1811178019]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.000008
+offset_top = 7.706567
+offset_right = 44.000008
+offset_bottom = 30.706566
+grow_horizontal = 2
+text = "New  Game"
+label_settings = SubResource("LabelSettings_8vrlf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Singleplayer" type="Control" parent="Buttons/Game/NewGame" unique_id=1978562133]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 27.21891
+offset_bottom = 59.93078
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="Buttons/Game/NewGame/Singleplayer" unique_id=310267448]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v5gy4")
+
+[node name="Label" type="Label" parent="Buttons/Game/NewGame/Singleplayer" unique_id=711512255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Solo"
+label_settings = SubResource("LabelSettings_v5gy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SingleButton" type="Button" parent="Buttons/Game/NewGame/Singleplayer" unique_id=1781530036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1vivr")
+script = ExtResource("11_smf5i")
+
+[node name="Duo" type="Control" parent="Buttons/Game/NewGame" unique_id=1474965342]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 67.145424
+offset_bottom = 99.8573
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="Buttons/Game/NewGame/Duo" unique_id=1481979845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v5gy4")
+
+[node name="Label" type="Label" parent="Buttons/Game/NewGame/Duo" unique_id=865991662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Duo"
+label_settings = SubResource("LabelSettings_v5gy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DuoButton" type="Button" parent="Buttons/Game/NewGame/Duo" unique_id=1848734317]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1vivr")
+script = ExtResource("11_smf5i")
 
 [node name="OptionMenu" parent="." unique_id=2023566271 instance=ExtResource("9_7dvw4")]
 visible = false

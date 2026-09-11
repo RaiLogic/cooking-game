@@ -541,10 +541,10 @@ y_sort_enabled = true
 position = Vector2(197, 12)
 
 [node name="Camera2D" parent="Players" unique_id=572807410 node_paths=PackedStringArray("p2", "p1") instance=ExtResource("4_ynmxk")]
-position = Vector2(137.765, 182)
+position = Vector2(139.99998, 182)
 limit_top = -20
 limit_bottom = 345
-position_smoothing_enabled = false
+limit_smoothed = true
 p2 = NodePath("../Player2")
 p1 = NodePath("../Player1")
 is_fixed = true

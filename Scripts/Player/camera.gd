@@ -15,8 +15,14 @@ var distance : float
 var target_zoom : Vector2
 var smoothness : float = position_smoothing_speed
 
+func _ready() -> void:
+	follow_player()
+
 func _process(delta: float) -> void:
-	follow_zoom(delta)
+	if !global.single:
+		follow_zoom(delta)
+	else:
+		follow_player()
 	
 	if is_fixed:
 		fix_horizontal_follow()
@@ -43,3 +49,7 @@ func follow_zoom(delta: float) -> void:
 	# Delays updates to make zoom smoother
 	
 	position = position.round()
+	
+func follow_player() -> void:
+	global_position = p1.global_position
+	zoom = Vector2(1.8, 1.8)

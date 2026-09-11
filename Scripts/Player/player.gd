@@ -13,10 +13,10 @@ const DASH_SFX = preload("uid://bkfdfd0ua24rx")
 
 
 func _physics_process(delta: float) -> void:
-	# JUST FOR TESTING STUFF, THIS IS TO AVOID BOTH PROCESS RUNNING AND KEEP IT
-	# ONE PLAYER
-	#if name == "Player2":
-		#return
+	# IF SINGLE PLAYER, DISABLES PLAYER 2
+	if global.single:
+		if name == "Player2":
+			return
 	
 	# INPUTS
 	input.get_input()

@@ -20,6 +20,10 @@ func _ready() -> void:
 	global.set_location(LOCATION)
 	money_ui.change_value(global.total_money)
 	computer.shop_ui = $FurnitureShop
+	music_manager.play_music(music_manager.INGAME)
+	
+	if global.single:
+		player_2.queue_free()
 
 func _on_leave_house_entered(body: Player) -> void:
 	get_tree().paused = true

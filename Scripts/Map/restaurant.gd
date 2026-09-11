@@ -39,6 +39,11 @@ func _ready() -> void:
 	# PLAYER SIGNALS
 	player_signal_connections()
 	
+	# SINGLE PLAYER MODE
+	if global.single:
+		player_2.queue_free()
+		p2_ui.queue_free()
+	
 # USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
 # CONNECTED TO CUSTOMER_SPAWNER.GD
 func get_available_chair() -> Chair:
