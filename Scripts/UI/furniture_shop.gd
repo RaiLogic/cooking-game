@@ -63,8 +63,8 @@ func show_furniture(furniture: FurnitureData) -> void:
 func call_build_mode() -> void:
 	# IF NOTHING HAS BEEN SELECTED IN SHOP THEN PRESSING BUY
 	if (
-	furniture_texture.texture == null or
-	not global.spend_money(current_furniture.price)
+	furniture_texture.texture == null 
+	#or not global.spend_money(current_furniture.price)
 	):
 		inventory_ui.play_alert()
 		return

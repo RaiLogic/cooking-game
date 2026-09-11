@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ce4vhxy5prbib"]
 
+[ext_resource type="Script" uid="uid://frflkiopfd4k" path="res://Scenes/UI/saves_ui.gd" id="1_em8de"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_pgk6s"]
 [ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="2_em8de"]
 
@@ -39,6 +40,7 @@ offset_right = -459.0
 offset_bottom = -1.9725952
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_em8de")
 
 [node name="Save1" type="Control" parent="." unique_id=1753412612]
 layout_mode = 1

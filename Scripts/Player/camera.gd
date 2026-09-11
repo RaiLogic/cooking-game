@@ -52,4 +52,4 @@ func follow_zoom(delta: float) -> void:
 	
 func follow_player() -> void:
 	global_position = p1.global_position
-	zoom = Vector2(1.8, 1.8)
+	zoom = Vector2(1.8	, 1.8)

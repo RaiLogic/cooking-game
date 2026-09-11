@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwymwrkwnrh7"
+path="res://.godot/imported/House Music.mp3-2f36e620ed0c049237bf2d7b42152f6f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/House Music.mp3"
+dest_files=["res://.godot/imported/House Music.mp3-2f36e620ed0c049237bf2d7b42152f6f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

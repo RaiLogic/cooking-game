@@ -3,6 +3,7 @@ extends Node
 #region STATS
 # GLOBAL PERMANENT STATS
 var single: bool
+var team_name: String
 
 # TOTAL MONEY YOU HAVE | WILL BE SAVED
 var total_money: int = 0
@@ -51,6 +52,8 @@ func set_location(location):
 			music_manager.play_music(music_manager.MENU)
 		LOCATIONS.RESTAURANT:
 			music_manager.play_music(music_manager.INGAME)
+		LOCATIONS.HOUSE:
+			music_manager.play_music(music_manager.HOUSE)
 			
 func add_money(amount) -> void:
 	earned_money += amount

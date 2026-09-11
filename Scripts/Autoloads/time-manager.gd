@@ -22,8 +22,8 @@ func _ready() -> void:
 	day_ended.connect(func(): print("Closing Time"))
 	
 func start_day() -> void:
-	is_morning = true
-	hour = 11
+	is_morning = false
+	hour = 7
 	minute = 0
 	time_changed.emit(hour, minute)
 	timer.start()
