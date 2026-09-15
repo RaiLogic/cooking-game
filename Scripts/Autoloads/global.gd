@@ -4,6 +4,7 @@ extends Node
 # GLOBAL PERMANENT STATS
 var single: bool
 var team_name: String
+var save_slot: int
 
 # TOTAL MONEY YOU HAVE | WILL BE SAVED
 var total_money: int = 0
@@ -37,10 +38,10 @@ var current_location : int = LOCATIONS.MAIN_MENU
 
 func _ready() -> void:
 	# DEVELOPING, REMOVED MUSIC
-	#AudioServer.set_bus_volume_db(
-		#AudioServer.get_bus_index("Music"),
-		#-80
-	#)
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("Music"),
+		-80
+	)
 	
 	time.day_ended.connect(end_day)
 

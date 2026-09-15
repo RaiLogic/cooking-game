@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfa73droj77d2"]
 
-[ext_resource type="Script" uid="uid://e74gfq4ejco0" path="res://Scripts/UI/saves_ui.gd" id="1_3408c"]
+[ext_resource type="Script" uid="uid://b6ldhc6w4u0xg" path="res://Scripts/UI/enter_name_ui.gd" id="1_3408c"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="2_beoci"]
 [ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="3_ohigp"]
 
@@ -29,26 +29,18 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vivr"]
 
-[node name="EnterName" type="Control" unique_id=1820321831]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="EnterName" type="CanvasLayer" unique_id=1587268701]
 script = ExtResource("1_3408c")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1896073960]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.4351923, 0.43519226, 0.43519226, 0.18039216)
+color = Color(0.21230498, 0.2123048, 0.21230483, 0.57254905)
 
 [node name="Label" type="Label" parent="." unique_id=709867748]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -63,7 +55,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="." unique_id=1900859152]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -77,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Confirm" type="Control" parent="." unique_id=944741023]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -120,3 +111,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1vivr")
 script = ExtResource("3_ohigp")
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_name_submitted"]

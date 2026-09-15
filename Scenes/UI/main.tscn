@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b6om6eba8up5j" path="res://Scenes/UI/Buttons/back.tscn" id="9_y7ngx"]
 [ext_resource type="PackedScene" uid="uid://ce4vhxy5prbib" path="res://Scenes/UI/saves_ui.tscn" id="10_y7ngx"]
 [ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="11_smf5i"]
+[ext_resource type="PackedScene" uid="uid://bfa73droj77d2" path="res://Scenes/UI/enter_name_ui.tscn" id="12_cfy4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40bib"]
 texture = ExtResource("1_ereyx")
@@ -458,6 +459,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1vivr")
 script = ExtResource("11_smf5i")
+
+[node name="EnterName" parent="Buttons/Game" unique_id=1820321831 instance=ExtResource("12_cfy4c")]
 
 [node name="OptionMenu" parent="." unique_id=2023566271 instance=ExtResource("9_7dvw4")]
 visible = false

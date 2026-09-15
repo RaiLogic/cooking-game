@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ce4vhxy5prbib"]
 
-[ext_resource type="Script" uid="uid://frflkiopfd4k" path="res://Scenes/UI/saves_ui.gd" id="1_em8de"]
+[ext_resource type="Script" uid="uid://fvyjabgch0ge" path="res://Scripts/UI/saves_ui.gd" id="1_em8de"]
 [ext_resource type="FontFile" uid="uid://d1fi6ygsi4ngl" path="res://Assets/Borrowed Assets/Fonts/ARCADECLASSIC.TTF" id="1_pgk6s"]
 [ext_resource type="Script" uid="uid://b6m3mu1nusakb" path="res://Scripts/UI/button.gd" id="2_em8de"]
 
@@ -18,7 +18,6 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_1vivr"]
 font = ExtResource("1_pgk6s")
-font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5gy4"]

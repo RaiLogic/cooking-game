@@ -58,5 +58,5 @@ func place_furniture() -> void:
 	player.input.state = player.input.STATES.NORMAL
 	is_building = false
 	preview.queue_free()
-	saveload.save_game()
+	saveload.save_game(global.save_slot)
 	
