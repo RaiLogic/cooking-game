@@ -31,6 +31,7 @@ func get_saves() -> void:
 		elif saveload.save_exists(i):
 			print("Save Found: ", saveload.SAVE_LOCATION[i])
 			var data = saveload.get_save_data(i)
+			print(data)
 			save_labels[i].text = data["team_name"]
 
 # MAKES THE BUTTON CHANGE DEPENDING IF THE PLAYER PICKED NEW GAME OR LOAD GAME

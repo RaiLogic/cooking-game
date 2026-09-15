@@ -16,7 +16,8 @@ var content: Dictionary = {
 	"is_solo": 0
 }
 
-func save_game(save_slot: int) -> void:
+func save_stats(save_slot: int) -> void:
+	# BASIC SYNTAX IN MAKING A SAVE FEATURE
 	var file := FileAccess.open(SAVE_LOCATION[save_slot], FileAccess.WRITE)
 	if file == null: print("Save Failed"); return
 	
@@ -25,12 +26,28 @@ func save_game(save_slot: int) -> void:
 	content["team_name"] = global.team_name
 	content["is_solo"] = global.single
 	
-	# REMOVE OLD FURNITURE DATA
-	content["furniture"].clear()
+	# TURNS DICTIONARY TO GODOT VARIANT DATA
+	# TURNS VARIABLE TO SAVE FILE
+	file.store_var(content.duplicate())
+	
+	
+	file.close()
+	# END SYNTAX OF MAKING A SAVE FEATURE
+	print("Stat Saved on ", SAVE_LOCATION[save_slot])
+	
+func save_furniture(save_slot: int) -> void:
+	if get_tree().current_scene.name != "House":
+		return
+	
+	var file = FileAccess.open(SAVE_LOCATION[save_slot], FileAccess.WRITE)
+	if file == null: print("Save Failed"); return
 	
 	var furniture_container: Node2D = get_tree().current_scene.get_node(
 		"World/Players/PlayerFurnitures"
 	)
+	
+	# REMOVE OLD FURNITURE DATA
+	content["furniture"].clear()
 	
 	# SAVE FURNITURE
 	for furniture in furniture_container.get_children():
@@ -39,12 +56,11 @@ func save_game(save_slot: int) -> void:
 			"position": furniture.position
 		})
 	
-	# TURNS DICTIONARY TO GODOT VARIANT DATA
-	# TURNS VARIABLE TO SAVE FILE
 	file.store_var(content.duplicate())
-	
 	file.close()
-	print("Game Saved on ", SAVE_LOCATION[global.save_slot])
+	
+	print("Furniture Saved on ", SAVE_LOCATION[save_slot])
+	
 	
 func load_game(save_slot: int) -> void:
 	# CHECK SAVE FILE IF AVAILABLE

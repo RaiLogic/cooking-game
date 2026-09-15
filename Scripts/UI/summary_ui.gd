@@ -27,4 +27,5 @@ func go_home() -> void:
 	# THIS SHOULDN'T BE HERE
 	global.earned_money = 0
 	global.reset_stats()
+	saveload.save_stats(global.save_slot)
 	fade.change_scene("res://Scenes/Map/house.tscn", 2.5)

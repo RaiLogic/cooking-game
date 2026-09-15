@@ -66,6 +66,9 @@ offset_right = 115.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_beoci")
+alignment = 1
+max_length = 8
 
 [node name="Confirm" type="Control" parent="." unique_id=944741023]
 layout_mode = 3
