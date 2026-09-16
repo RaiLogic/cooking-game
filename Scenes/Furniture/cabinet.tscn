@@ -5,14 +5,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
 size = Vector2(26, 9)
 
-[node name="Cabinet" type="StaticBody2D" unique_id=2109167208]
-y_sort_enabled = true
+[node name="Cabinet" type="StaticBody2D" unique_id=1002162396]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590895842]
+position = Vector2(14, 16)
 texture = ExtResource("1_lh8rg")
 region_enabled = true
 region_rect = Rect2(179, 777, 27, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=362131341]
-position = Vector2(0, -0.5)
+position = Vector2(14, 16)
 shape = SubResource("RectangleShape2D_1vivr")
