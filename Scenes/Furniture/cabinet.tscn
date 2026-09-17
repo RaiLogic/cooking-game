@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://b14ey5tkmuv51"]
 
+[ext_resource type="Script" uid="uid://dow3f653tg7pd" path="res://Scripts/Components/furniture_space.gd" id="1_cbqy6"]
 [ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="1_lh8rg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
 size = Vector2(26, 9)
 
 [node name="Cabinet" type="StaticBody2D" unique_id=1002162396]
+script = ExtResource("1_cbqy6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590895842]
 position = Vector2(14, 16)

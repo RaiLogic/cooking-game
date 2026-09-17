@@ -12,6 +12,9 @@ extends Node2D
 	"InteractedComponent"
 )
 
+# USED TO CHECK IF THE BUILD WILL BE COLLIDED WITH AN ALREADY PLACED FURNITURE
+@onready var furniture_container: Node2D = %PlayerFurnitures
+
 var build_mode: bool = true
 
 func _process(delta: float) -> void:
@@ -31,14 +34,17 @@ func find_furniture_availability(anchor: Vector2i, furniture_size: Vector2i) -> 
 	if !is_inside_buildable_area(anchor, furniture_size):
 		return false
 	
+	if is_occupied(anchor, furniture_size):
+		return false
+	
 	return true
 
 # CHECKS IF THE FURNITURE IS INSIDE THE BUILDABLE AREA OR IF INSIDE HOUSE
 func is_inside_buildable_area(anchor: Vector2i, furniture_size: Vector2i) -> bool:
-	# CHECKS THE SPACE NEEDED FOR THE SIZE.Y OF FURNITURE_SIZE
+	# CHECKS THE SPACE NEEDED FOR THE SIZE OF FURNITURE_SIZE
 	for x in range(furniture_size.x):
-		# CHECKS THE SPACE NEEDED FOR THE SIZE.Y OF FURNITURE_SIZE
 		for y in range(furniture_size.y):
+			
 			# CELL IS THE FINAL SPACE NEEDED FOR THE FURNITURE
 			var cell := anchor + Vector2i(x, y)
 			
@@ -48,6 +54,28 @@ func is_inside_buildable_area(anchor: Vector2i, furniture_size: Vector2i) -> boo
 				
 	# RETURN TRUE MEANS THE AREA IS BUILDABLE
 	return true
+	
+func is_occupied(anchor: Vector2i, furniture_size: Vector2i) -> bool:
+	# GETS EVERY CHILDREN IN CONTAINER FOR LATER
+	for furniture in furniture_container.get_children():
+		# CHECKS THE SPACE NEEDED FOR THE SIZE OF FURNITURE_SIZE
+		for x in range(furniture_size.x):
+			for y in range(furniture_size.y):
+				
+				# CELL IS THE FINAL SPACE NEEDED FOR THE FURNITURE
+				var cell := anchor + Vector2i(x, y)
+				
+				for fx in range(furniture.size.x):
+					for fy in range(furniture.size.y):
+						var occupied_cell : Vector2i = (
+							furniture.grid_anchor + Vector2i(fx, fy)
+						)
+						
+						if cell == occupied_cell:
+							return true
+		
+	
+	return false
 	
 
 				

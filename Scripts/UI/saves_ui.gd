@@ -15,15 +15,16 @@ extends Control
 signal register_done
 
 # USED FOR LOADING SAVE FILE
-signal load_game
+signal game_loaded
 
 func _ready() -> void:
 	get_saves()
-	for i in range(save_buttons.size()):
-		save_buttons[i].pressed.connect(load_game.emit)
 
 # CHECKS SAVE FILES AVAILABILITY | WILL DISABLE BUTTON WHEN SAVE FILE IS NOT AVAILABLE
 func get_saves() -> void:
+	for i in range(save_buttons.size()):
+		save_buttons[i].pressed.connect(load_game.bind(i))
+	
 	for i in range(save_buttons.size()):
 		if not saveload.save_exists(i):
 			save_buttons[i].disabled = true
@@ -34,13 +35,19 @@ func get_saves() -> void:
 			print(data)
 			save_labels[i].text = data["team_name"]
 
-# MAKES THE BUTTON CHANGE DEPENDING IF THE PLAYER PICKED NEW GAME OR LOAD GAME
+# MAKES THE BUTTON CHANGE DEPENDING IF THE PLAYER PICKED NEW GAME OR LOAD GAME\
+# NO USE YET
 func new_game() -> void:
 	pass
+	
+func load_game(save_slot: int) -> void:
+	global.save_slot = save_slot
+	game_loaded.emit()
+	
 			
 func enable_save_slot_selection() -> void:
 	for i in range(save_buttons.size()):
-		save_buttons[i].pressed.disconnect(load_game.emit)
+		save_buttons[i].pressed.disconnect(load_game)
 		save_buttons[i].pressed.connect(confirm_save_slot.bind(i))
 	
 	for i in range(save_buttons.size()):

@@ -312,7 +312,6 @@ offset_bottom = 223.0
 scale = Vector2(1.7424865, 1.7424865)
 
 [node name="Main" type="Control" parent="Buttons" unique_id=799932577]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -330,6 +329,7 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Game" type="Control" parent="Buttons" unique_id=316191257]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -461,6 +461,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_1vivr")
 script = ExtResource("11_smf5i")
 
 [node name="EnterName" parent="Buttons/Game" unique_id=1820321831 instance=ExtResource("12_cfy4c")]
+visible = false
 
 [node name="OptionMenu" parent="." unique_id=2023566271 instance=ExtResource("9_7dvw4")]
 visible = false

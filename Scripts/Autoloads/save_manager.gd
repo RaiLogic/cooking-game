@@ -53,7 +53,9 @@ func save_furniture(save_slot: int) -> void:
 	for furniture in furniture_container.get_children():
 		content["furniture"].append({
 			"scene": furniture.scene_file_path,
-			"position": furniture.position
+			"position": furniture.position,
+			"grid_anchor": furniture.grid_anchor,
+			"size": furniture.size
 		})
 	
 	file.store_var(content.duplicate())
@@ -94,6 +96,8 @@ func load_game(save_slot: int) -> void:
 		var furniture := scene.instantiate()
 		furniture.position = furniture_data["position"]
 		furniture_container.add_child(furniture)
+		furniture.grid_anchor = furniture_data["grid_anchor"]
+		furniture.size = furniture_data["size"]
 		
 	print("Game Loaded")
 	

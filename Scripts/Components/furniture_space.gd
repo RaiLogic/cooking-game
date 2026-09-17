@@ -1,0 +1,7 @@
+class_name FurnitureScene extends StaticBody2D
+
+# THIS IS THE SPACE THAT THE FURNITURE IS OCCUPYING
+# THIS IS USED TO CHECK IF THE NEW FURNITURE IS COLLIDING WITH THIS FURNITURE
+
+var grid_anchor: Vector2i
+var size: Vector2i

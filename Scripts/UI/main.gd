@@ -25,7 +25,7 @@ func _ready() -> void:
 	back.pressed.connect(back_to_main)
 	solo.pressed.connect(manage_save_slot.bind(true))
 	duo.pressed.connect(manage_save_slot.bind(false))
-	saves.load_game.connect(start_game)
+	saves.game_loaded.connect(start_game)
 	saves.register_done.connect(pick_team_name)
 	name_ui.done.connect(start_game)
 	
@@ -39,6 +39,8 @@ func _ready() -> void:
 func play_button() -> void:
 	main.visible = false
 	game.visible = true
+	
+	saves.get_saves()
 	
 func quit_button() -> void:
 	get_tree().quit()
@@ -68,4 +70,3 @@ func pick_team_name() -> void:
 func start_game() -> void:
 	name_ui.visible = false
 	get_tree().change_scene_to_file("res://Scenes/Map/house.tscn")
-	

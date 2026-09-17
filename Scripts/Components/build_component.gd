@@ -5,8 +5,9 @@ class_name BuildComponent extends Node2D
 
 @onready var build_manager: Node2D = %BuildManager
 
-var is_building: bool = false
-var selected_furniture: FurnitureData
+var is_building: bool = false # INDICATOR IF A PLAYER IS IN BUILD MODE
+var selected_furniture: FurnitureData # SELECTED FURNITURE OF THE PLAYER
+var can_place: bool # IF THE FURNITURE IS PLACEABLE
 
 var preview: Node2D
 # USED IN ALIGNING THE PREVIEW TO GRID ALIGNED WITH THE BUILDABLE FLOOR
@@ -47,7 +48,7 @@ func select_furniture(furniture: FurnitureData) -> void:
 func build_mode() -> void:
 	preview = selected_furniture.scene.instantiate()
 	preview.get_node("CollisionShape2D").disabled = true
-	preview.modulate.a = 0.7
+	preview.modulate.a = 0.6
 	preview.scale = Vector2(2.0, 2.0) # THIS IS TO NOT GET THE PLAYER'S 0.5 SCALE
 	
 	add_child(preview)
@@ -57,9 +58,7 @@ func build_mode() -> void:
 func snap_to_grid(pos) -> Vector2:
 	var local_pos = build_manager.floor.to_local(pos)
 	preview_cell = build_manager.floor.local_to_map(local_pos)
-	
-	print("Cell: ", preview_cell, "  Preview: ", preview.global_position)
-	
+
 	return build_manager.floor.to_global(
 		build_manager.floor.map_to_local(preview_cell)
 	)
@@ -70,6 +69,9 @@ func check_availability() -> void:
 	if preview == null:
 		return
 		
+	selected_furniture.grid_anchor = preview_cell
+	
+	# CHECKS IF THE FURNITURE IS INSIDE THE HOUSE
 	var available : bool = build_manager.find_furniture_availability(
 		preview_cell,
 		selected_furniture.size
@@ -77,18 +79,29 @@ func check_availability() -> void:
 	
 	if available:
 		preview.modulate = Color.WHITE
+		can_place = true
 	else:
+		can_place = false
 		preview.modulate = Color.DARK_RED
 	
 # USED WHEN PLACING FURNITURES
 func place_furniture() -> void:
+	if !can_place:
+		print("Placement not Valid")
+		return
+	
 	var furniture = selected_furniture.scene.instantiate()
 	furniture.global_position = preview.global_position
 	
 	furniture_container.add_child(furniture)
 	
+	# USED FOR CHECKING OCCUPIED SPACE
+	furniture.grid_anchor = preview_cell
+	furniture.size = selected_furniture.size
+	
 	player.input.state = player.input.STATES.NORMAL
 	is_building = false
 	preview.queue_free()
 	saveload.save_furniture(global.save_slot)
+	saveload.save_stats(global.save_slot)
 	
