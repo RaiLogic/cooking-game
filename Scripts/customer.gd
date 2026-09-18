@@ -6,6 +6,7 @@ class_name Customer extends CharacterBody2D
 @onready var animation: AnimationComponent = $Components/AnimationComponent
 @onready var interact_area: InteractedComponent = $Components/InteractedComponent
 
+
 # NAVIGATION
 @onready var agent : NavigationAgent2D = $NavigationAgent2D
 
@@ -31,14 +32,6 @@ enum STATES {
 	LEAVING
 }
 var state: STATES
-
-enum EMOTION_STATES {
-	HAPPY,
-	NEUTRAL,
-	SAD,
-	ANGRY
-}
-var emotion_state : EMOTION_STATES # NOT FINISHED YET
 #endregion
 
 func _ready() -> void:
@@ -47,7 +40,6 @@ func _ready() -> void:
 	animation.sprite = skin.get_random_skin()
 	progress.finish.connect(done_order)
 	state = STATES.WALKING
-	emotion_state = EMOTION_STATES.HAPPY
 
 func _physics_process(_delta: float) -> void:
 	navigation_check()

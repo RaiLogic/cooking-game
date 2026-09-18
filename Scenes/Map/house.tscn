@@ -318,7 +318,7 @@ build = NodePath("BuildComponent")
 [node name="BuildComponent" parent="World/Players/Player2" unique_id=1470079777 instance=ExtResource("7_27j8n")]
 
 [node name="LeaveHouse" type="Area2D" parent="." unique_id=588890288]
-position = Vector2(-48, 12)
+position = Vector2(-52, 12)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveHouse" unique_id=1748449315]
