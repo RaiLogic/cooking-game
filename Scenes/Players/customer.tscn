@@ -35,6 +35,8 @@ z_index = 1
 script = ExtResource("1_nbxf1")
 movement = NodePath("Components/MovementComponent")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1959690353]
+
 [node name="OrderUI" type="Panel" parent="." unique_id=450602127]
 visible = false
 offset_left = -7.0

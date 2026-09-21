@@ -55,6 +55,9 @@ func back_to_main() -> void:
 	game.visible = false
 	main.visible = true
 	name_ui.visible = false
+	
+	solo.disabled = false
+	duo.disabled = false
 
 # i IS USED TO CONFIRM IF THE PLAYER IS SINGLE PLAYER OR DUO
 func manage_save_slot(i: bool) -> void:

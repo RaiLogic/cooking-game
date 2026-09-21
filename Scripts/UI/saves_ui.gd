@@ -22,6 +22,7 @@ func _ready() -> void:
 
 # CHECKS SAVE FILES AVAILABILITY | WILL DISABLE BUTTON WHEN SAVE FILE IS NOT AVAILABLE
 func get_saves() -> void:
+	print("test")
 	for i in range(save_buttons.size()):
 		save_buttons[i].pressed.connect(load_game.bind(i))
 	
@@ -30,9 +31,9 @@ func get_saves() -> void:
 			save_buttons[i].disabled = true
 			save_labels[i].text = "No Save"
 		elif saveload.save_exists(i):
+			save_buttons[i].disabled = false
 			print("Save Found: ", saveload.SAVE_LOCATION[i])
 			var data = saveload.get_save_data(i)
-			print(data)
 			save_labels[i].text = data["team_name"]
 
 # MAKES THE BUTTON CHANGE DEPENDING IF THE PLAYER PICKED NEW GAME OR LOAD GAME\
@@ -51,7 +52,12 @@ func enable_save_slot_selection() -> void:
 		save_buttons[i].pressed.connect(confirm_save_slot.bind(i))
 	
 	for i in range(save_buttons.size()):
-		save_buttons[i].disabled = false
+		if saveload.save_exists(i):
+			save_buttons[i].disabled = saveload.save_exists(i)
+			save_labels[i].text = "Occupied"
+			return
+
+		save_buttons[i].disabled = saveload.save_exists(i)
 		save_labels[i].text = "Slot " + str(i + 1)
 		
 func confirm_save_slot(slot: int) -> void:

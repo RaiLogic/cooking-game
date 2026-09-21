@@ -14,6 +14,11 @@ var customers : Array = []
 @onready var restaurant: Node = get_parent()
 @onready var orders_ui: Control = %OrdersUI
 
+# SOUND EFFECTS
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+const BELL = preload("uid://c6mwftgm0aw4h")
+
+
 func spawn_customer() -> void:
 	if customers.size() >= restaurant.chairs.size():
 		return
@@ -57,6 +62,10 @@ func _on_spawn_timer_timeout() -> void:
 	spawn_customer()
 	global.customer_count += 1
 	randomize_timer()
+	
+	sfx_manager.stop(audio)
+	sfx_manager.play_sfx(audio, BELL, 0.0)
+	sfx_manager.fade_out(audio, 2.0)
 	timer.start()
 
 # FUNCTION TO RANDOMIZE CUSTOMER SPAWNING TIME

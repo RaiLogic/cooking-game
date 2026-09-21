@@ -100,7 +100,8 @@ func load_game(save_slot: int) -> void:
 		furniture.size = furniture_data["size"]
 		
 	print("Game Loaded")
-	
+
+# CHECKS IF A SAVE EXISTS
 func save_exists(slot: int) -> bool:
 	return FileAccess.file_exists(SAVE_LOCATION[slot])
 	

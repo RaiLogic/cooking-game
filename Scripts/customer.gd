@@ -20,6 +20,10 @@ var desired_food : Food
 signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
 signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
 
+# SFX
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+const CHA_CHING = preload("uid://dbojo3yvg0ija")
+
 #region STATES
 signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
 signal state_changed(seated: bool) # CONNECTED TO FUNCTION "update_sprite" in Chair.gd
@@ -54,12 +58,14 @@ func interact(interactor: Player) -> void:
 		state = STATES.ORDERING
 		show_order()
 		state_changed.emit()
+		
 	elif state == STATES.ORDERING:
 		# INTERACTING WHILE ORDERING STATE GET DESIRED FOOD OF CUSTOMER FROM PLAYER
 		if interactor.inventory.item_held != desired_food: 
 			# THIS IS IF THE PLAYER IS 'NOT GIVING' WHAT THE CUSTOMER WANTS
 			interactor.inventory.request_alert()
 			return
+			
 		else:
 			# THIS IS IF THE ORDER IS ACCEPTED AND WHAT THE CUSTOMER WANTS
 			order_ui.visible = false
@@ -117,6 +123,8 @@ func show_order() -> void:
 
 # CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 func done_order() -> void:
+	sfx_manager.play_sfx(audio, CHA_CHING, 1.0)
+	
 	progress.restart()
 	state = STATES.LEAVING
 	done.emit(self)

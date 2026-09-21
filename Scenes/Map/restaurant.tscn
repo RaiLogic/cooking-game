@@ -601,4 +601,7 @@ position = Vector2(461, 354)
 wait_time = 3.0
 one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CustomerSpawner" unique_id=2038595010]
+bus = &"SFX"
+
 [connection signal="timeout" from="CustomerSpawner/SpawnTimer" to="CustomerSpawner" method="_on_spawn_timer_timeout"]

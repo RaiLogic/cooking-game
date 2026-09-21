@@ -2,6 +2,7 @@ extends Node
 
 func play_sfx(player: AudioStreamPlayer, sfx: AudioStream, start_time: float) -> void:
 	player.stream = sfx
+	player.volume_db = 0.0
 	player.play(start_time)
 
 func fade_in(player: AudioStreamPlayer, duration: float) -> void:
