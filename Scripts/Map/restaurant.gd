@@ -20,6 +20,13 @@ var next_chair: int = 0
 # CUSTOMER SPAWNER
 @onready var customer_spawner: CustomerSpawner = $CustomerSpawner
 
+# MONEY ICON
+# USED AS THE MONEY_ADDED LABEL TEMPLATE
+@onready var template: Label = $UI/MoneyAdded/Template
+var show_added: Tween
+
+
+
 # LOCATION
 const LOCATION = global.LOCATIONS.RESTAURANT
 
@@ -92,3 +99,19 @@ func player_signal_connections() -> void:
 	
 	# Global Inputs Connection
 	GInput.order_pressed.connect(orders_ui.toggle)
+
+# SINCE CUSTOMER'S SIGNAL HAS ALWAYS REFERENCED ITSELF ON THE SIGNAL, THE FUNCTION
+# WILL JUST HAVE TO ADJUST | BY ADJUST MEANS, CUSTOMER WILL BE IN THE PARAMETER WHERE IT
+# SHOULD'VE BEEN THE PAYMENT VAR | BUT I DON'T WANT TO MAKE ANOTHER SIGNAL
+func money_added(customer: Customer) -> void:
+	if show_added:
+		show_added.kill()
+	
+	template.visible = true
+	template.text = "+" + str(customer.payment)
+	
+	template.modulate.a = 1.0
+	show_added = create_tween()
+	show_added.tween_property(template, "modulate:a", 0.0, 5.0)
+	
+	

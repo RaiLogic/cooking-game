@@ -7,4 +7,5 @@
 script = ExtResource("1_otk4e")
 food_name = "fried egg"
 icon = ExtResource("1_166wh")
+price = 50
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"

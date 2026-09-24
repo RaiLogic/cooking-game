@@ -2,9 +2,11 @@ class_name Customer extends CharacterBody2D
 
 # COMPONENTS
 @export var movement : MovementComponent
-@onready var skin : SkinComponent = $Components/SkinComponent
-@onready var animation: AnimationComponent = $Components/AnimationComponent
-@onready var interact_area: InteractedComponent = $Components/InteractedComponent
+@export var skin : SkinComponent
+@export var animation: AnimationComponent
+@export var interact_area: InteractedComponent
+@export var emotion: EmotionComponent
+
 
 
 # NAVIGATION
@@ -16,6 +18,7 @@ class_name Customer extends CharacterBody2D
 @onready var progress: Panel = $Progress
 
 # FOOD ORDERING
+var payment: int
 var desired_food : Food
 signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
 signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
@@ -123,6 +126,10 @@ func show_order() -> void:
 
 # CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 func done_order() -> void:
+	# TEMPORARY PAYMENT
+	payment = (desired_food.price * 1.5) * (emotion.satisfaction / 100.0)
+	print(desired_food.price * 1.5)
+	print(emotion.satisfaction / 100.0)
 	sfx_manager.play_sfx(audio, CHA_CHING, 1.0)
 	
 	progress.restart()
@@ -130,4 +137,4 @@ func done_order() -> void:
 	done.emit(self)
 	state_changed.emit()
 	
-	global.add_money(120)
+	global.add_money(payment)

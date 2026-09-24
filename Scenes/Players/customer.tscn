@@ -30,12 +30,17 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_fu1k5"]
 radius = 18.0
 
-[node name="Customer" type="CharacterBody2D" unique_id=660747108 node_paths=PackedStringArray("movement")]
+[node name="Customer" type="CharacterBody2D" unique_id=660747108 node_paths=PackedStringArray("movement", "skin", "animation", "interact_area", "emotion")]
 z_index = 1
 script = ExtResource("1_nbxf1")
 movement = NodePath("Components/MovementComponent")
+skin = NodePath("Components/SkinComponent")
+animation = NodePath("Components/AnimationComponent")
+interact_area = NodePath("Components/InteractedComponent")
+emotion = NodePath("Components/EmotionComponent")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1959690353]
+bus = &"SFX"
 
 [node name="OrderUI" type="Panel" parent="." unique_id=450602127]
 visible = false

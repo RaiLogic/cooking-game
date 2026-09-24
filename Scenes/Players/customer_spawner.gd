@@ -41,6 +41,7 @@ func spawn_customer() -> void:
 	# SIGNAL CONNECTIONS
 	customer.done.connect(customer_served)
 	customer.done.connect(chair.remove)
+	customer.done.connect(restaurant.money_added)
 	customer.state_changed.connect(chair.update_sprite)
 	customer.has_ordered.connect(orders_ui.add_order)
 	customer.eating.connect(orders_ui.remove_order)
@@ -72,5 +73,3 @@ func _on_spawn_timer_timeout() -> void:
 func randomize_timer() -> void:
 	random_time = randf_range(2.0, 30.0)
 	timer.wait_time = random_time
-	print("Random: ", random_time)
-	print("Timer: ", timer.wait_time)
