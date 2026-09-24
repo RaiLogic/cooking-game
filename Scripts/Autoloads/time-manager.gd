@@ -1,5 +1,8 @@
 extends Node
 
+# USED TO CHECK IF THE WHOLE TIMER IS DONE
+var done: bool = false
+
 signal time_changed(hour: int, minute: int)
 signal day_ended
 
@@ -21,12 +24,20 @@ func _ready() -> void:
 	timer.timeout.connect(_update_time)
 	day_ended.connect(func(): print("Closing Time"))
 	
+	global.game_over.connect(stop_timer)
+	
 func start_day() -> void:
+	done = false
 	is_morning = true
 	hour = 12
 	minute = 0
 	time_changed.emit(hour, minute)
 	timer.start()
+	
+	# DEVELOPMENT | FINISH DAY IMMEDIATELY
+	#is_morning = false
+	#hour = 7
+	#minute = 30
 	
 func _update_time() -> void:
 	minute += TIME_PROGRESS
@@ -43,7 +54,11 @@ func _update_time() -> void:
 	
 	# CONDITION WHEN MID-DAY AND CLOSING
 	if !is_morning and hour >= 8:
+		done = true
 		day_ended.emit()
-		timer.stop()
 		
 	time_changed.emit(hour, minute)
+
+# STOPS THE CLOCK
+func stop_timer() -> void:
+	timer.stop()

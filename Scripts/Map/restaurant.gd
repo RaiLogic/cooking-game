@@ -51,22 +51,35 @@ func _ready() -> void:
 		player_2.queue_free()
 		p2_ui.queue_free()
 	
-# USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
+# USED FOR THE CUSTOMER FINDING ITS OWN CHAIR | IT'S RANDOM WHERE THE CUSTOMER SITS
 # CONNECTED TO CUSTOMER_SPAWNER.GD
 func get_available_chair() -> Chair:
-# MAKES IT SO THAT CHAIRS WONT BE REUSED AND HAS TO CYCLE THROUGH EVERY CHAIR FIRST
-	var count := chairs.size()
+	var available: Array[Chair] = []
+	
+	for chair in chairs:
+		if chair.customer_sitting == null:
+			available.append(chair)
+		
+	if available.is_empty():
+		return null
 
-	for i in range(count):	
-		var index: int = (next_chair + i) % count
-
-		if chairs[index].customer_sitting == null:
-			next_chair = (index + 1) % count
-			return chairs[index]
-
-	return null
+	return available.pick_random()
+	
+# CHECKS IF ALL CHAIRS ARE EMPTY FOR CLOSING TIME
+func all_chair_empty(_customer: Customer) -> bool:
+	for chair in chairs:
+		if chair.customer_sitting != null:
+			print(chair, " occupied")
+			return false
+		else:
+			print(chair, " empty")
+	return true
 	
 func game_over() -> void:
+	if !all_chair_empty(null) or !time.done:
+		return
+	
+	global.game_over.emit()
 	get_tree().paused = true
 	times_up.play()
 	await times_up.animation.animation_finished

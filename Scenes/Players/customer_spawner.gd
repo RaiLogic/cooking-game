@@ -20,6 +20,13 @@ const BELL = preload("uid://c6mwftgm0aw4h")
 
 
 func spawn_customer() -> void:
+	# IF IT'S CLOSING TIME | NO MORE CUSTOMERS ALLOWED
+	if time.done:
+		print("stop spawning")
+		timer.stop()
+		return
+	
+	# IF ALL CHAIR ARE OCCUPIED
 	if customers.size() >= restaurant.chairs.size():
 		return
 	
@@ -42,6 +49,8 @@ func spawn_customer() -> void:
 	customer.done.connect(customer_served)
 	customer.done.connect(chair.remove)
 	customer.done.connect(restaurant.money_added)
+	customer.done.connect(restaurant.game_over)
+	
 	customer.state_changed.connect(chair.update_sprite)
 	customer.has_ordered.connect(orders_ui.add_order)
 	customer.eating.connect(orders_ui.remove_order)
@@ -71,5 +80,5 @@ func _on_spawn_timer_timeout() -> void:
 
 # FUNCTION TO RANDOMIZE CUSTOMER SPAWNING TIME
 func randomize_timer() -> void:
-	random_time = randf_range(2.0, 30.0)
+	random_time = randf_range(5.0, 30.0)
 	timer.wait_time = random_time

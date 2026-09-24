@@ -27,6 +27,7 @@ var restaurant_rent: int = 150
 
 signal money_changed(amount)
 signal no_money
+signal game_over
 
 enum LOCATIONS {
 	MAIN_MENU,
@@ -43,7 +44,7 @@ func _ready() -> void:
 		-80
 	)
 	
-	time.day_ended.connect(end_day)
+	game_over.connect(end_day)
 
 func set_location(location):
 	current_location = location
@@ -63,7 +64,6 @@ func add_money(amount) -> void:
 	
 func spend_money(amount) -> bool:
 	if total_money < amount:
-		print("Not Enough Money!")
 		no_money.emit()
 		return false
 		

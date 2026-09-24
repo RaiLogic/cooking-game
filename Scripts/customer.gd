@@ -128,8 +128,6 @@ func show_order() -> void:
 func done_order() -> void:
 	# TEMPORARY PAYMENT
 	payment = (desired_food.price * 1.5) * (emotion.satisfaction / 100.0)
-	print(desired_food.price * 1.5)
-	print(emotion.satisfaction / 100.0)
 	sfx_manager.play_sfx(audio, CHA_CHING, 1.0)
 	
 	progress.restart()
