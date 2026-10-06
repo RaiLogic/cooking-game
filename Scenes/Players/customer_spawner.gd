@@ -18,14 +18,10 @@ var customers : Array = []
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 const BELL = preload("uid://c6mwftgm0aw4h")
 
+func _ready() -> void:
+	time.day_ended.connect(stop_spawning)
 
 func spawn_customer() -> void:
-	# IF IT'S CLOSING TIME | NO MORE CUSTOMERS ALLOWED
-	if time.done:
-		print("stop spawning")
-		timer.stop()
-		return
-	
 	# IF ALL CHAIR ARE OCCUPIED
 	if customers.size() >= restaurant.chairs.size():
 		return
@@ -82,3 +78,7 @@ func _on_spawn_timer_timeout() -> void:
 func randomize_timer() -> void:
 	random_time = randf_range(5.0, 30.0)
 	timer.wait_time = random_time
+
+# STOPS SPAWNING CUSTOMERS | USED IN CLOSING TIME
+func stop_spawning() -> void:
+	timer.stop()
