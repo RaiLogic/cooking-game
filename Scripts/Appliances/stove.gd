@@ -21,7 +21,7 @@ var current_state : int = STATES.EMPTY
 
 func _ready() -> void:
 	progress_bar.finish.connect(finished)
-	time.day_ended.connect(stop_everything)
+	global.game_over.connect(stop_everything)
 
 func interact(interactor: Player) -> void:
 	player = interactor

@@ -2,9 +2,12 @@ class_name Customer extends CharacterBody2D
 
 # COMPONENTS
 @export var movement : MovementComponent
-@onready var skin : SkinComponent = $Components/SkinComponent
-@onready var animation: AnimationComponent = $Components/AnimationComponent
-@onready var interact_area: InteractedComponent = $Components/InteractedComponent
+@export var skin : SkinComponent
+@export var animation: AnimationComponent
+@export var interact_area: InteractedComponent
+@export var emotion: EmotionComponent
+
+
 
 # NAVIGATION
 @onready var agent : NavigationAgent2D = $NavigationAgent2D
@@ -15,9 +18,14 @@ class_name Customer extends CharacterBody2D
 @onready var progress: Panel = $Progress
 
 # FOOD ORDERING
+var payment: int
 var desired_food : Food
 signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
 signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
+
+# SFX
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+const CHA_CHING = preload("uid://dbojo3yvg0ija")
 
 #region STATES
 signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
@@ -31,14 +39,6 @@ enum STATES {
 	LEAVING
 }
 var state: STATES
-
-enum EMOTION_STATES {
-	HAPPY,
-	NEUTRAL,
-	SAD,
-	ANGRY
-}
-var emotion_state : EMOTION_STATES # NOT FINISHED YET
 #endregion
 
 func _ready() -> void:
@@ -47,7 +47,6 @@ func _ready() -> void:
 	animation.sprite = skin.get_random_skin()
 	progress.finish.connect(done_order)
 	state = STATES.WALKING
-	emotion_state = EMOTION_STATES.HAPPY
 
 func _physics_process(_delta: float) -> void:
 	navigation_check()
@@ -62,12 +61,14 @@ func interact(interactor: Player) -> void:
 		state = STATES.ORDERING
 		show_order()
 		state_changed.emit()
+		
 	elif state == STATES.ORDERING:
 		# INTERACTING WHILE ORDERING STATE GET DESIRED FOOD OF CUSTOMER FROM PLAYER
 		if interactor.inventory.item_held != desired_food: 
 			# THIS IS IF THE PLAYER IS 'NOT GIVING' WHAT THE CUSTOMER WANTS
 			interactor.inventory.request_alert()
 			return
+			
 		else:
 			# THIS IS IF THE ORDER IS ACCEPTED AND WHAT THE CUSTOMER WANTS
 			order_ui.visible = false
@@ -125,9 +126,13 @@ func show_order() -> void:
 
 # CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 func done_order() -> void:
+	# TEMPORARY PAYMENT
+	payment = (desired_food.price * 1.5) * (emotion.satisfaction / 100.0)
+	sfx_manager.play_sfx(audio, CHA_CHING, 1.0)
+	
 	progress.restart()
 	state = STATES.LEAVING
 	done.emit(self)
 	state_changed.emit()
 	
-	global.add_money(120)
+	global.add_money(payment)

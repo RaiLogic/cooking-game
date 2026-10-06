@@ -71,9 +71,6 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 		AudioServer.get_bus_index("SFX"),
 		value
 	)
-
-func _on_sfx_slider_drag_ended(value_changed: bool) -> void:
-	pass
 	
 func _on_music_slider_value_changed(value: float) -> void:
 	if value <= -30.0: # -30 IS MINIMUM VALUE FROM SLIDER

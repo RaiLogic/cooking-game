@@ -4,12 +4,7 @@
 [ext_resource type="Script" uid="uid://1lvqlks68hj5" path="res://Scripts/UI/money_ui.gd" id="1_svvpw"]
 [ext_resource type="Texture2D" uid="uid://mny1ukh8nu62" path="res://Assets/Own Assets/coin.png" id="2_svvpw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
-bg_color = Color(0.6, 0.6, 0.6, 0.13725491)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d006t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1vivr"]
 font = ExtResource("1_18u0x")
@@ -31,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8vrlf")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_d006t")
 
 [node name="Money" type="Label" parent="Panel" unique_id=1711721531]
 layout_mode = 1

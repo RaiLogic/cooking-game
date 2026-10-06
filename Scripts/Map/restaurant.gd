@@ -20,6 +20,13 @@ var next_chair: int = 0
 # CUSTOMER SPAWNER
 @onready var customer_spawner: CustomerSpawner = $CustomerSpawner
 
+# MONEY ICON
+# USED AS THE MONEY_ADDED LABEL TEMPLATE
+@onready var template: Label = $UI/MoneyAdded/Template
+var show_added: Tween
+
+
+
 # LOCATION
 const LOCATION = global.LOCATIONS.RESTAURANT
 
@@ -39,22 +46,40 @@ func _ready() -> void:
 	# PLAYER SIGNALS
 	player_signal_connections()
 	
-# USED FOR THE CUSTOMER FINDING ITS OWN CHAIR
+	# SINGLE PLAYER MODE
+	if global.single:
+		player_2.queue_free()
+		p2_ui.queue_free()
+	
+# USED FOR THE CUSTOMER FINDING ITS OWN CHAIR | IT'S RANDOM WHERE THE CUSTOMER SITS
 # CONNECTED TO CUSTOMER_SPAWNER.GD
 func get_available_chair() -> Chair:
-# MAKES IT SO THAT CHAIRS WONT BE REUSED AND HAS TO CYCLE THROUGH EVERY CHAIR FIRST
-	var count := chairs.size()
+	var available: Array[Chair] = []
+	
+	for chair in chairs:
+		if chair.customer_sitting == null:
+			available.append(chair)
+		
+	if available.is_empty():
+		return null
 
-	for i in range(count):	
-		var index: int = (next_chair + i) % count
-
-		if chairs[index].customer_sitting == null:
-			next_chair = (index + 1) % count
-			return chairs[index]
-
-	return null
+	return available.pick_random()
+	
+# CHECKS IF ALL CHAIRS ARE EMPTY FOR CLOSING TIME
+func all_chair_empty(_customer: Customer) -> bool:
+	for chair in chairs:
+		if chair.customer_sitting != null:
+			print(chair, " occupied")
+			return false
+		else:
+			print(chair, " empty")
+	return true
 	
 func game_over() -> void:
+	if !all_chair_empty(null) or !time.done:
+		return
+	
+	global.game_over.emit()
 	get_tree().paused = true
 	times_up.play()
 	await times_up.animation.animation_finished
@@ -87,3 +112,19 @@ func player_signal_connections() -> void:
 	
 	# Global Inputs Connection
 	GInput.order_pressed.connect(orders_ui.toggle)
+
+# SINCE CUSTOMER'S SIGNAL HAS ALWAYS REFERENCED ITSELF ON THE SIGNAL, THE FUNCTION
+# WILL JUST HAVE TO ADJUST | BY ADJUST MEANS, CUSTOMER WILL BE IN THE PARAMETER WHERE IT
+# SHOULD'VE BEEN THE PAYMENT VAR | BUT I DON'T WANT TO MAKE ANOTHER SIGNAL
+func money_added(customer: Customer) -> void:
+	if show_added:
+		show_added.kill()
+	
+	template.visible = true
+	template.text = "+" + str(customer.payment)
+	
+	template.modulate.a = 1.0
+	show_added = create_tween()
+	show_added.tween_property(template, "modulate:a", 0.0, 5.0)
+	
+	

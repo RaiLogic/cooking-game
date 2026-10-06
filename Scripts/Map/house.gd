@@ -9,6 +9,9 @@ const LOCATION = global.LOCATIONS.HOUSE
 @onready var shop: FurnitureShop = $FurnitureShop
 @onready var computer: Computer = $World/Furnitures/Interactable/Computer
 
+# BUILD MANAGER
+@onready var build_manager: Node2D = $World/BuildManager
+
 # PLAYERS
 @onready var player_1: Player = %Player1
 @onready var player_2: Player = %Player2
@@ -17,9 +20,18 @@ const LOCATION = global.LOCATIONS.HOUSE
 @onready var player_furnitures: Node2D = $World/Furnitures/PlayerPlaced
 
 func _ready() -> void:
+	
+	
+	saveload.load_game(global.save_slot)
+	
 	global.set_location(LOCATION)
 	money_ui.change_value(global.total_money)
 	computer.shop_ui = $FurnitureShop
+	music_manager.play_music(music_manager.HOUSE)
+	
+	if global.single:
+		player_2.queue_free()
+		
 
 func _on_leave_house_entered(body: Player) -> void:
 	get_tree().paused = true
