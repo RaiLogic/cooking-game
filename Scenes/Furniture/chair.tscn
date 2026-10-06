@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bus3fvmcqd7f"]
+
+[ext_resource type="Script" uid="uid://dow3f653tg7pd" path="res://Scripts/Components/furniture_space.gd" id="1_unbvo"]
+[ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="2_hdhb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(16, 6)
+
+[node name="Chair" type="StaticBody2D" unique_id=1002162396]
+y_sort_enabled = true
+script = ExtResource("1_unbvo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590895842]
+position = Vector2(8.000001, 13)
+scale = Vector2(0.9736842, 1)
+texture = ExtResource("2_hdhb7")
+region_enabled = true
+region_rect = Rect2(64, 341, 16, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=518014989]
+position = Vector2(8, 13)
+shape = SubResource("RectangleShape2D_1vivr")

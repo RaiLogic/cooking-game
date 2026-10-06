@@ -29,7 +29,9 @@ func _process(delta: float) -> void:
 func set_interactions(allowed: bool) -> void:
 	leave_house.monitoring = allowed
 	computer_area.monitoring = allowed
-	
+
+# CALLS BOTH FURNITURE TO CHECK IF THE FURNITURE IS IN BUILDABLE_AREA OR IF THE SPACE
+# IS OCCUPIED
 func find_furniture_availability(anchor: Vector2i, furniture_size: Vector2i) -> bool:
 	if !is_inside_buildable_area(anchor, furniture_size):
 		return false

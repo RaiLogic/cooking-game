@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FurnitureData" format=3 uid="uid://cdvbe2vjbbtay"]
+
+[ext_resource type="Script" uid="uid://dc1u6me8r0ho1" path="res://Resources/Script/furniture_data.gd" id="1_1rbp2"]
+[ext_resource type="PackedScene" uid="uid://bus3fvmcqd7f" path="res://Scenes/Furniture/chair.tscn" id="1_xr8xp"]
+[ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="3_3og4b"]
+
+[resource]
+script = ExtResource("1_1rbp2")
+name = "Chair"
+scene = ExtResource("1_xr8xp")
+price = 175
+size = Vector2i(1, 2)
+spritesheet = ExtResource("3_3og4b")
+texture_region = Rect2(64, 341, 16, 26)
+metadata/_custom_type_script = "uid://dc1u6me8r0ho1"
