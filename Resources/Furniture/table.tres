@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FurnitureData" format=3 uid="uid://bjkmmte46vegq"]
+
+[ext_resource type="PackedScene" uid="uid://dqxgy32u25pfy" path="res://Scenes/Furniture/table.tscn" id="1_2xn67"]
+[ext_resource type="Script" uid="uid://dc1u6me8r0ho1" path="res://Resources/Script/furniture_data.gd" id="1_ys8et"]
+[ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="3_0jfjb"]
+
+[resource]
+script = ExtResource("1_ys8et")
+name = "Table"
+scene = ExtResource("1_2xn67")
+price = 275
+size = Vector2i(2, 2)
+spritesheet = ExtResource("3_0jfjb")
+texture_region = Rect2(13, 161, 38, 37)
+metadata/_custom_type_script = "uid://dc1u6me8r0ho1"

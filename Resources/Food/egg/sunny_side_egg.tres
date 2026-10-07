@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://dgs60ahtwway"]
 
+[ext_resource type="Resource" uid="uid://d16kmgjtqes8p" path="res://Resources/Food/egg/burnt_egg.tres" id="1_2tv3r"]
 [ext_resource type="Texture2D" uid="uid://rkpxqfakr4ic" path="res://Assets/Own Assets/Foods&Recipe/Egg/sunny_side_egg.png" id="1_166wh"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_otk4e"]
 
@@ -8,4 +9,5 @@ script = ExtResource("1_otk4e")
 food_name = "fried egg"
 icon = ExtResource("1_166wh")
 price = 50
+burnt_version = ExtResource("1_2tv3r")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"

@@ -42,10 +42,12 @@ var state: STATES
 #endregion
 
 func _ready() -> void:
+	progress.finish.connect(done_order)
+	state_changed.connect(emotion.interacted_increase)
+	
 	interact_area.monitoring = false
 	movement.can_move = true
 	animation.sprite = skin.get_random_skin()
-	progress.finish.connect(done_order)
 	state = STATES.WALKING
 
 func _physics_process(_delta: float) -> void:
@@ -103,7 +105,6 @@ func navigation_check() -> void:
 	
 	# IF THEY GOT IN THEIR CHAIR
 	if state == STATES.WALKING:
-		state_changed.emit()
 		question.show_mark()
 		state = STATES.WAITING
 		state_changed.emit()

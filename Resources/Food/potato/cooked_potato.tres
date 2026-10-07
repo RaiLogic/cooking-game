@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://dpfe1iyriq73e"]
 
+[ext_resource type="Resource" uid="uid://b50jujp5pnnhl" path="res://Resources/Food/potato/burnt_potato.tres" id="1_5irml"]
 [ext_resource type="Texture2D" uid="uid://cq12wod3c8f7b" path="res://Assets/Own Assets/Foods&Recipe/Potato/cooked_potato.png" id="1_qr5xs"]
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_sh31j"]
 
@@ -8,4 +9,5 @@ script = ExtResource("1_sh31j")
 food_name = "cooked potato"
 icon = ExtResource("1_qr5xs")
 price = 60
+burnt_version = ExtResource("1_5irml")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"

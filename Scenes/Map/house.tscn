@@ -15,6 +15,9 @@
 [ext_resource type="Resource" uid="uid://ce3rkpkgd2icf" path="res://Resources/Furniture/small_couch.tres" id="12_fvulb"]
 [ext_resource type="Resource" uid="uid://bjpj8fu6nu4ty" path="res://Resources/Furniture/cabinet.tres" id="13_trlx5"]
 [ext_resource type="Resource" uid="uid://brxc5jisl35pf" path="res://Resources/Furniture/mirror.tres" id="14_ilqwy"]
+[ext_resource type="Resource" uid="uid://btxk3ddbwelmu" path="res://Resources/Furniture/shelf.tres" id="16_6btp3"]
+[ext_resource type="Resource" uid="uid://bjkmmte46vegq" path="res://Resources/Furniture/table.tres" id="17_gmrjn"]
+[ext_resource type="Resource" uid="uid://cdvbe2vjbbtay" path="res://Resources/Furniture/chair.tres" id="18_ammkd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_se8ev"]
 texture = ExtResource("1_jdd7i")
@@ -338,6 +341,6 @@ debug_color = Color(1, 0, 0.70980394, 0.41960785)
 
 [node name="FurnitureShop" parent="." unique_id=602606315 instance=ExtResource("8_4u0iy")]
 visible = false
-furnitures = Array[ExtResource("11_v422u")]([ExtResource("12_fvulb"), ExtResource("13_trlx5"), ExtResource("14_ilqwy")])
+furnitures = Array[ExtResource("11_v422u")]([ExtResource("12_fvulb"), ExtResource("13_trlx5"), ExtResource("14_ilqwy"), ExtResource("16_6btp3"), ExtResource("17_gmrjn"), ExtResource("18_ammkd")])
 
 [connection signal="body_entered" from="LeaveHouse" to="." method="_on_leave_house_entered"]

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://bsgopvo2nfp5j"]
 
 [ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_5jjos"]
+[ext_resource type="Resource" uid="uid://cie8d6p2i0nt4" path="res://Resources/Food/potato/burnt_fries.tres" id="1_eh685"]
 [ext_resource type="Texture2D" uid="uid://dipyngonbuth1" path="res://Assets/Own Assets/Foods&Recipe/fRENCHfRIES.png" id="1_mi5da"]
 
 [resource]
@@ -8,4 +9,5 @@ script = ExtResource("1_5jjos")
 food_name = "cooked fries"
 icon = ExtResource("1_mi5da")
 price = 70
+burnt_version = ExtResource("1_eh685")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"
