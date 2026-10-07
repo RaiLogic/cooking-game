@@ -104,7 +104,7 @@ func finished() -> void:
 	tool_inventory.set_ui(item.cooked_version)
 	current_state = STATES.FULL
 	cooking_progress.restart()
-	burnt_progress.start()
+	burnt_progress.start(4.0)
 	
 func restart() -> void:
 	current_state = STATES.EMPTY
