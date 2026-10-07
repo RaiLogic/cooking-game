@@ -16,7 +16,7 @@ var customers : Array = []
 
 # SOUND EFFECTS
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
-const BELL = preload("uid://c6mwftgm0aw4h")
+const AMBIENCE = preload("uid://dr700vfxshku1")
 
 func _ready() -> void:
 	time.day_ended.connect(stop_spawning)
@@ -25,6 +25,11 @@ func spawn_customer() -> void:
 	# IF ALL CHAIR ARE OCCUPIED
 	if customers.size() >= restaurant.chairs.size():
 		return
+	
+	if customers.size() == 3:
+		ambience_start()
+	elif customers.size() > 3:
+		ambience_change()
 	
 	var customer = customer_scene.instantiate()
 
@@ -50,6 +55,9 @@ func spawn_customer() -> void:
 	customer.state_changed.connect(chair.update_sprite)
 	customer.has_ordered.connect(orders_ui.add_order)
 	customer.eating.connect(orders_ui.remove_order)
+	
+	customer.leave_now.connect(customer_left)
+	customer.leave_now.connect(chair.remove)
 
 # CALL WHEN READY TO SPAWN CUSTOMERS
 func start_spawning() -> void:
@@ -59,12 +67,19 @@ func start_spawning() -> void:
 
 # CALLED WHEN THE CUSTOMER EMITS DONE SIGNAL
 func customer_served(served: Customer) -> void:
+	if customers.size() == 0:
+		ambience_stop()
+	
 	global.customer_served += 1
 	customers.erase(served)
 	served.set_destination(main_point.global_position)
 	
 func customer_left(left: Customer) -> void:
-	pass
+	if customers.size() == 0:
+		ambience_stop()
+	
+	customers.erase(left)
+	left.set_destination(main_point.global_position)
 
 # SPAWNS THE CUSTOMER ON TIMER TIMEOUT, ALSO RANDOMIZES CUSTOMER SPAWN TIME
 func _on_spawn_timer_timeout() -> void:
@@ -72,9 +87,20 @@ func _on_spawn_timer_timeout() -> void:
 	global.customer_count += 1
 	randomize_timer()
 	
-	sfx_manager.stop(audio)
-	sfx_manager.fade_out(audio, 2.0)
 	timer.start()
+	
+func ambience_start() -> void:
+	print("Ambience Start")
+	sfx_manager.play_sfx(audio, AMBIENCE, 0.0)
+	ambience_change()
+	
+func ambience_change() -> void:
+	print("Ambience Change")
+	audio.volume_db = -30 + (customers.size() * 2)
+	
+func ambience_stop() -> void:
+	print("Ambience Stop")
+	sfx_manager.fade_out(audio, 5.0)
 
 # FUNCTION TO RANDOMIZE CUSTOMER SPAWNING TIME
 func randomize_timer() -> void:

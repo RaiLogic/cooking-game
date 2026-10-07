@@ -84,3 +84,4 @@ offset_bottom = -8.0
 bus = &"SFX"
 
 [node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1266074673]
+bus = &"SFX"

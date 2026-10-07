@@ -121,7 +121,7 @@ func money_added(customer: Customer) -> void:
 		show_added.kill()
 	
 	template.visible = true
-	template.text = "+" + str(customer.payment)
+	template.text = "+" + str(customer.money_paid)
 	
 	template.modulate.a = 1.0
 	show_added = create_tween()

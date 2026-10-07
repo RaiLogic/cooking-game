@@ -4,3 +4,6 @@
 
 [node name="BuildComponent" type="Node2D" unique_id=537324138]
 script = ExtResource("1_7nikw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2134776855]
+bus = &"SFX"

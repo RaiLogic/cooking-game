@@ -18,7 +18,7 @@ class_name Customer extends CharacterBody2D
 @onready var progress: Panel = $Progress
 
 # FOOD ORDERING
-var payment: int
+var money_paid : int
 var desired_food : Food
 signal has_ordered(Customer) # CONNECTED TO FUNCTION "add_order" in orders_ui.gd
 signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
@@ -26,10 +26,13 @@ signal eating(Customer) # CONNECTED TO FUNCTION "remove_order" in orders_ui.gd
 # SFX
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 const CHA_CHING = preload("uid://dbojo3yvg0ija")
+const ANGRY = preload("uid://d1lo2ju1gxp0r")
+const BELL = preload("uid://c6mwftgm0aw4h")
 
 #region STATES
 signal done(customer: Customer) # CONNECTED TO FUNCTION "remove" in Chair.gd
 signal state_changed(seated: bool) # CONNECTED TO FUNCTION "update_sprite" in Chair.gd
+signal leave_now(customer: Customer)
 
 enum STATES {
 	WALKING,
@@ -42,6 +45,9 @@ var state: STATES
 #endregion
 
 func _ready() -> void:
+	sfx_manager.play_sfx(audio, BELL, 0)
+	sfx_manager.fade_out(audio, 3.0)
+	
 	progress.finish.connect(done_order)
 	state_changed.connect(emotion.interacted_increase)
 	
@@ -49,9 +55,13 @@ func _ready() -> void:
 	movement.can_move = true
 	animation.sprite = skin.get_random_skin()
 	state = STATES.WALKING
+	
+	emotion.request_leave.connect(rage_quit)
 
 func _physics_process(_delta: float) -> void:
 	navigation_check()
+	
+	emotion.main_state = state
 	
 	if state == STATES.WALKING or state == STATES.LEAVING:
 		animation.update_anim(velocity)
@@ -71,8 +81,8 @@ func interact(interactor: Player) -> void:
 			interactor.inventory.request_alert()
 			return
 			
-		else:
-			# THIS IS IF THE ORDER IS ACCEPTED AND WHAT THE CUSTOMER WANTS
+		else: # THIS IS IF THE ORDER IS ACCEPTED AND WHAT THE CUSTOMER WANTS
+			
 			order_ui.visible = false
 			interactor.inventory.clear_item()
 			state = STATES.EATING
@@ -82,7 +92,7 @@ func interact(interactor: Player) -> void:
 			progress.start(10.0)
 			# THIS IS TO NOT SHOW THE PROGRESS BAR AND MAKE IT LOOK LIKE THE CUSTOMER IS
 			# JUST EATING
-			progress.visible = false 
+			progress.visible = false
 
 #region NAVIGATION
 # THIS STARTS THE CUSTOMER'S WALKING PROCESS TOWARDS THE 'POS'
@@ -119,6 +129,16 @@ func navigation_check() -> void:
 	###
 #endregion
 
+# USED TO MAKE CUSTOMER LEAVE ANGRY
+func rage_quit() -> void:
+	if state != STATES.LEAVING:
+		sfx_manager.play_sfx(audio, ANGRY, 0.0)
+	
+	state = STATES.LEAVING
+	question.hide_mark()
+
+	leave_now.emit(self)
+
 # SHOW ORDER ABOVE THE CUSTOMER
 func show_order() -> void:
 	order_ui.visible = true
@@ -128,7 +148,7 @@ func show_order() -> void:
 # CODE IN LEAVING IS IN THE CUSTOMER SPAWNER
 func done_order() -> void:
 	# TEMPORARY PAYMENT
-	payment = (desired_food.price * 1.5) * (emotion.satisfaction / 100.0)
+	money_paid = (desired_food.price * 1.5) * (emotion.satisfaction / 100.0)
 	sfx_manager.play_sfx(audio, CHA_CHING, 1.0)
 	
 	progress.restart()
@@ -136,4 +156,4 @@ func done_order() -> void:
 	done.emit(self)
 	state_changed.emit()
 	
-	global.add_money(payment)
+	global.add_money(money_paid)

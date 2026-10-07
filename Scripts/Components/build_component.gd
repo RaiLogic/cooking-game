@@ -18,6 +18,10 @@ const GRID_SIZE: int = 16
 # BUILD MODE SIGNALS
 signal build_started # USED FOR THE BUILD MANAGER
 
+# SFX
+const BUILDING_PLACED = preload("uid://ttxgrotclfh5")
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+
 # PLAYER ATTRIBUTES TO BE FOLLOWED BY FURNIURE
 var direction: Vector2 # ASSIGNED IN PLAYER SCRIPT
 var target_position: Vector2
@@ -90,6 +94,7 @@ func place_furniture() -> void:
 		print("Placement not Valid")
 		return
 	
+	sfx_manager.play_sfx(audio, BUILDING_PLACED, 0.0)
 	var furniture = selected_furniture.scene.instantiate()
 	furniture.global_position = preview.global_position
 	

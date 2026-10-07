@@ -12,7 +12,8 @@ var done_sfx = preload("uid://ctvnvw2n2ydeh")
 @onready var tool_inventory: Panel = $ToolInventoryUI
 
 @export var cook_time : float
-@onready var burnt_time: float = 5.0 # HARD CODE TIME FOR WHEN FOOD IS BURNING
+# HARD CODE TIME FOR WHEN FOOD IS BURNING | BURN TIME ~ 15
+@onready var burnt_time: float = 4.5 
 
 var item : Food
 var player : Player
@@ -104,7 +105,7 @@ func finished() -> void:
 	tool_inventory.set_ui(item.cooked_version)
 	current_state = STATES.FULL
 	cooking_progress.restart()
-	burnt_progress.start(4.0)
+	burnt_progress.start(4.5)
 	
 func restart() -> void:
 	current_state = STATES.EMPTY

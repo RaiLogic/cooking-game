@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://p0i12g6df4t1" path="res://Assets/Borrowed Assets/For House/Interiors_free_16x16.png" id="2_hdhb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(16, 6)
+size = Vector2(16, 2)
 
 [node name="Chair" type="StaticBody2D" unique_id=1002162396]
 y_sort_enabled = true
@@ -18,5 +18,5 @@ region_enabled = true
 region_rect = Rect2(64, 341, 16, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=518014989]
-position = Vector2(8, 13)
+position = Vector2(8, 11)
 shape = SubResource("RectangleShape2D_1vivr")

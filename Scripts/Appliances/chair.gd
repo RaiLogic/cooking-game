@@ -27,7 +27,7 @@ func remove(customer: Customer) -> void:
 	update_sprite()
 	
 	if customer_sitting != customer:
-		print("error")
+		print("Error on Chair!")
 		return
 
 	occupied = false
