@@ -57,6 +57,7 @@ func interact(interactor: Player) -> void:
 			else: # IF PLAYER HAS NO ITEM IN INVENTORY AND CAN GET THE COOKED ITEM
 				if !burnt:
 					player.inventory.add_item(item.cooked_version)
+					item.burnt_multipler = get_burnt_percentage()
 				else:
 					player.inventory.add_item(item.burnt_version)
 				
@@ -83,24 +84,27 @@ func cook() -> void:
 	tool_inventory.set_ui(item)
 	cooking_progress.start(item.cook_time)
 
-# CALLED WHEN THE FOOD IS DONE AND STILL IN THE STOVE
-func burning() -> void:
-	burnt_progress.start(burnt_time)
+# THIS WILL GET THE VALUE OF HOW MUCH THE BURNT BAR IS FILLED UP
+func get_burnt_percentage() -> float:
+	var burnt_progress_bar = burnt_progress.get_node("ProgressBar")
 	
-	
+	return burnt_progress_bar.value
+
+# CHANGES THE FOOD TO A BURNT FOOD
 func food_burnt() -> void:
 	tool_inventory.set_ui(item.burnt_version)
 	sfx_manager.fade_out(cooking_player, 3.0)
 	burnt_progress.restart()
 	burnt = true
-	
-	
+
+# WHEN THE FOOD IS FINISHED AND READY TO BE TAKEN, THE COOKING WILL CONTINUE 
+# BURNING THE FOOD
 func finished() -> void:
 	sfx_manager.play_sfx(sfx_player, done_sfx, 1.0)
 	tool_inventory.set_ui(item.cooked_version)
 	current_state = STATES.FULL
 	cooking_progress.restart()
-	burning()
+	burnt_progress.start()
 	
 func restart() -> void:
 	current_state = STATES.EMPTY
