@@ -12,6 +12,28 @@ size = Vector2(16, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g13ic"]
 size = Vector2(16, 13)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_theux"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruat6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Stove" type="StaticBody2D" unique_id=2026918485]
 z_index = 1
 script = ExtResource("1_5qe8y")
@@ -34,13 +56,22 @@ region_rect = Rect2(32, 160, 16, 46)
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_g13ic")
 
-[node name="Progress" parent="." unique_id=157919419 instance=ExtResource("4_dlo6m")]
+[node name="Cooking" parent="." unique_id=157919419 instance=ExtResource("4_dlo6m")]
 visible = false
 z_index = 1
 offset_left = -7.0
 offset_top = 7.000001
 offset_right = 123.0
 offset_bottom = 57.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_theux")
+
+[node name="Burning" parent="." unique_id=1416647779 instance=ExtResource("4_dlo6m")]
+visible = false
+offset_left = -7.0
+offset_top = 7.0
+offset_right = 123.0
+offset_bottom = 57.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ruat6")
 
 [node name="ToolInventoryUI" parent="." unique_id=1468582869 instance=ExtResource("5_theux")]
 visible = false
@@ -49,5 +80,7 @@ offset_top = -28.0
 offset_right = 10.0
 offset_bottom = -8.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1535079444]
+[node name="CookingAudio" type="AudioStreamPlayer" parent="." unique_id=1535079444]
 bus = &"SFX"
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1266074673]

@@ -1,27 +1,41 @@
 class_name Stove extends StaticBody2D
 
-@onready var sound_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var cooking_player: AudioStreamPlayer = $CookingAudio
+@onready var sfx_player: AudioStreamPlayer = $SFX
 var cooking_sfx = preload("uid://chib26i7gb8a")
+var done_sfx = preload("uid://ctvnvw2n2ydeh")
 
-@onready var progress_bar: Panel = $Progress
+# PROGRESS BARS
+@onready var cooking_progress: Panel = $Cooking
+@onready var burnt_progress: Panel = $Burning
+
 @onready var tool_inventory: Panel = $ToolInventoryUI
 
 @export var cook_time : float
+@onready var burnt_time: float = 5.0 # HARD CODE TIME FOR WHEN FOOD IS BURNING
 
 var item : Food
 var player : Player
+var burnt : bool = false
 
 enum STATES {
 	EMPTY,
 	COOKING,
-	FULL
+	FULL,
 }
 
 var current_state : int = STATES.EMPTY
 
 func _ready() -> void:
-	progress_bar.finish.connect(finished)
+	cooking_progress.finish.connect(finished)
 	global.game_over.connect(stop_everything)
+	
+	# MAKES THE FILL COLOR OF BURNT PROGRESS BAR BLACK
+	burnt_progress.get_node("ProgressBar") \
+	.get_theme_stylebox("fill") \
+	.duplicate().bg_color = Color.BLACK
+	
+	burnt_progress.finish.connect(food_burnt)
 
 func interact(interactor: Player) -> void:
 	player = interactor
@@ -33,11 +47,16 @@ func interact(interactor: Player) -> void:
 				cook()
 		STATES.COOKING:
 			tool_inventory.play_alert()
-		STATES.FULL:
-			if player.inventory.has_item():
+		STATES.FULL: # THIS IS WHEN THE PLAYER IS TAKING THE FOOD
+			if player.inventory.has_item(): # IF PLAYER HAS FULL INVENTORY
 				player.inventory.request_alert()
-			else:
-				player.inventory.add_item(item.cooked_version)
+			else: # IF PLAYER HAS NO ITEM IN INVENTORY AND CAN GET THE COOKED ITEM
+				if !burnt:
+					player.inventory.add_item(item.cooked_version)
+				else:
+					player.inventory.add_item(item.burnt_version)
+				
+				sfx_manager.fade_out(cooking_player, 1.0)
 				restart()
 	
 
@@ -54,23 +73,39 @@ func check_item() -> bool:
 		return false
 	
 func cook() -> void:
-	sfx_manager.play_sfx(sound_player, cooking_sfx, 0)
-	sfx_manager.fade_in(sound_player, 0.5)
+	sfx_manager.play_sfx(cooking_player, cooking_sfx, 0)
+	sfx_manager.fade_in(cooking_player, 0.5)
 	tool_inventory.visible = true
 	tool_inventory.set_ui(item)
-	progress_bar.start(item.cook_time)
+	cooking_progress.start(item.cook_time)
+
+# CALLED WHEN THE FOOD IS DONE AND STILL IN THE STOVE
+func burning() -> void:
+	burnt_progress.start(burnt_time)
+	
+	
+func food_burnt() -> void:
+	tool_inventory.set_ui(item.burnt_version)
+	sfx_manager.fade_out(cooking_player, 1.0)
+	burnt_progress.restart()
+	burnt = true
+	
 	
 func finished() -> void:
-	sfx_manager.fade_out(sound_player, 3.0)
+	sfx_manager.play_sfx(sfx_player, done_sfx, 1.0)
 	tool_inventory.set_ui(item.cooked_version)
 	current_state = STATES.FULL
+	burning()
 	
 func restart() -> void:
 	current_state = STATES.EMPTY
 	tool_inventory.clear_ui()
-	progress_bar.restart()
+	cooking_progress.restart()
+	burnt_progress.restart()
+	burnt = false
 
 # MIGHT CHANGE THIS SOON
 func stop_everything() -> void:
-	sfx_manager.stop(sound_player)
+	sfx_manager.stop(cooking_player)
+	sfx_manager.stop(sfx_player)
 	

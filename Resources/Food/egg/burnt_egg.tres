@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://d16kmgjtqes8p"]
+
+[ext_resource type="Texture2D" uid="uid://duom2pes6mqfk" path="res://Assets/Own Assets/Foods&Recipe/Egg/Burnt egg.png" id="1_7jsh3"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_dvta5"]
+
+[resource]
+script = ExtResource("1_dvta5")
+food_name = "burnt egg"
+icon = ExtResource("1_7jsh3")
+price = null
+can_cook = null
+cook_time = null
+can_slice = null
+slice_time = null
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"

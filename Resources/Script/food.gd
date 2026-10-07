@@ -8,6 +8,10 @@ class_name Food extends Resource
 @export var cook_time : float
 @export var cooked_version : Food
 
+@export var burnt_version : Food
+@export var burnt_multipler: float
+
+
 @export var can_slice : bool
 @export var slice_time : float
 @export var sliced_version : Food

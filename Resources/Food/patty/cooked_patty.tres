@@ -8,5 +8,5 @@
 script = ExtResource("1_7qsya")
 food_name = "cooked patty"
 icon = ExtResource("2_ocfxe")
-cooked_version = ExtResource("1_7cuio")
+burnt_version = ExtResource("1_7cuio")
 metadata/_custom_type_script = "uid://c2n7083wgh4a2"

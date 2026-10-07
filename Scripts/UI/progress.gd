@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if running == true:
-		bar.value += time * delta
+		bar.value += self.time * delta
 	
 	if bar.value >= 100 and running == true:
 		running = false
@@ -23,8 +23,9 @@ func start(value: float) -> void:
 	if running == false:
 		visible = true
 		running = true
-		time = value
+		self.time = value
 		
 func restart() -> void:
 	bar.value = 0
 	visible = false
+	running = false

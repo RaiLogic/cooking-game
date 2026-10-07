@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://cie8d6p2i0nt4"]
+
+[ext_resource type="Texture2D" uid="uid://b0utiwyy2fvcg" path="res://Assets/Own Assets/Foods&Recipe/burnt fries.png" id="1_f2u7s"]
+[ext_resource type="Script" uid="uid://c2n7083wgh4a2" path="res://Resources/Script/food.gd" id="1_guhnq"]
+
+[resource]
+script = ExtResource("1_guhnq")
+food_name = "burnt fries"
+icon = ExtResource("1_f2u7s")
+price = null
+can_cook = null
+cook_time = null
+can_slice = null
+slice_time = null
+metadata/_custom_type_script = "uid://c2n7083wgh4a2"
