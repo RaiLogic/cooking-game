@@ -28,14 +28,18 @@ var current_state : int = STATES.EMPTY
 
 func _ready() -> void:
 	cooking_progress.finish.connect(finished)
+	burnt_progress.finish.connect(food_burnt)
 	global.game_over.connect(stop_everything)
 	
-	# MAKES THE FILL COLOR OF BURNT PROGRESS BAR BLACK
-	burnt_progress.get_node("ProgressBar") \
-	.get_theme_stylebox("fill") \
-	.duplicate().bg_color = Color.BLACK
 	
-	burnt_progress.finish.connect(food_burnt)
+	#region CHANGING COLOR OF BURNT PROGRESS BAR
+	var burnt_progress_bar = burnt_progress.get_node("ProgressBar")
+	var style = burnt_progress_bar.get_theme_stylebox("fill").duplicate()
+	style.bg_color = Color.BLACK
+	
+	burnt_progress_bar.add_theme_stylebox_override("fill", style)
+	#endregion
+	
 
 func interact(interactor: Player) -> void:
 	player = interactor
@@ -56,7 +60,7 @@ func interact(interactor: Player) -> void:
 				else:
 					player.inventory.add_item(item.burnt_version)
 				
-				sfx_manager.fade_out(cooking_player, 1.0)
+				sfx_manager.fade_out(cooking_player, 3.0)
 				restart()
 	
 
@@ -86,7 +90,7 @@ func burning() -> void:
 	
 func food_burnt() -> void:
 	tool_inventory.set_ui(item.burnt_version)
-	sfx_manager.fade_out(cooking_player, 1.0)
+	sfx_manager.fade_out(cooking_player, 3.0)
 	burnt_progress.restart()
 	burnt = true
 	
@@ -95,6 +99,7 @@ func finished() -> void:
 	sfx_manager.play_sfx(sfx_player, done_sfx, 1.0)
 	tool_inventory.set_ui(item.cooked_version)
 	current_state = STATES.FULL
+	cooking_progress.restart()
 	burning()
 	
 func restart() -> void:

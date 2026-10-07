@@ -43,8 +43,7 @@ func satisfaction_drain(delta: float) -> void:
 		satisfaction -= 0.4 * delta
 	
 func rage_quit() -> void:
-	if satisfaction <= 0:
-		leave_now.emit()
+	leave_now.emit()
 		
 	
 func change_emotion() -> void:

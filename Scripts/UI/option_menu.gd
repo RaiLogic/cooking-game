@@ -16,6 +16,7 @@ var last_mode: Window.Mode
 
 
 func _ready() -> void:
+	window.mode = Window.MODE_FULLSCREEN
 	update_res_option()
 	back.pressed.connect(back_to_menu)
 	

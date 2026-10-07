@@ -62,6 +62,9 @@ func customer_served(served: Customer) -> void:
 	global.customer_served += 1
 	customers.erase(served)
 	served.set_destination(main_point.global_position)
+	
+func customer_left(left: Customer) -> void:
+	pass
 
 # SPAWNS THE CUSTOMER ON TIMER TIMEOUT, ALSO RANDOMIZES CUSTOMER SPAWN TIME
 func _on_spawn_timer_timeout() -> void:
@@ -70,7 +73,6 @@ func _on_spawn_timer_timeout() -> void:
 	randomize_timer()
 	
 	sfx_manager.stop(audio)
-	sfx_manager.play_sfx(audio, BELL, 0.0)
 	sfx_manager.fade_out(audio, 2.0)
 	timer.start()
 
